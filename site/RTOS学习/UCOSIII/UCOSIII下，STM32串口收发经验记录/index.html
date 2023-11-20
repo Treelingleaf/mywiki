@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>UCOSIII下，STM32串口收发经验记录 - My Docs</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../assets/css/dracula-ui.css">
+        <link rel="stylesheet" href="../../../assets/css/mkdocs.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">My Docs</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Welcome to MkDocs
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#linux学习-collapse" aria-expanded="false">
+                    Linux学习
+                </a>
+                <div class="collapse" id="linux学习-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#示例程序-collapse" aria-expanded="false">
+            示例程序
+        </a>
+
+        <div class="collapse" id="示例程序-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Framebuffer程序
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#第1篇、学习简介及基础-collapse" aria-expanded="false">
+            第1篇、学习简介及基础
+        </a>
+
+        <div class="collapse" id="第1篇、学习简介及基础-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            学习简介
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B2%5DUbuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Ubuntu简单介绍
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#第2篇、环境搭建与开发板操作-collapse" aria-expanded="false">
+            第2篇、环境搭建与开发板操作
+        </a>
+
+        <div class="collapse" id="第2篇、环境搭建与开发板操作-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            一、环境搭建
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            二、开发板的第一个APP
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            三、第一个驱动程序
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            四、构建bootloader、内核、文件系统
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#第3篇、应用开发基础-collapse" aria-expanded="false">
+            第3篇、应用开发基础
+        </a>
+
+        <div class="collapse" id="第3篇、应用开发基础-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            一、第一个hello world程序
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            二、gcc编译器
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B3%5DMakefile/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            三、Makefile
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            五、Framebuffer应用编程
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[4]文件io-collapse" aria-expanded="false">
+            [4]文件IO
+        </a>
+
+        <div class="collapse" id="[4]文件io-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            4.1 文件IO
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            4.2 系统调用接口
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[6]文字及图像显示-collapse" aria-expanded="false">
+            [6]文字及图像显示
+        </a>
+
+        <div class="collapse" id="[6]文字及图像显示-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            6.1、字符的编码方式
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            6.2、点阵字符的显示
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[7]交叉编译程序-collapse" aria-expanded="false">
+            [7]交叉编译程序
+        </a>
+
+        <div class="collapse" id="[7]交叉编译程序-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            7.1 交叉编译常见的错误
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            7.2 静态库的完整制作过程
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            7.3 如何安装一个库
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[8]输入系统应用编程-collapse" aria-expanded="false">
+            [8]输入系统应用编程
+        </a>
+
+        <div class="collapse" id="[8]输入系统应用编程-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            8.1 Linux输入系统简介
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            8.2 用ioctl获取设备信息
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            8.3 读取输入设备的数据
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            8.4 使用tslib读取电容屏的输入事件
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[9]网络编程基础-collapse" aria-expanded="false">
+            [9]网络编程基础
+        </a>
+
+        <div class="collapse" id="[9]网络编程基础-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            9.1 网络编程简介
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            9.2 TCP编程
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#qt学习-collapse" aria-expanded="false">
+                    QT学习
+                </a>
+                <div class="collapse" id="qt学习-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Qt项目1--四则运算计算器
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [10] 常见的数据处理类
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [1] QT编译过程
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [2] 认识QTCreator
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [3] 信号与槽
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [4] QT的定时器
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [5] MainWindow和文件操作
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [6] Event 事件
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [7] QT-TCP编程（一）基本了解
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [8] Layout -- 布局管理器
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [9] QWidget类
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#rtos学习-collapse" aria-expanded="false">
+                    RTOS学习
+                </a>
+                <div class="collapse" id="rtos学习-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#ucosiii-collapse" aria-expanded="false">
+            UCOSIII
+        </a>
+
+        <div class="collapse" id="ucosiii-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            UCOSIII下，STM32串口收发经验记录
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            UCOSIII中信号量、消息队列、互斥量相关API
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            基于STM32CubeIDE的UCOSIII移植
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple"">
+        <div class="container-fluid">
+
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="ucosiiistm32">UCOSIII下，STM32串口收发经验记录</h1>
+<h4 id="1">1. 初始化配置串口</h4>
+<p>和普通的裸机程序一样：</p>
+<pre><code class="language-c">void uart_init(u32 bound)
+{
+    // GPIO端口设置
+    GPIO_InitTypeDef GPIO_InitStructure;
+    USART_InitTypeDef USART_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE); // 使能USART1，GPIOA时钟
+    USART_DeInit(USART1);                                                         // 复位串口1
+                                                                                  // USART1_TX   PA.9
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;                                     // PA.9
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; // 复用推挽输出
+    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);          // 初始化PA9
+
+    // USART1_RX      PA.10
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; // 浮空输入
+    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);                // 初始化PA10
+
+    // Usart1 NVIC 配置
+    NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; // 抢占优先级3
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;        // 子优先级3
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;           // IRQ通道使能
+    NVIC_Init(&amp;NVIC_InitStructure);                           // 根据指定的参数初始化VIC寄存器
+
+    // USART 初始化设置
+    USART_InitStructure.USART_BaudRate = bound;                                     // 一般设置为9600;
+    USART_InitStructure.USART_WordLength = USART_WordLength_8b;                     // 字长为8位数据格式
+    USART_InitStructure.USART_StopBits = USART_StopBits_1;                          // 一个停止位
+    USART_InitStructure.USART_Parity = USART_Parity_No;                             // 无奇偶校验位
+    USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; // 无硬件数据流控制
+    USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;                 // 收发模式
+
+    USART_Init(USART1, &amp;USART_InitStructure);      // 初始化串口
+    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); // 开启中断
+    USART_Cmd(USART1, ENABLE);                     // 使能串口
+}
+</code></pre>
+<p>‍</p>
+<h4 id="2">2. 接收部分</h4>
+<p>首先是定义一个结构体作为串口接收的缓冲区：</p>
+<pre><code class="language-c">/*接收*/
+#define USART_REC_LEN 64  //缓冲区最大长度
+typedef struct
+{
+    u8 rcv_buf[USART_REC_LEN]; // 接收缓冲
+    u16 rcv_buf_ptr;           // 接收缓冲区指针
+    u8 rcv_flag;               // 接收完成标志
+} USART1RxBuf;
+</code></pre>
+<p>然后是串口中断服务函数，前提是使能了窗串口中断和配置了NVIC：</p>
+<pre><code class="language-c">// 串口接收
+void USART1_IRQHandler(void)
+{
+#ifdef SYSTEM_SUPPORT_OS // 如果时钟节拍数定义了,说明要使用ucosII了.
+    OSIntEnter();
+#endif
+    if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
+        char receivedChar = USART_ReceiveData(USART1);
+
+        if (receivedChar == '\r' || receivedChar == '\n') {
+            // 收到回车或换行，表示字符串接收完成
+            newflag++;
+            if( newflag ==2){
+                usart1RxBuf.rcv_flag = 1;
+                usart1RxBuf.rcv_buf[usart1RxBuf.rcv_buf_ptr] = '\0'; // 在字符串末尾添加空字符
+                usart1RxBuf.rcv_buf_ptr = 0;
+                printf(&quot;回显: %s&quot;, usart1RxBuf.rcv_buf);
+                newflag = 0;
+            }
+        } else if (usart1RxBuf.rcv_buf_ptr &lt; USART_REC_LEN - 1) {
+            // 正在接收字符串，将字符存储到接收缓冲区
+            usart1RxBuf.rcv_buf[usart1RxBuf.rcv_buf_ptr++] = receivedChar;
+        }
+    }
+#ifdef SYSTEM_SUPPORT_OS // 如果时钟节拍数定义了,说明要使用ucosII了.
+    OSIntExit();
+#endif
+}
+</code></pre>
+<p>🐼<strong>解释：</strong></p>
+<ol>
+<li>如果收到回车（'\r'）或换行（'\n'）字符，表示字符串接收完成。在这种情况下，它会将 <code>usart1RxBuf.rcv_flag</code>​ 设置为1，将接收缓冲区的最后一个字符设置为 null 终止符（'\0'），并打印接收到的字符串，相当于自定义帧格式了。</li>
+<li>如果没有收到回车或换行字符，且接收缓冲区还有足够的空间，它会将接收到的字符存储到接收缓冲区中。</li>
+</ol>
+<p>‍</p>
+<h4 id="3">3.发送部分</h4>
+<p>发送部分很简单，重定向<code>printf</code>​:</p>
+<pre><code class="language-c">int _write(int file, char *ptr, int len) {
+    int i;
+    for (i = 0; i &lt; len; i++) {
+        USART_SendData(USART1, ptr[i]);
+        while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+    }
+    return len;
+}
+</code></pre>
+<p>‍</p>
+<h4 id="4">4. 任务实现</h4>
+<pre><code class="language-c">// 串口接收任务
+void task2_task(void *p_arg)
+{
+    u8 task2_num = 0;
+    LCD_DrawRectangle(5, 214, 234, 314);      // 画一个矩形
+    LCD_DrawLine(5, 214 + 40, 234, 214 + 40); // 画线
+    LCD_DrawLine(5, 214 + 60, 234, 214 + 60); // 画线
+    LCD_ShowString(70, 256, 110, 16, 16, &quot;LED_OFF&quot;);
+
+    while (1)
+    {
+
+        if (usart1RxBuf.rcv_flag == 1)
+        {
+            //打印接收到的字符串到LCD
+
+            if (strncmp((char *)usart1RxBuf.rcv_buf, &quot;LED_ON&quot;, 6) == 0)
+            {
+                // Turn on the LED
+                GPIO_ResetBits(GPIOD, GPIO_Pin_2);
+                GPIO_ResetBits(GPIOA, GPIO_Pin_8);
+                LCD_ShowString(70, 256, 110, 16, 16, &quot;           &quot;);
+                LCD_ShowString(70, 256, 110, 16, 16, usart1RxBuf.rcv_buf);
+                printf(&quot;&gt;&gt;LED已打开&quot;);
+                task2_num++;
+            }
+            else if (strncmp((char *)usart1RxBuf.rcv_buf, &quot;LED_OFF&quot;, 7) == 0)
+            {
+                // Turn off the LED
+                GPIO_SetBits(GPIOD, GPIO_Pin_2);
+                GPIO_SetBits(GPIOA, GPIO_Pin_8);
+                LCD_ShowString(70, 256, 110, 16, 16, usart1RxBuf.rcv_buf);
+                printf(&quot;&gt;&gt;LED已关闭&quot;);
+                task2_num++;
+            }
+
+            // 清除接收缓冲区和标志
+            memset(usart1RxBuf.rcv_buf, 0, sizeof(usart1RxBuf.rcv_buf));
+            usart1RxBuf.rcv_buf_ptr = 0;
+            usart1RxBuf.rcv_flag = 0;
+        }
+        LCD_Fill(6, 215, 233, 253, lcd_discolor[task2_num % 14]); // 填充区域
+        LCD_Fill(6, 275, 233, 314, lcd_discolor[task2_num % 14]); // 填充区域
+        delay_ms(100);// 休眠一段时间
+    }
+}
+</code></pre></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../..';</script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
+        <script src="../../../assets/js/mkdocs.js""></script>
+			<script src="../../../search/main.js" defer></script>
+
+</body>
+
+</html>

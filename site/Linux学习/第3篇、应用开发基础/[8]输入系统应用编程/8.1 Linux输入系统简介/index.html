@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>8.1 Linux输入系统简介 - My Docs</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../../assets/css/dracula-ui.css">
+        <link rel="stylesheet" href="../../../../assets/css/mkdocs.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">My Docs</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Welcome to MkDocs
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#linux学习-collapse" aria-expanded="false">
+                    Linux学习
+                </a>
+                <div class="collapse" id="linux学习-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#示例程序-collapse" aria-expanded="false">
+            示例程序
+        </a>
+
+        <div class="collapse" id="示例程序-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Framebuffer程序
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#第1篇、学习简介及基础-collapse" aria-expanded="false">
+            第1篇、学习简介及基础
+        </a>
+
+        <div class="collapse" id="第1篇、学习简介及基础-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            学习简介
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B2%5DUbuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Ubuntu简单介绍
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#第2篇、环境搭建与开发板操作-collapse" aria-expanded="false">
+            第2篇、环境搭建与开发板操作
+        </a>
+
+        <div class="collapse" id="第2篇、环境搭建与开发板操作-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            一、环境搭建
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            二、开发板的第一个APP
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            三、第一个驱动程序
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            四、构建bootloader、内核、文件系统
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#第3篇、应用开发基础-collapse" aria-expanded="false">
+            第3篇、应用开发基础
+        </a>
+
+        <div class="collapse" id="第3篇、应用开发基础-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            一、第一个hello world程序
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            二、gcc编译器
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B3%5DMakefile/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            三、Makefile
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            五、Framebuffer应用编程
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[4]文件io-collapse" aria-expanded="false">
+            [4]文件IO
+        </a>
+
+        <div class="collapse" id="[4]文件io-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            4.1 文件IO
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            4.2 系统调用接口
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[6]文字及图像显示-collapse" aria-expanded="false">
+            [6]文字及图像显示
+        </a>
+
+        <div class="collapse" id="[6]文字及图像显示-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            6.1、字符的编码方式
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            6.2、点阵字符的显示
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[7]交叉编译程序-collapse" aria-expanded="false">
+            [7]交叉编译程序
+        </a>
+
+        <div class="collapse" id="[7]交叉编译程序-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            7.1 交叉编译常见的错误
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            7.2 静态库的完整制作过程
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            7.3 如何安装一个库
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[8]输入系统应用编程-collapse" aria-expanded="false">
+            [8]输入系统应用编程
+        </a>
+
+        <div class="collapse" id="[8]输入系统应用编程-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            8.1 Linux输入系统简介
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            8.2 用ioctl获取设备信息
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            8.3 读取输入设备的数据
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            8.4 使用tslib读取电容屏的输入事件
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#[9]网络编程基础-collapse" aria-expanded="false">
+            [9]网络编程基础
+        </a>
+
+        <div class="collapse" id="[9]网络编程基础-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            9.1 网络编程简介
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            9.2 TCP编程
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#qt学习-collapse" aria-expanded="false">
+                    QT学习
+                </a>
+                <div class="collapse" id="qt学习-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Qt项目1--四则运算计算器
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [10] 常见的数据处理类
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [1] QT编译过程
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [2] 认识QTCreator
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [3] 信号与槽
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [4] QT的定时器
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [5] MainWindow和文件操作
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [6] Event 事件
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [7] QT-TCP编程（一）基本了解
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [8] Layout -- 布局管理器
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            [9] QWidget类
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#rtos学习-collapse" aria-expanded="false">
+                    RTOS学习
+                </a>
+                <div class="collapse" id="rtos学习-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#ucosiii-collapse" aria-expanded="false">
+            UCOSIII
+        </a>
+
+        <div class="collapse" id="ucosiii-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            UCOSIII下，STM32串口收发经验记录
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            UCOSIII中信号量、消息队列、互斥量相关API
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            基于STM32CubeIDE的UCOSIII移植
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple"">
+        <div class="container-fluid">
+
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="81-linux">8.1 Linux输入系统简介</h1>
+<h1 id="1">1. 什么是输入系统？</h1>
+<p>Linux输入系统（Linux Input System）是用于处理和管理各种输入设备的软件框架。它允许Linux操作系统与多种输入设备（如键盘、鼠标、触摸屏等）进行通信和交互。Linux输入系统的主要任务包括以下几个方面：</p>
+<ol>
+<li>设备驱动程序：Linux输入系统通过设备驱动程序与硬件设备通信。每种输入设备都需要一个对应的设备驱动程序，以便将设备的输入事件传递给操作系统。</li>
+<li>事件处理：输入设备会产生各种事件，例如按键事件、鼠标移动事件、触摸事件等。Linux输入系统负责捕获和处理这些事件，然后将它们传递给应用程序，以便应用程序可以作出相应的响应。</li>
+<li>抽象层：Linux输入系统提供了一个抽象层，使应用程序可以独立于具体的硬件设备类型。这意味着应用程序不需要直接处理底层硬件差异，而可以使用通用的接口来处理输入事件。</li>
+<li>多设备支持：Linux输入系统支持同时连接多个输入设备，并能够正确处理多个设备产生的输入事件。这对于多用户系统或嵌入式系统中的多个输入设备非常重要。</li>
+<li>用户空间接口：Linux输入系统为用户空间提供了接口，允许应用程序通过读取特定的设备文件（通常位于<code>/dev/input/</code>​目录下）来获取输入事件。这使得应用程序可以轻松地与输入设备进行通信。</li>
+<li>驱动程序模型：Linux输入系统遵循Linux的设备驱动程序模型，通过字符设备驱动程序来管理输入设备。这种模型允许开发者编写自定义设备驱动程序，以支持新的输入设备。</li>
+</ol>
+<p>总之，Linux输入系统是一个关键的子系统，它使Linux操作系统能够与各种输入设备无缝交互，为用户提供了广泛的输入选择，以及为应用程序开发者提供了<strong>统一的接口</strong>来处理输入事件。这有助于实现多种应用场景，包括桌面计算机、嵌入式系统、娱乐设备等。</p>
+<blockquote>
+<p><strong>Linux为输入设备构造了统一的驱动程序，可以通过统一的接口获取不一样的设备数据</strong></p>
+</blockquote>
+<p><strong>输入系统框架：</strong></p>
+<p>​<img alt="image" src="../assets/image-20231028151859-8fphqry.png" />​</p>
+<h1 id="2">2. 应用程序如何访问设备节点？</h1>
+<ol>
+<li><strong>用户程序访问输入设备</strong>：用户程序可以直接访问输入设备节点（例如 <code>/dev/input/event0</code>​）来发起读操作。用户程序可以使用系统调用（如 <code>read</code>​）来<strong>等待</strong>输入事件的到来。</li>
+<li><strong>硬件中断</strong>：当用户操作输入设备时，硬件会产生中断信号，通知操作系统有输入事件发生。</li>
+<li><strong>输入系统驱动层处理中断</strong>：在硬件中断发生时，输入系统的驱动程序会介入，<strong>读取硬件生成的原始数据</strong>。这些数据通常是硬件特定的，需要进行<strong>解析和转换</strong>。</li>
+<li><strong>输入事件转换</strong>：输入系统驱动程序会将原始数据转换为标准的输入事件（<code>struct input_event</code>​结构体）。这些事件包括事件类型（如按键按下、按键释放、鼠标移动等）、事件代码（键码、按钮编号等）和事件值（按键状态、鼠标坐标等）。</li>
+<li><strong>核心层处理</strong>：核心层负责将输入事件传递给适当的处理程序（handler）。不同的 handler 处理不同类型的输入事件。例如，<code>evdev_handler</code>​用于直接传递输入事件给用户程序。核心层还支持多个用户程序同时访问相同输入设备。</li>
+<li><strong>用户程序处理</strong>：用户程序可以通过直接访问设备节点或使用相关库（如 tslib、libinput）来处理输入事件。这些库通常提供了更高级的接口，以简化事件处理。用户程序可以根据输入事件执行相应的操作，例如响应按键、移动鼠标等。</li>
+<li><strong>等待数据</strong>：当用户程序正在等待输入事件时，<code>evdev_handler</code>​可以唤醒用户程序，以便它可以继续读取和处理数据。</li>
+</ol>
+<blockquote>
+<p><strong>内核的标准输入事件结构体：</strong></p>
+</blockquote>
+<pre><code class="language-c">struct input_event {
+    struct timeval time;    /*事件发生的时间戳*/
+    __u16 type;     /*事件的类型*/
+    __u16 code;     /*事件的代码*/
+    __s32 value;    /*事件的值*/
+};
+
+struct timeval {
+    __kernel_time_t     tv_sec;     /* 事件发生的秒数*/
+    __kernel_suseconds_t    tv_usec;    /* 事件发生的微秒数*/
+};
+</code></pre>
+<p>​<code>struct input_event</code>​ 是一个结构体，用于表示 Linux 输入系统中的输入事件。该结构体包含了输入事件的各个关键属性，如时间戳、事件类型、事件代码和事件值。以下是对这些字段的说明：</p>
+<ol>
+<li>
+<p>​<code>struct timeval time</code>​：这是一个包含时间信息的结构体，表示事件发生的时间戳。它包括两个字段：</p>
+<ul>
+<li>​<code>time.tv_sec</code>​：事件发生的秒数，通常用于表示自 1970 年 1 月 1 日以来的秒数（Unix 时间戳）。</li>
+<li>​<code>time.tv_usec</code>​：事件发生的微秒数，表示秒的小数部分。</li>
+<li>​<code>__u16 type</code>​：这是一个 16 位的无符号整数，表示事件的类型。不同的事件类型定义了事件的性质，例如按键事件、鼠标事件、触摸事件等。不同类型的事件具有不同的事件代码和事件值的含义。</li>
+<li>​<code>__u16 code</code>​：这是一个 16 位的无符号整数，表示事件的代码。事件代码定义了事件的具体性质，例如按下的键码、鼠标的按钮编号、触摸事件的类型等。事件代码通常与事件类型相关联，以确定事件的含义。</li>
+<li>​<code>__s32 value</code>​：这是一个 32 位的有符号整数，表示事件的值。事件值提供了事件的具体信息，例如按键事件的状态（按下或释放）、鼠标事件的相对位移、触摸事件的坐标等。事件值的含义取决于事件类型和事件代码。</li>
+</ul>
+</li>
+</ol>
+<p>通过结构体 <code>struct input_event</code>​，Linux 输入系统能够以一种标准化的方式描述和传递各种输入事件。用户程序可以根据这些属性来理解和处理输入事件，以实现与输入设备的交互。这种标准的输入事件表示有助于编写通用的输入处理代码，无论是处理键盘、鼠标、触摸屏还是其他输入设备。</p>
+<p>‍</p>
+<h1 id="3">3. 输入系统应用编程需要掌握的知识</h1>
+<h4 id="31">3.1 内核中如何表示一个输入驱动程序？</h4>
+<p>通常使用<strong>input_dev结构体</strong>来表示一个输入设备，也就驱动程序才会用到这个，先了解</p>
+<p>下面不是全部代码：</p>
+<pre><code class="language-c">struct input_dev {
+    const char *name;                /* 输入设备的名称 */
+    const char *phys;                /* 输入设备的物理地址 */
+    struct input_id id;              /* 输入设备的ID，包括总线类型、厂商ID、产品ID和版本 */
+    unsigned long propbit[BITS_TO_LONGS(INPUT_PROP_CNT)]; /* 属性位掩码 */
+
+    struct input_absinfo absinfo[ABS_CNT]; /* 绝对坐标信息 */
+    unsigned long absbit[ABS_CNT];         /* 绝对坐标位掩码 */
+
+    unsigned long evbit[BITS_TO_LONGS(EV_CNT)];     /*支持哪类事件？EV_KEY?EV_ABS?*/
+    unsigned long keybit[BITS_TO_LONGS(KEY_CNT)]; /* 按键事件位掩码：支持按键的话，支持哪些按键？ */
+    unsigned long relbit[BITS_TO_LONGS(REL_CNT)]; /* 相对坐标事件位掩码 ：支持相对坐标的话，支持哪些？*/
+    .....
+
+    struct mutex mutex;                /* 互斥锁，用于保护输入设备的状态 */
+    struct list_head node;             /* 输入设备链表节点 */
+
+    /* 输入事件的处理函数，用于生成和发送输入事件 */
+    void (*event)(struct input_dev *dev, unsigned int type, unsigned int code, int value);
+
+    /* 驱动程序私有数据指针，用于存储设备特定的数据 */
+    void *private;
+
+    struct device dev;                 /* 设备模型中的设备结构体 */
+
+    const struct input_device_id *id_table; /* 输入设备ID表，用于匹配驱动程序 */
+
+    struct rc_dev *rc_dev;            /* 遥控设备结构体 */
+
+    int user;                         /* 输入设备的用户引用计数 */
+};
+
+</code></pre>
+<h4 id="32">3.2 应用程序可以得到什么数据？</h4>
+<p>就是上面提到的<code>input_event</code>​<strong>标准输入事件结构体:</strong></p>
+<pre><code class="language-c">struct input_event {
+    struct timeval time;    /*事件发生的时间戳*/
+    __u16 type;     /*事件的类型*/
+    __u16 code;     /*事件的代码*/
+    __s32 value;    /*事件的值*/
+};
+</code></pre>
+<p>拿按键事件来举例:</p>
+<blockquote>
+<p><strong>事件类型</strong>定义在内核头文件<code>input-event-code.h</code>​里：</p>
+</blockquote>
+<p>​<img alt="image" src="../assets/image-20231028155429-aoh0p5n.png" />​</p>
+<p>常用事件解释：</p>
+<p><strong>EV_SYN</strong>:synchronous,同步事件 | &gt;在引用程序读取一个输入设备的时候，通过同步事件来确定数据结束，后续没有输入了</p>
+<p><strong>EV_KEY</strong>: Key Event, 按键事件 | 用于表示按键的按下和释放事件，例如键盘按键、鼠标按钮等。</p>
+<p><strong>EV_REL</strong>: Relative Event, 相对坐标事件 | 用于表示设备上的相对坐标变化，例如鼠标移动事件。</p>
+<p><strong>EV_ABS</strong>: Absolute Event, 绝对坐标事件 | 用于表示设备上的绝对坐标位置，例如触摸屏事件。</p>
+<blockquote>
+<p><strong>事件代码:</strong></p>
+</blockquote>
+<p>​<img alt="image" src="../assets/image-20231028161010-p3ued0c.png" />​</p>
+<blockquote>
+<p><strong>事件的值</strong></p>
+</blockquote>
+<ul>
+<li>​<code>0</code>​：表示按键释放（松开）事件。</li>
+<li>​<code>1</code>​：表示按键按下（按住）事件。</li>
+<li>​<code>2</code>​:   表示按键长按事件。</li>
+</ul>
+<p>‍</p>
+<h1 id="4">4. 输入系统编程如何调试？</h1>
+<h4 id="41">4.1 确定设备信息</h4>
+<p>输入设备的设备节点名为<code>/dev/input/eventX</code>​</p>
+<p>查看全部设备节点：</p>
+<pre><code class="language-c">ls /dev/input/* -l
+</code></pre>
+<p>​<img alt="image" src="../assets/image-20231028161712-d6j7cn9.png" />​</p>
+<blockquote>
+<p>但是这样只是查看当前系统下的所有设备节点，具体设备对应哪个节点如何确定？</p>
+</blockquote>
+<p>使用命令：</p>
+<pre><code class="language-c">cat /proc/bus/input/devices
+</code></pre>
+<p>​<img alt="image" src="../assets/image-20231028162009-m8721bb.png" />​</p>
+<p>​<img alt="image" src="../assets/image-20231028162416-81915bq.png" />​</p>
+<blockquote>
+<p>其中EV=b，b是十六进制，转换成二进制为1011，每一位代表一个事件，1代表设备支持该事件，0代表不支持</p>
+</blockquote>
+<ul>
+<li>最右边的位（最低位）对应 <code>EV_SYN</code>​，即同步事件类型。</li>
+<li>下一个位对应 <code>EV_KEY</code>​，即按键事件类型。</li>
+<li>下一个位对应 <code>EV_REL</code>​，即相对坐标事件类型。</li>
+<li>最左边的位（最高位）对应 <code>EV_ABS</code>​，即绝对坐标事件类型。</li>
+</ul>
+<p>然后KEY、ABS也是对应的表示方法。</p>
+<p>‍</p>
+<h4 id="42">4.2 使用命令读取输入设备的数据</h4>
+<pre><code class="language-c">hexdump /dev/input/event1
+</code></pre>
+<p>​<img alt="image" src="../assets/image-20231028163732-lcmmqgr.png" />​</p>
+<p>type 为 3 ， 对 应 EV_ABS ； code 为 0x35 <strong>对 应ABS_MT_POSITION_X</strong>； code 为 0x36 <strong>对应 </strong>​<strong><em>*ABS_MT_POSITION_Y</em></strong><em>​ </em><em>。</em><em> <br />
+上图中还发现有 2 个同步事件：它的 </em><em>type</em><em>、 </em><em>code</em><em>、 </em><em>value</em><em> 都为 </em><em>0</em>*。表示电容屏上报了 2 次完整的数据。</p>
+<blockquote>
+<p>我们编写系统输入应用程序，重要的就是处理设备上报的数据。不需要接触到驱动层。</p>
+</blockquote>
+<p>‍</p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../../..';</script>
+        <script src="../../../../assets/js/jquery-3.3.1.slim.min.js""></script>
+        <script src="../../../../assets/js/bootstrap.bundle.min.js""></script>
+        <script src="../../../../assets/js/mkdocs.js""></script>
+			<script src="../../../../search/main.js" defer></script>
+
+</body>
+
+</html>
