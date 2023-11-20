@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../4.1%20%E6%96%87%E4%BB%B6IO/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>4.2 系统调用接口 - My Docs</title>
+        <title>4.2 系统调用接口 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1581,8 +1591,8 @@
                   
 
 
-<h1 id="42">4.2 系统调用接口</h1>
-<h1 id="1">1. 接口简介</h1>
+<h1 id="42">4.2 系统调用接口<a class="headerlink" href="#42" title="Permanent link">&para;</a></h1>
+<h1 id="1">1. 接口简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
 <ol>
 <li>
 <p>​<strong><code>open</code></strong>​</p>
@@ -1708,14 +1718,14 @@
 </ul>
 </li>
 </ol>
-<h1 id="2-man">2. 如何使用man手册</h1>
+<h1 id="2-man">2. 如何使用man手册<a class="headerlink" href="#2-man" title="Permanent link">&para;</a></h1>
 <p>首先使用命令<code>man man</code>​可以查看man手册的概览，比如哪些内容在man手册的哪页。</p>
 <p>​<img alt="image" src="../assets/image-20231024154617-uufz1ww.png" />​</p>
 <p>比如我要查系统调用的<code>open</code>​，就用命令<code>man 2 open</code>​，结果：</p>
 <p>​<img alt="image" src="../assets/image-20231024154721-kmrtb7d.png" />​</p>
 <p>有open的详细说明。</p>
-<h1 id="3">3. 接口详细介绍</h1>
-<h4 id="31-open">3.1 open</h4>
+<h1 id="3">3. 接口详细介绍<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<h4 id="31-open">3.1 open<a class="headerlink" href="#31-open" title="Permanent link">&para;</a></h4>
 <p><strong>open的用法：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">O_RDWR</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_CREAT</span><span class="p">,</span><span class="w"> </span><span class="mo">0666</span><span class="p">);</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -1753,7 +1763,7 @@
 <p>再比如说root用户的umask为<img alt="image" src="../assets/image-20231024165328-d6k492r.png" />，确定新的文件和目录的权限里，同组用户和其他用户不能有写权限。在root用户下新建一个权限777的文件，结果是：<img alt="image" src="../assets/image-20231024165551-6qlvnry.png" />​</p>
 <p>‍</p>
 <hr />
-<h4 id="32-write">3.2 write</h4>
+<h4 id="32-write">3.2 write<a class="headerlink" href="#32-write" title="Permanent link">&para;</a></h4>
 <p><strong>用法：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">            </span><span class="p">{</span>
@@ -1761,10 +1771,10 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">            </span><span class="p">}</span>
 </code></pre></div>
-<p>记忆：从$(2)往$(1)里写入$(3)个字节,$$代表第几个参数。</p>
+<p>记忆：从<span class="arithmatex">\((2)往\)</span>(1)里写入<span class="arithmatex">\((3)个字节,\)</span>$代表第几个参数。</p>
 <p>返回读取的字节数，错误返回-1</p>
 <p>‍</p>
-<h4 id="33-read">3.3 read</h4>
+<h4 id="33-read">3.3 read<a class="headerlink" href="#33-read" title="Permanent link">&para;</a></h4>
 <p><strong>用法：</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -1773,14 +1783,14 @@
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div>
-<p>记忆：从$(1)读取$​$(3)个字节，存放到$$(2)中</p>
+<p>记忆：从<span class="arithmatex">\((1)读取\)</span>​<span class="arithmatex">\((3)个字节，存放到\)</span>$(2)中</p>
 <p>返回读取的字节数。</p>
 <blockquote>
 <p>读写是具体怎么实现的</p>
 </blockquote>
 <p>通过一个指针指（pos）向当前读写的位置，假如读写了N个字节，那pos也向后移动N个字节，再读写M个字节，pos再向后移动M个字节，系统会记录当前的文件位置指针，下次读写的时候，会从上次的位置继续读写，除非人为的修改这个指针的位置。</p>
 <p>‍</p>
-<h1 id="4">4. 系统调用的内部机制</h1>
+<h1 id="4">4. 系统调用的内部机制<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
 <p>​<img alt="image" src="../assets/image-20231024231459-ibkbi91.png" />​</p>
 <p>​<img alt="image" src="../assets/image-20231024231955-n2vm0yx.png" />​</p>
 <p>‍</p>
@@ -1797,7 +1807,7 @@
 <p>那如果有这样的一个场景，就是需要多个文件描述符指向同一个文件控制块，应该如何实现？</p>
 </blockquote>
 <p>引入系统调用<code>dup</code>​</p>
-<h4 id="dup">dup</h4>
+<h4 id="dup">dup<a class="headerlink" href="#dup" title="Permanent link">&para;</a></h4>
 <p>​<code>dup</code>​ 是一个系统调用，用于复制文件描述符。具体来说，<code>dup</code>​ 将复制一个<strong>已有的文件描述符</strong>，创建一个新的文件描述符，新旧文件描述符都指向相同的文件或资源。这意味着你可以使用 <code>dup</code>​ 来创建多个文件描述符，这些文件描述符都可以用于独立地访问同一个文件或资源。</p>
 <p>以下是 <code>dup</code>​ 函数的原型：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dup</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">oldfd</span><span class="p">);</span>
@@ -1816,7 +1826,7 @@
 <p>dup会指定一个未使用的文件描述符。</p>
 </blockquote>
 <p>‍</p>
-<h4 id="dup2">dup2</h4>
+<h4 id="dup2">dup2<a class="headerlink" href="#dup2" title="Permanent link">&para;</a></h4>
 <p>​<code>dup2</code>​ 是一个系统调用，它与 <code>dup</code>​ 类似，但允许你显式指定新的文件描述符，而不是由系统自动分配一个。这个系统调用的目的是将一个已有的文件描述符复制到指定的新文件描述符，如果新文件描述符已经打开，它会首先关闭新文件描述符，然后再复制。</p>
 <p>以下是 <code>dup2</code>​ 函数的原型：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dup2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">oldfd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">newfd</span><span class="p">);</span>
@@ -1840,7 +1850,7 @@
 <p><strong>总结来说。</strong>​<code>**dup2**</code>​ ** 的主要目的是将新文件描述符指向旧文件描述符所指向的文件或资源，如果指定的新描述符已经存在，就关闭旧描述符，然后在指向旧描述符的文件或者资源。**</p>
 </blockquote>
 <p>‍</p>
-<h4 id="dup3">dup3</h4>
+<h4 id="dup3">dup3<a class="headerlink" href="#dup3" title="Permanent link">&para;</a></h4>
 <p>待补充</p>
 
 

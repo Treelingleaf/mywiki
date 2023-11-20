@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>二、开发板的第一个APP - My Docs</title>
+        <title>二、开发板的第一个APP - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1579,9 +1589,9 @@
                   
 
 
-<h1 id="app">二、开发板的第一个APP</h1>
+<h1 id="app">二、开发板的第一个APP<a class="headerlink" href="#app" title="Permanent link">&para;</a></h1>
 <p>采用的方法是开发板通过NFS挂载虚拟机的目录，达到ubuntu和开发板共享目录，方便传输文件，前提是配置好相应的环境。</p>
-<h1 id="1">1. 交叉编译链的配置</h1>
+<h1 id="1">1. 交叉编译链的配置<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
 <p>为什么要使用交叉编译工具？</p>
 <blockquote>
 <p>使用交叉编译工具使得在不同体系结构、操作系统或硬件平台上进行开发更加灵活和实现。这对于嵌入式系统、嵌入式 Linux 开发、嵌入式设备、移动应用开发和其他跨平台开发场景非常有用。交叉编译工具帮助开发者充分利用不同的硬件和操作系统，从而在各种环境中部署应用程序和软件。</p>
@@ -1618,7 +1628,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">alias</span><span class="w"> </span><span class="nv">mygcc</span><span class="o">=</span><span class="s1">&#39;arm-buildroot-linux-gnueabihf-gcc&#39;</span>
 </code></pre></div>
 <p>这样以后使用交叉编译工具链就直接使用<code>mygcc</code>​了。</p>
-<h1 id="2">2. 使用交叉编译链编译程序</h1>
+<h1 id="2">2. 使用交叉编译链编译程序<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
 <p>比如有一个hello.c，需要编译为hello可执行程序，使用如下命令：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>arm-buildroot-linux-gnueabihf-gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c
 </code></pre></div>

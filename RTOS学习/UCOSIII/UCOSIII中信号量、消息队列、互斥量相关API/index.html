@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>UCOSIII中信号量、消息队列、互斥量相关API - My Docs</title>
+        <title>UCOSIII中信号量、消息队列、互斥量相关API - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1579,8 +1589,8 @@
                   
 
 
-<h1 id="ucosiiiapi">UCOSIII中信号量、消息队列、互斥量相关API</h1>
-<h1 id="1">1. <strong>信号量</strong></h1>
+<h1 id="ucosiiiapi">UCOSIII中信号量、消息队列、互斥量相关API<a class="headerlink" href="#ucosiiiapi" title="Permanent link">&para;</a></h1>
+<h1 id="1">1. <strong>信号量</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
 <p><a href="https://blog.csdn.net/qq_38410730/article/details/80848586">https://blog.csdn.net/qq_38410730/article/details/80848586</a></p>
 <p><strong>常用的API:</strong></p>
 <table>
@@ -1614,7 +1624,7 @@
 </tbody>
 </table>
 <p><strong>详细说明:</strong></p>
-<h2 id="11-ossemcreate">1.1. <strong>创建一个信号量-&gt;OSSemCreate</strong></h2>
+<h2 id="11-ossemcreate">1.1. <strong>创建一个信号量-&gt;OSSemCreate</strong><a class="headerlink" href="#11-ossemcreate" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm">函数名称: OSSemCreate</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1639,7 +1649,7 @@
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">                   </span><span class="n">OS_SEM_CTR</span><span class="w"> </span><span class="n">cnt</span><span class="p">,</span><span class="w">          </span><span class="c1">// 信号量的初始计数值</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">                   </span><span class="n">OS_ERR</span><span class="w">    </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">       </span><span class="c1">// 函数执行结果存储变量</span>
 </code></pre></div>
-<h2 id="12-ossemdel">1.2. <strong>删除一个信号量-&gt;OSSemDel</strong></h2>
+<h2 id="12-ossemdel">1.2. <strong>删除一个信号量-&gt;OSSemDel</strong><a class="headerlink" href="#12-ossemdel" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cm">函数名称: OSSemDel</span>
@@ -1664,7 +1674,7 @@
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">                </span><span class="n">OS_OPT</span><span class="w">    </span><span class="n">opt</span><span class="p">,</span><span class="w">              </span><span class="c1">// 删除选项</span>
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">                </span><span class="n">OS_ERR</span><span class="w">   </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">          </span><span class="c1">// 函数执行结果存储变量</span>
 </code></pre></div>
-<h2 id="13-ossempend">1.3. <strong>等待一个信号量-&gt;OSSemPend</strong></h2>
+<h2 id="13-ossempend">1.3. <strong>等待一个信号量-&gt;OSSemPend</strong><a class="headerlink" href="#13-ossempend" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cm">函数名称: OSSemPend</span>
@@ -1695,7 +1705,7 @@
 <a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">                 </span><span class="n">CPU_TS</span><span class="w">  </span><span class="o">*</span><span class="n">p_ts</span><span class="p">,</span><span class="w">             </span><span class="c1">// 时间戳指针（可选）</span>
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">                 </span><span class="n">OS_ERR</span><span class="w">  </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">           </span><span class="c1">// 函数执行结果存储变量</span>
 </code></pre></div>
-<h2 id="14-ossempendabort">1.4. <strong>取消等待-&gt;OSSemPendAbort</strong></h2>
+<h2 id="14-ossempendabort">1.4. <strong>取消等待-&gt;OSSemPendAbort</strong><a class="headerlink" href="#14-ossempendabort" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cm">函数名称: OSSemPendAbort</span>
@@ -1720,7 +1730,7 @@
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">                    </span><span class="n">OS_OPT</span><span class="w">    </span><span class="n">opt</span><span class="p">,</span><span class="w">       </span><span class="c1">// 选项</span>
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">                    </span><span class="n">OS_ERR</span><span class="w">   </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">    </span><span class="c1">// 函数执行结果存储变量</span>
 </code></pre></div>
-<h2 id="15-ossempost">1.5. <strong>释放一个信号量-&gt;OSSemPost</strong></h2>
+<h2 id="15-ossempost">1.5. <strong>释放一个信号量-&gt;OSSemPost</strong><a class="headerlink" href="#15-ossempost" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cm">函数名称: OSSemPost</span>
@@ -1746,7 +1756,7 @@
 <a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">                 </span><span class="n">OS_OPT</span><span class="w">  </span><span class="n">opt</span><span class="p">,</span><span class="w">               </span><span class="c1">// 释放选项</span>
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">                 </span><span class="n">OS_ERR</span><span class="w"> </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">           </span><span class="c1">// 函数执行结果存储变量</span>
 </code></pre></div>
-<h2 id="16-ossemset">1.6. <strong>强制设置一个信号量的值-&gt;OSSemSet</strong></h2>
+<h2 id="16-ossemset">1.6. <strong>强制设置一个信号量的值-&gt;OSSemSet</strong><a class="headerlink" href="#16-ossemset" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="cm">函数名称: OSSemSet</span>
@@ -1769,7 +1779,7 @@
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">                </span><span class="n">OS_SEM_CTR</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w">          </span><span class="c1">// 新的信号量计数值</span>
 <a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">                </span><span class="n">OS_ERR</span><span class="w">   </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">         </span><span class="c1">// 函数执行结果存储变量</span>
 </code></pre></div>
-<h1 id="2">2. <strong>互斥量</strong></h1>
+<h1 id="2">2. <strong>互斥量</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
 <p><a href="https://blog.csdn.net/qq_38410730/article/details/80878292">https://blog.csdn.net/qq_38410730/article/details/80878292</a></p>
 <p><strong>常用API:</strong></p>
 <table>
@@ -1799,7 +1809,7 @@
 </tbody>
 </table>
 <p><strong>详细说明:</strong></p>
-<h2 id="21-osmutexcreate">2.1. <strong>创建一个互斥量-&gt;OSMutexCreate</strong></h2>
+<h2 id="21-osmutexcreate">2.1. <strong>创建一个互斥量-&gt;OSMutexCreate</strong><a class="headerlink" href="#21-osmutexcreate" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cm">* 函数名: OSMutexCreate</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cm">* 描  述: 创建互斥量</span>
@@ -1815,7 +1825,7 @@
 <a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">                     </span><span class="n">CPU_CHAR</span><span class="w">     </span><span class="o">*</span><span class="n">p_name</span><span class="p">,</span><span class="w">       </span><span class="c1">// 互斥量名称（可选）</span>
 <a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">                     </span><span class="n">OS_ERR</span><span class="w">      </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">       </span><span class="c1">// 函数执行结果存储变量</span>
 </code></pre></div>
-<h2 id="22-osmutexdel">2.2. <strong>删除一个互斥量-&gt;OSMutexDel</strong></h2>
+<h2 id="22-osmutexdel">2.2. <strong>删除一个互斥量-&gt;OSMutexDel</strong><a class="headerlink" href="#22-osmutexdel" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="cm">* 函数名: OSMutexDel</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="cm">* 描  述: 删除互斥量</span>
@@ -1833,7 +1843,7 @@
 <a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">                  </span><span class="n">OS_OPT</span><span class="w">    </span><span class="n">opt</span><span class="p">,</span>
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">                  </span><span class="n">OS_ERR</span><span class="w">   </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="23-osmutexpend">2.3. <strong>等待一个互斥信号量-&gt;OSMutexPend</strong></h2>
+<h2 id="23-osmutexpend">2.3. <strong>等待一个互斥信号量-&gt;OSMutexPend</strong><a class="headerlink" href="#23-osmutexpend" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="cm">* 函数名: OSMutexPend</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="cm">* 描  述: 请求互斥量</span>
@@ -1855,7 +1865,7 @@
 <a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">                   </span><span class="n">CPU_TS</span><span class="w">    </span><span class="o">*</span><span class="n">p_ts</span><span class="p">,</span>
 <a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">                   </span><span class="n">OS_ERR</span><span class="w">    </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="24-osmutexpendabort">2.4. <strong>取消等待-&gt;OSMutexPendAbort</strong></h2>
+<h2 id="24-osmutexpendabort">2.4. <strong>取消等待-&gt;OSMutexPendAbort</strong><a class="headerlink" href="#24-osmutexpendabort" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cm">* 函数名: OSMutexPendAbort</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="cm">* 描  述: 取消等待互斥量的操作</span>
@@ -1874,7 +1884,7 @@
 <a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">                      </span><span class="n">OS_OPT</span><span class="w">    </span><span class="n">opt</span><span class="p">,</span>
 <a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">                      </span><span class="n">OS_ERR</span><span class="w">   </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="25-osmutexpost">2.5. <strong>释放一个互斥量-&gt;OSMutexPost</strong></h2>
+<h2 id="25-osmutexpost">2.5. <strong>释放一个互斥量-&gt;OSMutexPost</strong><a class="headerlink" href="#25-osmutexpost" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cm">* 函数名: OSMutexPost</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="cm">* 描  述: 释放互斥量</span>
@@ -1893,7 +1903,7 @@
 <a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">                   </span><span class="n">OS_OPT</span><span class="w">    </span><span class="n">opt</span><span class="p">,</span>
 <a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">                   </span><span class="n">OS_ERR</span><span class="w">   </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span>
 </code></pre></div>
-<h1 id="3">3. <strong>消息队列</strong></h1>
+<h1 id="3">3. <strong>消息队列</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
 <p><a href="https://blog.csdn.net/iiiNoName/article/details/105192982">https://blog.csdn.net/iiiNoName/article/details/105192982</a></p>
 <p><strong>常用API：</strong></p>
 <table>
@@ -1922,7 +1932,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="31-osqcreate">3.1. <strong>创建消息队列-&gt;OSQCreate</strong></h2>
+<h2 id="31-osqcreate">3.1. <strong>创建消息队列-&gt;OSQCreate</strong><a class="headerlink" href="#31-osqcreate" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="cm">* 函数名: OSQCreate</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="cm">* 描  述: 创建消息队列</span>
@@ -1940,7 +1950,7 @@
 <a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">              </span><span class="n">OS_MSG_QTY</span><span class="w"> </span><span class="n">max_qty</span><span class="p">,</span><span class="w">    </span><span class="c1">// 消息队列大小，不能为0</span>
 <a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">              </span><span class="n">OS_ERR</span><span class="w">    </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">     </span><span class="c1">// 返回错误类型</span>
 </code></pre></div>
-<h2 id="32-osqdel">3.2. <strong>消息队列删除-&gt;OSQDel</strong></h2>
+<h2 id="32-osqdel">3.2. <strong>消息队列删除-&gt;OSQDel</strong><a class="headerlink" href="#32-osqdel" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="cm">* 函数名: OSQDel</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="cm">* 描  述: 删除消息队列</span>
@@ -1959,7 +1969,7 @@
 <a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">                 </span><span class="n">OS_OPT</span><span class="w">   </span><span class="n">opt</span><span class="p">,</span><span class="w">     </span><span class="c1">// 选项（可选参数）</span>
 <a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">                 </span><span class="n">OS_ERR</span><span class="w">  </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">  </span><span class="c1">// 返回错误类型</span>
 </code></pre></div>
-<h2 id="33-osqpost">3.3. <strong>消息队列发送-&gt;OSQPost</strong></h2>
+<h2 id="33-osqpost">3.3. <strong>消息队列发送-&gt;OSQPost</strong><a class="headerlink" href="#33-osqpost" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="cm">* 函数名: OSQPost</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="cm">* 描  述: 向消息队列中发送消息</span>
@@ -1994,7 +2004,7 @@
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">OS_OPT_POST_FIFO</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">OS_OPT_POST_ALL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">OS_OPT_POST_NO_SCHED</span>
 <a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="n">OS_OPT_POST_LIFO</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="n">OS_OPT_POST_ALL</span><span class="o">+</span><span class="w"> </span><span class="n">OS_OPT_POST_NO_SCHED</span>
 </code></pre></div>
-<h2 id="34-osqpend">3.4. <strong>消息队列获取-&gt;OSQPend</strong></h2>
+<h2 id="34-osqpend">3.4. <strong>消息队列获取-&gt;OSQPend</strong><a class="headerlink" href="#34-osqpend" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/*******************************************************************************</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="cm">* 函数名: OSQPend</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="cm">* 描  述: 从消息队列中接收消息</span>
@@ -2019,7 +2029,7 @@
 <a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">              </span><span class="n">CPU_TS</span><span class="w">       </span><span class="o">*</span><span class="n">p_ts</span><span class="p">,</span><span class="w">      </span><span class="c1">// 获取等到消息时的时间戳（可选参数）</span>
 <a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">              </span><span class="n">OS_ERR</span><span class="w">       </span><span class="o">*</span><span class="n">p_err</span><span class="p">);</span><span class="w">    </span><span class="c1">// 返回错误类型</span>
 </code></pre></div>
-<h1 id="4">4. <strong>任务信号量</strong></h1>
+<h1 id="4">4. <strong>任务信号量</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
 <p><a href="https://blog.csdn.net/qq_38410730/article/details/80890052">https://blog.csdn.net/qq_38410730/article/details/80890052</a></p>
 <p><a href="https://blog.csdn.net/qq_51963216/article/details/123937142">https://blog.csdn.net/qq_51963216/article/details/123937142</a></p>
 <p><a href="https://blog.csdn.net/qq_38410730/article/details/80916936">https://blog.csdn.net/qq_38410730/article/details/80916936</a></p>

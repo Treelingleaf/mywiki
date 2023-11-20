@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>8.3 读取输入设备的数据 - My Docs</title>
+        <title>8.3 读取输入设备的数据 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1581,7 +1591,7 @@
                   
 
 
-<h1 id="83">8.3 读取输入设备的数据</h1>
+<h1 id="83">8.3 读取输入设备的数据<a class="headerlink" href="#83" title="Permanent link">&para;</a></h1>
 <p>输入设备的数据前面介绍过了，主要就是</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_event</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">timeval</span><span class="w"> </span><span class="n">time</span><span class="p">;</span><span class="w">    </span><span class="cm">/*事件发生的时间戳*/</span>
@@ -1601,7 +1611,7 @@
 <blockquote>
 <p>这四种方式就是应用程序跟驱动程序打交道的四种方式。</p>
 </blockquote>
-<h1 id="1-">1. 查询和<strong>休眠</strong>-<strong>唤醒方式</strong></h1>
+<h1 id="1-">1. 查询和<strong>休眠</strong>-<strong>唤醒方式</strong><a class="headerlink" href="#1-" title="Permanent link">&para;</a></h1>
 <p>这两种方式描述了在应用程序中如何处理输入设备数据的不同方式：</p>
 <ol>
 <li><strong>查询方式</strong>（非阻塞，O_NONBLOCK）：在这种方式下，应用程序打开输入设备文件时使用 <code>open</code>​ 函数，并传入 <code>O_NONBLOCK</code>​ 标志。这表示应用程序以非阻塞方式打开设备，如果没有可用的数据，<code>read</code>​ 函数会立即返回一个错误（EAGAIN），而不会等待数据到达。这使应用程序可以继续执行其他任务而不被阻塞。这种方式适用于需要在数据到达之前执行其他操作的场景。</li>
@@ -1666,8 +1676,8 @@
 <p>​<img alt="image" src="../assets/image-20231028231607-vyatkk5.png" />​</p>
 <p>休眠-唤醒方式：</p>
 <p>​<img alt="image" src="../assets/image-20231028231641-zzpp02u.png" />​</p>
-<h1 id="2-pollselect">2. poll/select方式</h1>
-<h4 id="21-poll">2.1 poll</h4>
+<h1 id="2-pollselect">2. poll/select方式<a class="headerlink" href="#2-pollselect" title="Permanent link">&para;</a></h1>
+<h4 id="21-poll">2.1 poll<a class="headerlink" href="#21-poll" title="Permanent link">&para;</a></h4>
 <p>​<code>poll</code>​是一个系统调用，用于多路复用I/O操作。允许应用程序同时监测多个文件描述符的状态，以确定文件是否可读、可写或者是发生异常。</p>
 <p>提供非阻塞的方式监测，有效避免在处理多个I/O操作的忙等状态，提高系统资源利用率。</p>
 <blockquote>
@@ -1757,7 +1767,7 @@
 <a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <p>‍</p>
-<h4 id="22-select">2.2 select</h4>
+<h4 id="22-select">2.2 select<a class="headerlink" href="#22-select" title="Permanent link">&para;</a></h4>
 <p>​<code>select</code>​和<code>poll</code>​的功能实现一样，也是多路复用I/O，但是实现方式稍有不同。</p>
 <blockquote>
 <p>函数原型：</p>
@@ -1866,7 +1876,7 @@
 <a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a><span class="p">}</span>
 </code></pre></div>
 <p>‍</p>
-<h1 id="3">3. 异步通知方式</h1>
+<h1 id="3">3. 异步通知方式<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>主要步骤：</p>
 </blockquote>
@@ -1877,7 +1887,7 @@
 <li><strong>启用异步通知</strong>：程序使用<code>fcntl</code>​函数将文件描述符的标志设置为<code>FASYNC</code>​，以启用异步通知。这样，当设备上有事件发生时，内核将向进程发送<code>SIGIO</code>​信号。</li>
 <li><strong>异步通知处理</strong>：当输入设备上发生事件时，内核会发送<code>SIGIO</code>​信号给进程。这将触发注册的信号处理函数<code>my_sig_handler</code>​，该函数从设备读取事件数据并打印。</li>
 </ol>
-<h4 id="31">3.1 注册信号处理函数</h4>
+<h4 id="31">3.1 注册信号处理函数<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>signal函数：</p>
 </blockquote>
@@ -1929,7 +1939,7 @@
 <p>​<code>SIGIO</code>​通常是由<code>fcntl</code>​函数中的<code>F_SETOWN</code>​和<code>F_SETFL</code>​操作来设置并启用的。这允许进程在文件描述符上的I/O操作完成时接收<code>SIGIO</code>​信号，以便进行适当的处理。</p>
 <p>总之，<code>SIGIO</code>​信号用于异步I/O操作的通知，帮助进程在不阻塞的情况下处理I/O事件。</p>
 <p>‍</p>
-<h4 id="32">3.2 设置进程为文件描述符的所有者</h4>
+<h4 id="32">3.2 设置进程为文件描述符的所有者<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
 <p>将进程设置为文件描述符的所有者是为了确保当文件描述符所关联的文件或设备上有异步事件（如输入设备事件）发生时，相应的 <code>SIGIO</code>​ 信号应该发送给特定的进程。</p>
 <p>具体作用如下：</p>
 <ol>
@@ -1981,7 +1991,7 @@
 </code></pre></div>
 <p>其中<code>gitpid()</code>​是获取当前进程号</p>
 <p>‍</p>
-<h4 id="33">3.3 启用异步通知</h4>
+<h4 id="33">3.3 启用异步通知<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
 <p>还是通过<code>fcntl</code>​函数来设置</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">;</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fcntl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">F_GETFL</span><span class="p">);</span><span class="w">         </span><span class="c1">//获取文件描述符当前标志</span>
@@ -1991,7 +2001,7 @@
 <p>解释：先要获取文件描述符当前的标志位，为了后面设置标志位的时候能在原来的基础上设置，达到不覆盖的效果，然后使用<code>flags | FASYNC</code>​，位与操作，添加<code>FASYNC</code>​标志位，使得文件描述符能接受异步通知。</p>
 </blockquote>
 <p>‍</p>
-<h4 id="34">3.4 完整代码</h4>
+<h4 id="34">3.4 完整代码<a class="headerlink" href="#34" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/input.h&gt;</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span>
