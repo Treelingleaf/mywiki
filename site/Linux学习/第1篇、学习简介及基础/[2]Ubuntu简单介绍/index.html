@@ -1,617 +1,1585 @@
+
 <!doctype html>
-<html lang="en">
-
-<head>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/">
+      
+      
+        <link rel="next" href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
         <title>Ubuntu简单介绍 - My Docs</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+      
 
+
+    
+    
+      
+    
+    
+      
         
         
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
+        <a href="#ubuntu" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../../assets/css/dracula-ui.css">
-        <link rel="stylesheet" href="../../../assets/css/mkdocs.css">
+  
 
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ubuntu简单介绍
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
-            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
         
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-                <script>hljs.initHighlightingOnLoad();</script>
-
-</head>
-
-<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
-
-    <main class="d-flex">
-
-        <!-- block sidebar -->
-            <nav id="sidebar" class="sidebar drac-bg-black">
-    <div class="custom-menu">
-        <button type="button" id="sidebarCollapse" class="btn btn-primary">
-            <i class="fa fa-bars"></i>
-            <span class="sr-only">Menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
     </div>
-
-    <div class="p-4">
-        
-
-        <div class="drac-text-center">
-            
-                <span class="drac-text drac-line-height drac-text-white">My Docs</span>
-            
-        </div>
-
-        <div class="drac-box flex-column">
-            <ul class="dot-ul">
-                <li><div class="dot-li drac-bg-cyan"></div></li>
-                <li><div class="dot-li drac-bg-green"></div></li>
-                <li><div class="dot-li drac-bg-orange"></div></li>
-                <li><div class="dot-li drac-bg-pink"></div></li>
-                <li><div class="dot-li drac-bg-purple"></div></li>
-                <li><div class="dot-li drac-bg-red"></div></li>
-                <li><div class="dot-li drac-bg-yellow"></div></li>
-            </ul>
-        </div>
-
-        <hr class="drac-divider" />
-
-        <!-- block menu -->
-        <ul class="mb-5 drac-list drac-list-none">
-            
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-                    Welcome to MkDocs
-                </a>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class=" active 
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#linux学习-collapse" aria-expanded="false">
-                    Linux学习
-                </a>
-                <div class="collapse" id="linux学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#示例程序-collapse" aria-expanded="false">
-            示例程序
-        </a>
-
-        <div class="collapse" id="示例程序-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Framebuffer程序
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第1篇、学习简介及基础-collapse" aria-expanded="false">
-            第1篇、学习简介及基础
-        </a>
-
-        <div class="collapse" id="第1篇、学习简介及基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            学习简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="./"
-            class=" active 
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Ubuntu简单介绍
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第2篇、环境搭建与开发板操作-collapse" aria-expanded="false">
-            第2篇、环境搭建与开发板操作
-        </a>
-
-        <div class="collapse" id="第2篇、环境搭建与开发板操作-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            一、环境搭建
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            二、开发板的第一个APP
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            三、第一个驱动程序
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            四、构建bootloader、内核、文件系统
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第3篇、应用开发基础-collapse" aria-expanded="false">
-            第3篇、应用开发基础
-        </a>
-
-        <div class="collapse" id="第3篇、应用开发基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            一、第一个hello world程序
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            二、gcc编译器
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B3%5DMakefile/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            三、Makefile
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            五、Framebuffer应用编程
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[4]文件io-collapse" aria-expanded="false">
-            [4]文件IO
-        </a>
-
-        <div class="collapse" id="[4]文件io-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            4.1 文件IO
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            4.2 系统调用接口
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[6]文字及图像显示-collapse" aria-expanded="false">
-            [6]文字及图像显示
-        </a>
-
-        <div class="collapse" id="[6]文字及图像显示-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            6.1、字符的编码方式
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            6.2、点阵字符的显示
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[7]交叉编译程序-collapse" aria-expanded="false">
-            [7]交叉编译程序
-        </a>
-
-        <div class="collapse" id="[7]交叉编译程序-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.1 交叉编译常见的错误
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.2 静态库的完整制作过程
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.3 如何安装一个库
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[8]输入系统应用编程-collapse" aria-expanded="false">
-            [8]输入系统应用编程
-        </a>
-
-        <div class="collapse" id="[8]输入系统应用编程-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.1 Linux输入系统简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.2 用ioctl获取设备信息
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.3 读取输入设备的数据
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.4 使用tslib读取电容屏的输入事件
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[9]网络编程基础-collapse" aria-expanded="false">
-            [9]网络编程基础
-        </a>
-
-        <div class="collapse" id="[9]网络编程基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            9.1 网络编程简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            9.2 TCP编程
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#qt学习-collapse" aria-expanded="false">
-                    QT学习
-                </a>
-                <div class="collapse" id="qt学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Qt项目1--四则运算计算器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [10] 常见的数据处理类
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [1] QT编译过程
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [2] 认识QTCreator
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [3] 信号与槽
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [4] QT的定时器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [5] MainWindow和文件操作
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [6] Event 事件
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [7] QT-TCP编程（一）基本了解
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [8] Layout -- 布局管理器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [9] QWidget类
-        </a>
-    </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#rtos学习-collapse" aria-expanded="false">
-                    RTOS学习
-                </a>
-                <div class="collapse" id="rtos学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#ucosiii-collapse" aria-expanded="false">
-            UCOSIII
-        </a>
-
-        <div class="collapse" id="ucosiii-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            UCOSIII下，STM32串口收发经验记录
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            UCOSIII中信号量、消息队列、互斥量相关API
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            基于STM32CubeIDE的UCOSIII移植
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-        <!-- endblock -->
-    </div>
-</nav>
-        <!-- endblock -->
-
-        <nav class="divider drac-bg-purple-cyan"></nav>
-
-        <div class="content">
-            <!-- block header -->
-                <header>
-    <nav class="navbar navbar-expand-xl drac-bg-purple"">
-        <div class="container-fluid">
-
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
-                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-
-            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
-                <ul class="navbar-nav">
-
-                    <!-- block preview -->
-                    <li class="nav-item">
-                            
-        <div class="container">
-            <div class="row row-preview">
-                <div class="col">
-                    <a href="../%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-                    </li>
-                    <!--  endblock -->
-
-                    <!-- block search -->
-                    <li class="nav-item"><div role="search" class="search-box">
-	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
-		placeholder="Search docs" title="Type search term here" />
-	</form>
+  </div>
 </div>
-                    </li>
-                    <!--  endblock -->
-
-                    <!-- block source -->
-                    <li class="nav-item">
-                        
-                    </li>
-                    <!--  endblock -->
-
-                </ul>
-            </div>
-
-        </div>
-    </nav>
+    
+    
+  </nav>
+  
 </header>
-            <!-- endblock -->
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-            <!-- block content -->
-                <section class="p-md-5 section-content">
-    <article>
-        <p><h1 id="ubuntu">Ubuntu简单介绍</h1>
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    示例程序
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            示例程序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Framebuffer程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第1篇、学习简介及基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            第1篇、学习简介及基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu简单介绍
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第2篇、环境搭建与开发板操作
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            第2篇、环境搭建与开发板操作
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一、环境搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二、开发板的第一个APP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    三、第一个驱动程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    四、构建bootloader、内核、文件系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第3篇、应用开发基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            第3篇、应用开发基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一、第一个hello world程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二、gcc编译器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B3%5DMakefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    三、Makefile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    五、Framebuffer应用编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_5" id="__nav_2_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [4]文件IO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            [4]文件IO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 文件IO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 系统调用接口
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_6" id="__nav_2_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [6]文字及图像显示
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            [6]文字及图像显示
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1、字符的编码方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2、点阵字符的显示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_7" id="__nav_2_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [7]交叉编译程序
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            [7]交叉编译程序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 交叉编译常见的错误
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 静态库的完整制作过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 如何安装一个库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_8" id="__nav_2_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [8]输入系统应用编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            [8]输入系统应用编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.1 Linux输入系统简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.2 用ioctl获取设备信息
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.3 读取输入设备的数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.4 使用tslib读取电容屏的输入事件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_9" id="__nav_2_4_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [9]网络编程基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            [9]网络编程基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.1 网络编程简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.2 TCP编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QT学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            QT学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qt项目1--四则运算计算器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [10] 常见的数据处理类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [1] QT编译过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [2] 认识QTCreator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [3] 信号与槽
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [4] QT的定时器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [5] MainWindow和文件操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [6] Event 事件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [7] QT-TCP编程（一）基本了解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [8] Layout -- 布局管理器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [9] QWidget类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RTOS学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            RTOS学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UCOSIII
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            UCOSIII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UCOSIII下，STM32串口收发经验记录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UCOSIII中信号量、消息队列、互斥量相关API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于STM32CubeIDE的UCOSIII移植
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="ubuntu">Ubuntu简单介绍</h1>
 <p>配套资料的虚拟机的密码：123456</p>
 <h1 id="windowslinux">windows和Linux的区别</h1>
 <p>命令不一样</p>
@@ -648,40 +1616,40 @@
 <li>/usr：包含用户安装的应用程序、库文件和文档等，是系统中最大的目录之一。</li>
 <li>/var：包含经常变化的文件，如日志文件、缓存文件、临时文件等。</li>
 </ol>
-<pre><code class="language-sql">/
-├── bin: 存放系统启动和基本维护所需的核心命令
-│   ├── ls
-│   ├── cp
-│   └── mv
-├── boot: 包含启动Linux系统所需的文件，如内核、引导加载程序和启动配置文件
-│   ├── kernel
-│   ├── bootloader
-│   └── config
-├── dev: 包含设备文件，用于访问系统中的硬件设备
-│   ├── disk
-│   ├── keyboard
-│   └── mouse
-├── etc: 存放系统的配置文件，如网络配置、用户账户配置、服务配置等
-│   ├── network
-│   ├── accounts
-│   └── services
-├── home: 包含用户的主目录，每个用户在此目录下有一个独立的子目录，用于存放个人文件和设置
-│   ├── user1
-│   ├── user2
-│   └── user3
-├── lib
-├── lib64
-├── mnt
-├── media
-├── opt: 用于安装可选的第三方软件
-├── proc: 包含系统内核和进程信息的虚拟文件系统
-├── root: 超级用户（root）的主目录
-├── sbin: 包含系统管理员使用的系统管理命令
-├── srv: 包含服务相关的数据文件
-├── tmp: 用于存放临时文件的目录
-├── usr: 包含用户安装的应用程序、库文件和文档等
-└── var: 包含经常变化的文件，如日志文件、缓存文件、临时文件等
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">/</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">bin</span><span class="p">:</span><span class="w"> </span><span class="err">存放系统启动和基本维护所需的核心命令</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">ls</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">cp</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">mv</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">├──</span><span class="w"> </span><span class="n">boot</span><span class="p">:</span><span class="w"> </span><span class="err">包含启动</span><span class="n">Linux系统所需的文件</span><span class="err">，如内核、引导加载程序和启动配置文件</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">kernel</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">bootloader</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">config</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="err">├──</span><span class="w"> </span><span class="n">dev</span><span class="p">:</span><span class="w"> </span><span class="err">包含设备文件，用于访问系统中的硬件设备</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">disk</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">keyboard</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">mouse</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="err">├──</span><span class="w"> </span><span class="n">etc</span><span class="p">:</span><span class="w"> </span><span class="err">存放系统的配置文件，如网络配置、用户账户配置、服务配置等</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">network</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">accounts</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">services</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="err">├──</span><span class="w"> </span><span class="n">home</span><span class="p">:</span><span class="w"> </span><span class="err">包含用户的主目录，每个用户在此目录下有一个独立的子目录，用于存放个人文件和设置</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">user1</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">user2</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">user3</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="err">├──</span><span class="w"> </span><span class="n">lib</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="err">├──</span><span class="w"> </span><span class="n">lib64</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="err">├──</span><span class="w"> </span><span class="n">mnt</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="err">├──</span><span class="w"> </span><span class="n">media</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="err">├──</span><span class="w"> </span><span class="n">opt</span><span class="p">:</span><span class="w"> </span><span class="err">用于安装可选的第三方软件</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="err">├──</span><span class="w"> </span><span class="n">proc</span><span class="p">:</span><span class="w"> </span><span class="err">包含系统内核和进程信息的虚拟文件系统</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="err">├──</span><span class="w"> </span><span class="n">root</span><span class="p">:</span><span class="w"> </span><span class="err">超级用户（</span><span class="n">root</span><span class="err">）的主目录</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="err">├──</span><span class="w"> </span><span class="n">sbin</span><span class="p">:</span><span class="w"> </span><span class="err">包含系统管理员使用的系统管理命令</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="err">├──</span><span class="w"> </span><span class="n">srv</span><span class="p">:</span><span class="w"> </span><span class="err">包含服务相关的数据文件</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="err">├──</span><span class="w"> </span><span class="n">tmp</span><span class="p">:</span><span class="w"> </span><span class="err">用于存放临时文件的目录</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="err">├──</span><span class="w"> </span><span class="n">usr</span><span class="p">:</span><span class="w"> </span><span class="err">包含用户安装的应用程序、库文件和文档等</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="err">└──</span><span class="w"> </span><span class="n">var</span><span class="p">:</span><span class="w"> </span><span class="err">包含经常变化的文件，如日志文件、缓存文件、临时文件等</span>
+</code></pre></div>
 <p>这些目录的定义和用途在不同的Linux发行版中可能会有一些细微的差异，但FHS标准提供了一个通用的基准，使得开发者和管理员可以更好地理解和组织文件系统。通过遵循FHS标准，可以提高系统的可移植性和互操作性，使得不同的Linux系统能够更好地兼容和交互。</p>
 <p>‍</p>
 <h1 id="_1">命令解析</h1>
@@ -709,37 +1677,37 @@
 <ol>
 <li>临时设置</li>
 </ol>
-<pre><code class="language-sql">export PATH=$PATH:/home/book
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=</span><span class="err">$</span><span class="n">PATH</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">book</span>
+</code></pre></div>
 <ol>
 <li>
 <p>永久设置</p>
 <p>2.1 修改/etc/environment</p>
 </li>
 </ol>
-<pre><code class="language-sql">sudo gedit /etc/environment
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">sudo</span><span class="w"> </span><span class="n">gedit</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">environment</span>
+</code></pre></div>
 <p>添加<code>/home/book</code>​，注意每个变量用<code>:</code>​隔开</p>
-<pre><code>2.2 修改～/.bashrc，在行尾添加或者修改：
-</code></pre>
-<pre><code class="language-sql">export PATH=$PATH:/home/book
-</code></pre>
+<div class="highlight"><pre><span></span><code>2.2 修改～/.bashrc，在行尾添加或者修改：
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=</span><span class="err">$</span><span class="n">PATH</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">book</span>
+</code></pre></div>
 <blockquote>
 <p>​<code>$</code>​代表之前的，修改完重启一下</p>
 </blockquote>
 <p>‍</p>
 <h1 id="_2">文件权限</h1>
-<pre><code class="language-sql">drwxrwxr-x
--rwxr--r--
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">-</span><span class="n">rwxr</span><span class="c1">--r--</span>
+</code></pre></div>
 <p>第一个字符，如果是<code>-</code>​代表是常规文件，如果是<code>d</code>​代表是一个目录</p>
 <p>后面每三个字符为一组，分别是<code>拥有者</code>​ <code>同组用户</code>​ <code>其他用户</code>​，r、w、x分别是读、写、执行权限</p>
 <p>‍</p>
 <p><strong>如何修改权限？</strong></p>
-<pre><code class="language-sql">chmod 权限 文件/目录
-chomd a-x 文件/目录   
-chmod -R 权限 目录     ＃修改目录下所有文件的权限
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">chmod</span><span class="w"> </span><span class="err">权限</span><span class="w"> </span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">chomd</span><span class="w"> </span><span class="n">a</span><span class="o">-</span><span class="n">x</span><span class="w"> </span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="w">   </span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">chmod</span><span class="w"> </span><span class="o">-</span><span class="n">R</span><span class="w"> </span><span class="err">权限</span><span class="w"> </span><span class="err">目录</span><span class="w">     </span><span class="err">＃修改目录下所有文件的权限</span>
+</code></pre></div>
 <blockquote>
 <p>a、u、g、o可以指定要修改的用户，分别代表所有人、用户、组、其他用户</p>
 </blockquote>
@@ -748,8 +1716,8 @@ chmod -R 权限 目录     ＃修改目录下所有文件的权限
 <p><strong>1. 查找－－find</strong></p>
 <p>​<code>find</code>​命令在Linux系统中是一个功能强大的文件搜索工具，它能够在指定目录下递归地查找文件和目录。<code>find</code>​命令提供了多种选项和表达式，可以根据文件名、文件类型、大小、权限等条件进行高级搜索。以下是<code>find</code>​命令的一些常用选项和使用示例：</p>
 <p>基本语法：</p>
-<pre><code>find &lt;path&gt; &lt;expression&gt; &lt;action&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>find &lt;path&gt; &lt;expression&gt; &lt;action&gt;
+</code></pre></div>
 <ul>
 <li>​<code>&lt;path&gt;</code>​：指定要搜索的起始目录路径。可以是绝对路径或相对路径。</li>
 <li>​<code>&lt;expression&gt;</code>​：定义搜索的条件和规则。</li>
@@ -768,13 +1736,17 @@ chmod -R 权限 目录     ＃修改目录下所有文件的权限
 <ol>
 <li>
 <p>在当前目录下查找所有以 ".txt" 结尾的文件：</p>
-<p><code>find . -name "*.txt"</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>find . -name &quot;*.txt&quot;
+</code></pre></div>
 2. 在 <code>/home</code>​ 目录下查找所有类型为普通文件且大小大于 1MB 的文件：</p>
-<p><code>find /home -type f -size +1M</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>find /home -type f -size +1M
+</code></pre></div>
 3. 在 <code>/var/log</code>​ 目录下查找最近 7 天内修改过的日志文件，并将结果输出到文件：</p>
-<p><code>find /var/log -name "*.log" -mtime -7 -exec cp {} /tmp/logs/ \;</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>find /var/log -name &quot;*.log&quot; -mtime -7 -exec cp {} /tmp/logs/ \;
+</code></pre></div>
 4. 在 <code>/usr/bin</code>​ 目录下查找所有属于用户 "john" 的可执行文件：</p>
-<p><code>find /usr/bin -user john -type f -executable</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>find /usr/bin -user john -type f -executable
+</code></pre></div>
 </li>
 </ol>
 <p>​<code>find</code>​命令非常灵活，可以根据具体需求组合不同的选项和表达式，以满足各种搜索要求。您可以通过 <code>man find</code>​ 命令查看完整的<code>find</code>​命令手册页，了解更多选项和用法。</p>
@@ -783,8 +1755,8 @@ chmod -R 权限 目录     ＃修改目录下所有文件的权限
 <p><strong>2. 内容查找－－grep</strong></p>
 <p>​<code>grep</code>​是在Linux系统中用于搜索文件内容的命令。它可以在文本文件中查找匹配指定模式的行，并将匹配的行打印出来。<code>grep</code>​支持正则表达式和多种搜索选项，提供了强大的文本搜索功能。以下是<code>grep</code>​命令的一些常用选项和使用示例：</p>
 <p>基本语法：</p>
-<pre><code>grep &lt;pattern&gt; &lt;file&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>grep &lt;pattern&gt; &lt;file&gt;
+</code></pre></div>
 <ul>
 <li>​<code>&lt;pattern&gt;</code>​：要搜索的模式，可以是字符串或正则表达式。</li>
 <li>​<code>&lt;file&gt;</code>​：要搜索的文件名或文件路径。</li>
@@ -805,15 +1777,20 @@ chmod -R 权限 目录     ＃修改目录下所有文件的权限
 <ol>
 <li>
 <p>在文件 "example.txt" 中搜索包含 "keyword" 的行：</p>
-<p><code>grep "keyword" example.txt</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>grep &quot;keyword&quot; example.txt
+</code></pre></div>
 2. 在目录 "/var/log" 及其子目录下搜索包含 "error" 的文件：</p>
-<p><code>grep -r "error" /var/log</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>grep -r &quot;error&quot; /var/log
+</code></pre></div>
 3. 在文件 "example.txt" 中搜索不区分大小写的 "keyword"：</p>
-<p><code>grep -i "keyword" example.txt</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>grep -i &quot;keyword&quot; example.txt
+</code></pre></div>
 4. 在文件 "example.txt" 中搜索整词 "word"：</p>
-<p><code>grep -w "word" example.txt</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>grep -w &quot;word&quot; example.txt
+</code></pre></div>
 5. 打印包含匹配模式的文件名：</p>
-<p><code>grep -l "pattern" file1.txt file2.txt</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>grep -l &quot;pattern&quot; file1.txt file2.txt
+</code></pre></div>
 </li>
 </ol>
 <p>​<code>grep</code>​命令非常灵活，可以根据具体需求组合不同的选项和模式，以满足各种文本搜索要求。您可以通过 <code>man grep</code>​ 命令查看完整的<code>grep</code>​命令手册页，了解更多选项和用法。</p>
@@ -821,8 +1798,8 @@ chmod -R 权限 目录     ＃修改目录下所有文件的权限
 <h1 id="_4">压缩/解压缩</h1>
 <p>​<code>tar</code>​命令是在Linux系统中用于创建和提取归档文件的命令。它可以将多个文件或目录打包成一个单独的归档文件，常用的归档文件格式是tarball（tar压缩文件），通常以 <code>.tar</code>​ 扩展名结尾。<code>tar</code>​命令还可以与其他压缩工具（如gzip和bzip2）结合使用，创建压缩的归档文件，这些文件通常以 <code>.tar.gz</code>​ 或 <code>.tar.bz2</code>​ 扩展名结尾。以下是<code>tar</code>​命令的一些常用选项和使用示例：</p>
 <p>基本语法：</p>
-<pre><code>tar &lt;options&gt; &lt;archive-file&gt; &lt;file1&gt; &lt;file2&gt; ...
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tar &lt;options&gt; &lt;archive-file&gt; &lt;file1&gt; &lt;file2&gt; ...
+</code></pre></div>
 <ul>
 <li>​<code>&lt;options&gt;</code>​：指定操作的选项，例如创建归档文件、提取归档文件等。</li>
 <li>​<code>&lt;archive-file&gt;</code>​：指定归档文件的名称。</li>
@@ -845,43 +1822,67 @@ chmod -R 权限 目录     ＃修改目录下所有文件的权限
 <ol>
 <li>
 <p>创建一个名为 <code>archive.tar</code>​ 的归档文件，包含文件 <code>file1.txt</code>​ 和目录 <code>dir1</code>​：</p>
-<p><code>tar -cf archive.tar file1.txt dir1</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>tar -cf archive.tar file1.txt dir1
+</code></pre></div>
 2. 创建一个名为 <code>archive.tar.gz</code>​ 的压缩归档文件，包含文件 <code>file1.txt</code>​ 和目录 <code>dir1</code>​：</p>
-<p><code>tar -czf archive.tar.gz file1.txt dir1</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>tar -czf archive.tar.gz file1.txt dir1
+</code></pre></div>
 3. 提取名为 <code>archive.tar</code>​ 的归档文件：</p>
-<p><code>tar -xf archive.tar</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>tar -xf archive.tar
+</code></pre></div>
 4. 提取名为 <code>archive.tar.gz</code>​ 的压缩归档文件：</p>
-<p><code>tar -xzf archive.tar.gz</code>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>tar -xzf archive.tar.gz
+</code></pre></div>
 5. 显示归档文件 <code>archive.tar</code>​ 中的内容列表：</p>
-<p><code>tar -tf archive.tar</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>tar -tf archive.tar
+</code></pre></div>
 </li>
 </ol>
 <p>​<code>tar</code>​命令非常灵活，可以根据具体需求组合不同的选项和文件列表，以满足各种归档和提取的要求。您可以通过 <code>man tar</code>​ 命令查看完整的<code>tar</code>​命令手册页，了解更多选项和用法。</p>
-<p>‍</p></p>
-    </article>
-</section>
-            <!-- endblock -->
+<p>‍</p>
 
-            <!-- block footer -->
-                <footer>
-    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
-        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
-            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
-            Made with Dracula Theme for MkDocs
-        </a>
-    </div>
-</footer>
-            <!-- endblock -->
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
-
-    </main>
-
-        <script>var base_url = '../../..';</script>
-        <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
-        <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
-        <script src="../../../assets/js/mkdocs.js""></script>
-			<script src="../../../search/main.js" defer></script>
-
-</body>
-
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+    
+  </body>
 </html>
