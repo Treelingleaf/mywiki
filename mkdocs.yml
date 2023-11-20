@@ -1,10 +1,6 @@
 site_name: Study Notes
 site_author: leaf
 
-#页面
-pages:
-    - Home: index.md
-    - About: about.md
 
 #主题
 theme:
