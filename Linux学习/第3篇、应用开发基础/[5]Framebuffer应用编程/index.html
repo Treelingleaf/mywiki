@@ -1,617 +1,1585 @@
+
 <!doctype html>
-<html lang="en">
-
-<head>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%5B3%5DMakefile/">
+      
+      
+        <link rel="next" href="../%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
         <title>五、Framebuffer应用编程 - My Docs</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+      
 
+
+    
+    
+      
+    
+    
+      
         
         
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
+        <a href="#framebuffer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../../assets/css/dracula-ui.css">
-        <link rel="stylesheet" href="../../../assets/css/mkdocs.css">
+  
 
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              五、Framebuffer应用编程
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
-            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
         
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-                <script>hljs.initHighlightingOnLoad();</script>
-
-</head>
-
-<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
-
-    <main class="d-flex">
-
-        <!-- block sidebar -->
-            <nav id="sidebar" class="sidebar drac-bg-black">
-    <div class="custom-menu">
-        <button type="button" id="sidebarCollapse" class="btn btn-primary">
-            <i class="fa fa-bars"></i>
-            <span class="sr-only">Menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
     </div>
-
-    <div class="p-4">
-        
-
-        <div class="drac-text-center">
-            
-                <span class="drac-text drac-line-height drac-text-white">My Docs</span>
-            
-        </div>
-
-        <div class="drac-box flex-column">
-            <ul class="dot-ul">
-                <li><div class="dot-li drac-bg-cyan"></div></li>
-                <li><div class="dot-li drac-bg-green"></div></li>
-                <li><div class="dot-li drac-bg-orange"></div></li>
-                <li><div class="dot-li drac-bg-pink"></div></li>
-                <li><div class="dot-li drac-bg-purple"></div></li>
-                <li><div class="dot-li drac-bg-red"></div></li>
-                <li><div class="dot-li drac-bg-yellow"></div></li>
-            </ul>
-        </div>
-
-        <hr class="drac-divider" />
-
-        <!-- block menu -->
-        <ul class="mb-5 drac-list drac-list-none">
-            
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-                    Welcome to MkDocs
-                </a>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class=" active 
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#linux学习-collapse" aria-expanded="false">
-                    Linux学习
-                </a>
-                <div class="collapse" id="linux学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#示例程序-collapse" aria-expanded="false">
-            示例程序
-        </a>
-
-        <div class="collapse" id="示例程序-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Framebuffer程序
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第1篇、学习简介及基础-collapse" aria-expanded="false">
-            第1篇、学习简介及基础
-        </a>
-
-        <div class="collapse" id="第1篇、学习简介及基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            学习简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B2%5DUbuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Ubuntu简单介绍
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第2篇、环境搭建与开发板操作-collapse" aria-expanded="false">
-            第2篇、环境搭建与开发板操作
-        </a>
-
-        <div class="collapse" id="第2篇、环境搭建与开发板操作-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            一、环境搭建
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            二、开发板的第一个APP
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            三、第一个驱动程序
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            四、构建bootloader、内核、文件系统
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第3篇、应用开发基础-collapse" aria-expanded="false">
-            第3篇、应用开发基础
-        </a>
-
-        <div class="collapse" id="第3篇、应用开发基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            一、第一个hello world程序
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            二、gcc编译器
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B3%5DMakefile/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            三、Makefile
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="./"
-            class=" active 
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            五、Framebuffer应用编程
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[4]文件io-collapse" aria-expanded="false">
-            [4]文件IO
-        </a>
-
-        <div class="collapse" id="[4]文件io-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            4.1 文件IO
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            4.2 系统调用接口
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[6]文字及图像显示-collapse" aria-expanded="false">
-            [6]文字及图像显示
-        </a>
-
-        <div class="collapse" id="[6]文字及图像显示-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            6.1、字符的编码方式
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            6.2、点阵字符的显示
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[7]交叉编译程序-collapse" aria-expanded="false">
-            [7]交叉编译程序
-        </a>
-
-        <div class="collapse" id="[7]交叉编译程序-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.1 交叉编译常见的错误
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.2 静态库的完整制作过程
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.3 如何安装一个库
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[8]输入系统应用编程-collapse" aria-expanded="false">
-            [8]输入系统应用编程
-        </a>
-
-        <div class="collapse" id="[8]输入系统应用编程-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.1 Linux输入系统简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.2 用ioctl获取设备信息
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.3 读取输入设备的数据
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.4 使用tslib读取电容屏的输入事件
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[9]网络编程基础-collapse" aria-expanded="false">
-            [9]网络编程基础
-        </a>
-
-        <div class="collapse" id="[9]网络编程基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            9.1 网络编程简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            9.2 TCP编程
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#qt学习-collapse" aria-expanded="false">
-                    QT学习
-                </a>
-                <div class="collapse" id="qt学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Qt项目1--四则运算计算器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [10] 常见的数据处理类
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [1] QT编译过程
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [2] 认识QTCreator
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [3] 信号与槽
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [4] QT的定时器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [5] MainWindow和文件操作
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [6] Event 事件
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [7] QT-TCP编程（一）基本了解
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [8] Layout -- 布局管理器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [9] QWidget类
-        </a>
-    </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#rtos学习-collapse" aria-expanded="false">
-                    RTOS学习
-                </a>
-                <div class="collapse" id="rtos学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#ucosiii-collapse" aria-expanded="false">
-            UCOSIII
-        </a>
-
-        <div class="collapse" id="ucosiii-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            UCOSIII下，STM32串口收发经验记录
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            UCOSIII中信号量、消息队列、互斥量相关API
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            基于STM32CubeIDE的UCOSIII移植
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-        <!-- endblock -->
-    </div>
-</nav>
-        <!-- endblock -->
-
-        <nav class="divider drac-bg-purple-cyan"></nav>
-
-        <div class="content">
-            <!-- block header -->
-                <header>
-    <nav class="navbar navbar-expand-xl drac-bg-purple"">
-        <div class="container-fluid">
-
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
-                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-
-            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
-                <ul class="navbar-nav">
-
-                    <!-- block preview -->
-                    <li class="nav-item">
-                            
-        <div class="container">
-            <div class="row row-preview">
-                <div class="col">
-                    <a href="../%5B3%5DMakefile/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="../%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-                    </li>
-                    <!--  endblock -->
-
-                    <!-- block search -->
-                    <li class="nav-item"><div role="search" class="search-box">
-	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
-		placeholder="Search docs" title="Type search term here" />
-	</form>
+  </div>
 </div>
-                    </li>
-                    <!--  endblock -->
-
-                    <!-- block source -->
-                    <li class="nav-item">
-                        
-                    </li>
-                    <!--  endblock -->
-
-                </ul>
-            </div>
-
-        </div>
-    </nav>
+    
+    
+  </nav>
+  
 </header>
-            <!-- endblock -->
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-            <!-- block content -->
-                <section class="p-md-5 section-content">
-    <article>
-        <p><h1 id="framebuffer">五、Framebuffer应用编程</h1>
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    示例程序
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            示例程序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Framebuffer程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第1篇、学习简介及基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            第1篇、学习简介及基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B2%5DUbuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu简单介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第2篇、环境搭建与开发板操作
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            第2篇、环境搭建与开发板操作
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一、环境搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二、开发板的第一个APP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    三、第一个驱动程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    四、构建bootloader、内核、文件系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第3篇、应用开发基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            第3篇、应用开发基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一、第一个hello world程序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二、gcc编译器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B3%5DMakefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    三、Makefile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    五、Framebuffer应用编程
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_5" id="__nav_2_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [4]文件IO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            [4]文件IO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 文件IO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 系统调用接口
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_6" id="__nav_2_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [6]文字及图像显示
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            [6]文字及图像显示
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1、字符的编码方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2、点阵字符的显示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_7" id="__nav_2_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [7]交叉编译程序
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            [7]交叉编译程序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 交叉编译常见的错误
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 静态库的完整制作过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 如何安装一个库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_8" id="__nav_2_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [8]输入系统应用编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            [8]输入系统应用编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.1 Linux输入系统简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.2 用ioctl获取设备信息
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.3 读取输入设备的数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.4 使用tslib读取电容屏的输入事件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_9" id="__nav_2_4_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [9]网络编程基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            [9]网络编程基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.1 网络编程简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.2 TCP编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QT学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            QT学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qt项目1--四则运算计算器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [10] 常见的数据处理类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [1] QT编译过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [2] 认识QTCreator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [3] 信号与槽
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [4] QT的定时器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [5] MainWindow和文件操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [6] Event 事件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [7] QT-TCP编程（一）基本了解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [8] Layout -- 布局管理器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [9] QWidget类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RTOS学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            RTOS学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UCOSIII
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            UCOSIII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UCOSIII下，STM32串口收发经验记录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UCOSIII中信号量、消息队列、互斥量相关API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于STM32CubeIDE的UCOSIII移植
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="framebuffer">五、Framebuffer应用编程</h1>
 <p>Framebuffer 是一种系统级接口，。它允许开发人员直接与计算机的图形硬件进行交互，以实现像素级的图形渲染。Framebuffer 接口通常是操作系统的一部分，特别是在Linux和类Unix系统上，用于控制显示设备和管理屏幕上的图像。</p>
 <p>Framebuffers 在嵌入式系统和一些图形应用程序中广泛使用，因为它们提供了更高级别的图形库无法提供的底层硬件控制和性能优化的功能。开发人员可以通过 Framebuffer 直接访问像素数据，并控制屏幕上的图像渲染，这对于需要定制化、性能要求高或实时图形处理的应用程序非常有用。</p>
 <p>因此，Framebuffer 是一个系统级接口，与操作系统紧密相关，用于管理图形显示硬件。它通常用于嵌入式系统、嵌入式图形用户界面和特定类型的图形应用程序。</p>
@@ -637,8 +1605,8 @@
 <p><strong>怎么计算一个像素点的地址？</strong></p>
 </blockquote>
 <p>通过计算特定像素点的偏移，你可以找到像素的地址。通常，计算像素地址的公式是：</p>
-<pre><code>pixel_address = framebuffer_base_address + (y * screen_width + x) * (bits_per_pixel / 8)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pixel_address = framebuffer_base_address + (y * screen_width + x) * (bits_per_pixel / 8)
+</code></pre></div>
 <ul>
 <li>​<code>framebuffer_add</code>​ 是 framebuffer 内存的起始地址。</li>
 <li>​<code>x</code>​ 和 <code>y</code>​ 是像素的水平和垂直坐标。</li>
@@ -654,35 +1622,35 @@
 <ol>
 <li>
 <p>打开 Framebuffer 设备：</p>
-<p><code>c
-fd_fb = open("/dev/fb0", O_RDWR);</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">fd_fb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/dev/fb0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">);</span>
+</code></pre></div>
 <p>在这一步，程序打开 Framebuffer 设备 <code>/dev/fb0</code>​，以便后续可以读取屏幕信息并绘制图形。
 2. 获取屏幕信息：</p>
-<p><code>c
-if (ioctl(fd_fb, FBIOGET_VSCREENINFO, &amp;var))</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd_fb</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">var</span><span class="p">))</span>
+</code></pre></div>
 <p>使用 <code>ioctl</code>​ 调用获取屏幕信息，将结果存储在 <code>var</code>​ 结构体中，以便了解有关屏幕的参数和属性。
 3. 计算屏幕相关信息：</p>
-<p><code>c
-line_width = var.xres * var.bits_per_pixel / 8;
-pixel_width = var.bits_per_pixel / 8;
-screen_size = var.xres * var.yres * var.bits_per_pixel / 8;</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">line_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">xres</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">pixel_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">screen_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">xres</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">yres</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+</code></pre></div>
 <p>这些计算包括每行的字节数、每像素的字节数和屏幕内存的大小，这些信息将用于后续的绘图操作。
 4. 映射 Framebuffer 内存：</p>
-<p><code>c
-fb_base = (unsigned char *)mmap(NULL, screen_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd_fb, 0);</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">fb_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">screen_size</span><span class="p">,</span><span class="w"> </span><span class="n">PROT_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">MAP_SHARED</span><span class="p">,</span><span class="w"> </span><span class="n">fd_fb</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
 <p>通过 <code>mmap</code>​ 调用将 Framebuffer 内存映射到程序中，以便进行像素级的绘制和图形操作。
 5. 清屏操作：</p>
-<p><code>c
-memset(fb_base, 0xff, screen_size);</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">memset</span><span class="p">(</span><span class="n">fb_base</span><span class="p">,</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"> </span><span class="n">screen_size</span><span class="p">);</span>
+</code></pre></div>
 <p>使用 <code>memset</code>​ 函数将整个屏幕清空，将所有像素设置为白色或其他指定的颜色，以准备进行绘图。
 6. 绘制图形：</p>
-<p><code>c
-draw_rectangle(200, 200, 100, 100, 0x00FF00);</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">draw_rectangle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00FF00</span><span class="p">);</span>
+</code></pre></div>
 <p>调用绘图函数，如 <code>draw_rectangle</code>​，来在屏幕上绘制所需的图形，如矩形。
 7. 取消内存映射和关闭设备：</p>
-<p><code>c
-munmap(fb_base, screen_size);
-close(fd_fb);</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">munmap</span><span class="p">(</span><span class="n">fb_base</span><span class="p">,</span><span class="w"> </span><span class="n">screen_size</span><span class="p">);</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">close</span><span class="p">(</span><span class="n">fd_fb</span><span class="p">);</span>
+</code></pre></div>
 <p>最后，释放内存映射并关闭 Framebuffer 设备，以确保资源的正确释放。</p>
 </li>
 </ol>
@@ -691,77 +1659,96 @@ close(fd_fb);</code></p>
 <p>具体怎么绘制的？</p>
 </blockquote>
 <p>看绘制像素点的函数：</p>
-<pre><code class="language-c">void lcd_put_pixel(int x, int y, unsigned int color)
-{
-    //计算需要绘制像素点的偏移地址，定义三个，是为了针对不同设备的不同bpp
-    unsigned char *pen_8 = fb_base + y * line_width + x * pixel_width;
-    unsigned short *pen_16;
-    unsigned int *pen_32;
-
-    unsigned int red, green, blue;
-
-    pen_16 = (unsigned short *)pen_8;
-    pen_32 = (unsigned int *)pen_8;
-
-    //根据不同设备处理对应的像素点的颜色值
-    switch (var.bits_per_pixel)
-    {
-    case 8:
-    {
-        *pen_8 = color;//将颜色值写入Framebuffer内存
-        break;
-    }
-    case 16:
-    {
-        /* 565 */
-        red = (color &gt;&gt; 16) &amp; 0xff;
-        green = (color &gt;&gt; 8) &amp; 0xff;
-        blue = (color &gt;&gt; 0) &amp; 0xff;
-        color = ((red &gt;&gt; 3) &lt;&lt; 11) | ((green &gt;&gt; 2) &lt;&lt; 5) | (blue &gt;&gt; 3);
-        *pen_16 = color;
-        break;
-    }
-    case 32:
-    {
-        *pen_32 = color;
-        break;
-    }
-    default:
-    {
-        printf(&quot;can't surport %dbpp\n&quot;, var.bits_per_pixel);
-        break;
-    }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lcd_put_pixel</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="c1">//计算需要绘制像素点的偏移地址，定义三个，是为了针对不同设备的不同bpp</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pen_8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fb_base</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">line_width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pixel_width</span><span class="p">;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">pen_16</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pen_32</span><span class="p">;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="n">pen_16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">pen_8</span><span class="p">;</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="n">pen_32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">pen_8</span><span class="p">;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="c1">//根据不同设备处理对应的像素点的颜色值</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="p">)</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">8</span><span class="p">:</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">        </span><span class="o">*</span><span class="n">pen_8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span><span class="c1">//将颜色值写入Framebuffer内存</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">16</span><span class="p">:</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">        </span><span class="cm">/* 565 */</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">        </span><span class="n">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">;</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">        </span><span class="n">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">;</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">        </span><span class="n">blue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">;</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">        </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">red</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">green</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">blue</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">        </span><span class="o">*</span><span class="n">pen_16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">32</span><span class="p">:</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">        </span><span class="o">*</span><span class="n">pen_32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;can&#39;t surport %dbpp</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="p">);</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="p">}</span>
+</code></pre></div>
 <blockquote>
 <p><strong>使用指针</strong>​<code>**unsigned char *pen_8 = fb_base + y * line_width + x * pixel_width;**</code>​ ** 来映射到Framebuffer内存，达到字节修改Framebuffer内存的像素值。**</p>
 </blockquote>
-<p>‍</p></p>
-    </article>
-</section>
-            <!-- endblock -->
+<p>‍</p>
 
-            <!-- block footer -->
-                <footer>
-    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
-        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
-            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
-            Made with Dracula Theme for MkDocs
-        </a>
-    </div>
-</footer>
-            <!-- endblock -->
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
-
-    </main>
-
-        <script>var base_url = '../../..';</script>
-        <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
-        <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
-        <script src="../../../assets/js/mkdocs.js""></script>
-			<script src="../../../search/main.js" defer></script>
-
-</body>
-
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+    
+  </body>
 </html>

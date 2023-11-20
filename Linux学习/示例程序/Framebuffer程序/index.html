@@ -1,1065 +1,2052 @@
+
 <!doctype html>
-<html lang="en">
-
-<head>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../..">
+      
+      
+        <link rel="next" href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
         <title>Framebuffer程序 - My Docs</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+      
 
+
+    
+    
+      
+    
+    
+      
         
         
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
+        <a href="#framebuffer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../../assets/css/dracula-ui.css">
-        <link rel="stylesheet" href="../../../assets/css/mkdocs.css">
+  
 
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Framebuffer程序
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
-            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
         
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-                <script>hljs.initHighlightingOnLoad();</script>
-
-</head>
-
-<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
-
-    <main class="d-flex">
-
-        <!-- block sidebar -->
-            <nav id="sidebar" class="sidebar drac-bg-black">
-    <div class="custom-menu">
-        <button type="button" id="sidebarCollapse" class="btn btn-primary">
-            <i class="fa fa-bars"></i>
-            <span class="sr-only">Menu</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
     </div>
-
-    <div class="p-4">
-        
-
-        <div class="drac-text-center">
-            
-                <span class="drac-text drac-line-height drac-text-white">My Docs</span>
-            
-        </div>
-
-        <div class="drac-box flex-column">
-            <ul class="dot-ul">
-                <li><div class="dot-li drac-bg-cyan"></div></li>
-                <li><div class="dot-li drac-bg-green"></div></li>
-                <li><div class="dot-li drac-bg-orange"></div></li>
-                <li><div class="dot-li drac-bg-pink"></div></li>
-                <li><div class="dot-li drac-bg-purple"></div></li>
-                <li><div class="dot-li drac-bg-red"></div></li>
-                <li><div class="dot-li drac-bg-yellow"></div></li>
-            </ul>
-        </div>
-
-        <hr class="drac-divider" />
-
-        <!-- block menu -->
-        <ul class="mb-5 drac-list drac-list-none">
-            
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-                    Welcome to MkDocs
-                </a>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class=" active 
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#linux学习-collapse" aria-expanded="false">
-                    Linux学习
-                </a>
-                <div class="collapse" id="linux学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#示例程序-collapse" aria-expanded="false">
-            示例程序
-        </a>
-
-        <div class="collapse" id="示例程序-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="./"
-            class=" active 
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Framebuffer程序
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第1篇、学习简介及基础-collapse" aria-expanded="false">
-            第1篇、学习简介及基础
-        </a>
-
-        <div class="collapse" id="第1篇、学习简介及基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            学习简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B2%5DUbuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Ubuntu简单介绍
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第2篇、环境搭建与开发板操作-collapse" aria-expanded="false">
-            第2篇、环境搭建与开发板操作
-        </a>
-
-        <div class="collapse" id="第2篇、环境搭建与开发板操作-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            一、环境搭建
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            二、开发板的第一个APP
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            三、第一个驱动程序
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            四、构建bootloader、内核、文件系统
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#第3篇、应用开发基础-collapse" aria-expanded="false">
-            第3篇、应用开发基础
-        </a>
-
-        <div class="collapse" id="第3篇、应用开发基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            一、第一个hello world程序
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            二、gcc编译器
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B3%5DMakefile/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            三、Makefile
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            五、Framebuffer应用编程
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[4]文件io-collapse" aria-expanded="false">
-            [4]文件IO
-        </a>
-
-        <div class="collapse" id="[4]文件io-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            4.1 文件IO
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            4.2 系统调用接口
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[6]文字及图像显示-collapse" aria-expanded="false">
-            [6]文字及图像显示
-        </a>
-
-        <div class="collapse" id="[6]文字及图像显示-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            6.1、字符的编码方式
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            6.2、点阵字符的显示
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[7]交叉编译程序-collapse" aria-expanded="false">
-            [7]交叉编译程序
-        </a>
-
-        <div class="collapse" id="[7]交叉编译程序-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.1 交叉编译常见的错误
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.2 静态库的完整制作过程
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            7.3 如何安装一个库
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[8]输入系统应用编程-collapse" aria-expanded="false">
-            [8]输入系统应用编程
-        </a>
-
-        <div class="collapse" id="[8]输入系统应用编程-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.1 Linux输入系统简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.2 用ioctl获取设备信息
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.3 读取输入设备的数据
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            8.4 使用tslib读取电容屏的输入事件
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#[9]网络编程基础-collapse" aria-expanded="false">
-            [9]网络编程基础
-        </a>
-
-        <div class="collapse" id="[9]网络编程基础-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            9.1 网络编程简介
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            9.2 TCP编程
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#qt学习-collapse" aria-expanded="false">
-                    QT学习
-                </a>
-                <div class="collapse" id="qt学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Qt项目1--四则运算计算器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [10] 常见的数据处理类
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [1] QT编译过程
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [2] 认识QTCreator
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [3] 信号与槽
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [4] QT的定时器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [5] MainWindow和文件操作
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [6] Event 事件
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [7] QT-TCP编程（一）基本了解
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [8] Layout -- 布局管理器
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            [9] QWidget类
-        </a>
-    </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="drac-box">
-                <a href="../../.."
-                    class="
-                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-                    data-bs-toggle="collapse" data-bs-target="#rtos学习-collapse" aria-expanded="false">
-                    RTOS学习
-                </a>
-                <div class="collapse" id="rtos学习-collapse">
-                    <ul class="mb-5 drac-list drac-list-none">
-                            
-    <li class="drac-box-ternary">
-        <a href="#" class="
-            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
-            data-bs-toggle="collapse" data-bs-target="#ucosiii-collapse" aria-expanded="false">
-            UCOSIII
-        </a>
-
-        <div class="collapse" id="ucosiii-collapse">
-            <ul class="mb-5 drac-list drac-list-none">
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            UCOSIII下，STM32串口收发经验记录
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            UCOSIII中信号量、消息队列、互斥量相关API
-        </a>
-    </li>
-                    
-    <li class="drac-box-ternary">
-        <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            基于STM32CubeIDE的UCOSIII移植
-        </a>
-    </li>
-            </ul>
-        </div>
-    </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-        <!-- endblock -->
-    </div>
-</nav>
-        <!-- endblock -->
-
-        <nav class="divider drac-bg-purple-cyan"></nav>
-
-        <div class="content">
-            <!-- block header -->
-                <header>
-    <nav class="navbar navbar-expand-xl drac-bg-purple"">
-        <div class="container-fluid">
-
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
-                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-
-            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
-                <ul class="navbar-nav">
-
-                    <!-- block preview -->
-                    <li class="nav-item">
-                            
-        <div class="container">
-            <div class="row row-preview">
-                <div class="col">
-                    <a href="../../.."
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-                    </li>
-                    <!--  endblock -->
-
-                    <!-- block search -->
-                    <li class="nav-item"><div role="search" class="search-box">
-	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
-		placeholder="Search docs" title="Type search term here" />
-	</form>
+  </div>
 </div>
-                    </li>
-                    <!--  endblock -->
-
-                    <!-- block source -->
-                    <li class="nav-item">
-                        
-                    </li>
-                    <!--  endblock -->
-
-                </ul>
-            </div>
-
-        </div>
-    </nav>
+    
+    
+  </nav>
+  
 </header>
-            <!-- endblock -->
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-            <!-- block content -->
-                <section class="p-md-5 section-content">
-    <article>
-        <p><h1 id="framebuffer">Framebuffer程序</h1>
-<pre><code class="language-c">#include &lt;sys/mman.h&gt;
-#include &lt;sys/types.h&gt;
-#include &lt;sys/stat.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;linux/fb.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;sys/ioctl.h&gt;
-#include &quot;font_8x16.h&quot;
 
-#define COLOR_WHITE 0xFFFFFF
-#define COLOR_BLACK 0x000000
-#define COLOR_RED 0xFF0000
-#define COLOR_GREEN 0x00FF00
-#define COLOR_BLUE 0x0000FF
 
-// 定义默认背景色
-#define BACKGROUND_COLOR COLOR_BLACK
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
-int fd_fb;
-struct fb_var_screeninfo var; /* Current var */
-int screen_size;
-unsigned char *fbmem;
-unsigned int line_width;
-unsigned int pixel_width;
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
 
-int fd_hzk16;
+      </a>
+    </li>
+  
 
-/**********************************************************************
- * 函数名称： lcd_put_pixel
- * 功能描述： 在LCD指定位置上输出指定颜色（描点）
- * 输入参数： x坐标，y坐标，颜色
- * 输出参数： 无
- * 返 回 值： 会
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2020/05/12        V1.0     zh(angenao)         创建
- ***********************************************************************/
-void lcd_put_pixel(int x, int y, unsigned int color)
-{
-    unsigned char *pen_8 = fbmem + y * line_width + x * pixel_width;
-    unsigned short *pen_16;
-    unsigned int *pen_32;
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux学习
+  </span>
+  
 
-    unsigned int red, green, blue;
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Linux学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    示例程序
+  </span>
+  
 
-    pen_16 = (unsigned short *)pen_8;
-    pen_32 = (unsigned int *)pen_8;
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            示例程序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Framebuffer程序
+  </span>
+  
 
-    // 根据不同设备处理对应的像素点的颜色值
-    switch (var.bits_per_pixel)
-    {
-    case 8:
-    {
-        *pen_8 = color;
-        break;
-    }
-    case 16:
-    {
-        /* 565 */
-        red = (color &gt;&gt; 16) &amp; 0xff;
-        green = (color &gt;&gt; 8) &amp; 0xff;
-        blue = (color &gt;&gt; 0) &amp; 0xff;
-        color = ((red &gt;&gt; 3) &lt;&lt; 11) | ((green &gt;&gt; 2) &lt;&lt; 5) | (blue &gt;&gt; 3);
-        *pen_16 = color;
-        break;
-    }
-    case 32:
-    {
-        *pen_32 = color;
-        break;
-    }
-    default:
-    {
-        printf(&quot;can't surport %dbpp\n&quot;, var.bits_per_pixel);
-        break;
-    }
-    }
-}
+      </a>
+      
+    </li>
+  
 
-/**********************************************************************
- * 函数名称： draw_solid_rectangle
- * 功能描述： 在LCD指定位置上输出一个实心矩形
- * 输入参数： x坐标，y坐标，矩形宽度、矩形高度、颜色
- * 输出参数： 无
- * 返 回 值： 会
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2023/10/26        V1.0     Treeleaf        创建
- ***********************************************************************/
-void draw_solid_rectangle(int x, int y, int width, int height, unsigned int color)
-{
-    int i, j;
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
 
-    for (i = x; i &lt; x + width; i++)
-    {
-        for (j = y; j &lt; y + height; j++)
-        {
-            lcd_put_pixel(i, j, color);
-        }
-    }
-}
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第1篇、学习简介及基础
+  </span>
+  
 
-/**********************************************************************
- * 函数名称： draw_hollow_rectangle
- * 功能描述： 在LCD指定位置上输出一个空心矩形
- * 输入参数： x坐标，y坐标，矩形宽度、矩形高度、颜色、框架宽度
- * 输出参数： 无
- * 返 回 值： 会
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2023/10/26        V1.0     Treeleaf        创建
- ***********************************************************************/
-void draw_hollow_rectangle(int x, int y, int width, int height, unsigned int color, int line_width)
-{
-    for (int i = x; i &lt; x + width; i++)
-    {
-        for (int j = 0; j &lt; line_width; j++)
-        {
-            lcd_put_pixel(i, y + j, color);          // 顶边
-            lcd_put_pixel(i, y + height - j, color); // 底边
-        }
-    }
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            第1篇、学习简介及基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习简介
+  </span>
+  
 
-    for (int i = y; i &lt; y + height; i++)
-    {
-        for (int j = 0; j &lt; line_width; j++)
-        {
-            lcd_put_pixel(x + j, i, color);         // 左边
-            lcd_put_pixel(x + width - j, i, color); // 右边
-        }
-    }
-}
+      </a>
+    </li>
+  
 
-/**********************************************************************
- * 函数名称： draw_filled_circle
- * 功能描述： 在LCD指定位置上输出一个实心圆
- * 输入参数： 圆心x坐标，圆心y坐标、圆的半径，颜色
- * 输出参数： 无
- * 返 回 值： 会
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2023/10/26        V1.0     Treeleaf        创建
- ***********************************************************************/
-void draw_filled_circle(int x0, int y0, int radius, unsigned int color)
-{
-    int x = radius;
-    int y = 0;
-    int radius_error = 1 - x;
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B2%5DUbuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu简单介绍
+  </span>
+  
 
-    while (x &gt;= y)
-    {
-        for (int i = x0 - x; i &lt;= x0 + x; i++)
-        {
-            for (int j = y0 - y; j &lt;= y0 + y; j++)
-            {
-                lcd_put_pixel(i, j, color);
-            }
-        }
+      </a>
+    </li>
+  
 
-        for (int i = x0 - y; i &lt;= x0 + y; i++)
-        {
-            for (int j = y0 - x; j &lt;= y0 + x; j++)
-            {
-                lcd_put_pixel(i, j, color);
-            }
-        }
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
 
-        y++;
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第2篇、环境搭建与开发板操作
+  </span>
+  
 
-        if (radius_error &lt; 0)
-        {
-            radius_error += 2 * y + 1;
-        }
-        else
-        {
-            x--;
-            radius_error += 2 * (y - x + 1);
-        }
-    }
-}
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            第2篇、环境搭建与开发板操作
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一、环境搭建
+  </span>
+  
 
-/**********************************************************************
- * 函数名称： lcd_put_ascii
- * 功能描述： 在LCD指定位置上显示一个8*16的字符
- * 输入参数： x坐标，y坐标，ascii码，字符颜色
- * 输出参数： 无
- * 返 回 值： 无
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2020/05/12        V1.0     zh(angenao)         创建
- ***********************************************************************/
-void lcd_put_ascii(int x, int y, unsigned char c, int color)
-{
-    unsigned char *dots = (unsigned char *)&amp;fontdata_8x16[c * 16];
-    int i, b;
-    unsigned char byte;
+      </a>
+    </li>
+  
 
-    for (i = 0; i &lt; 16; i++)
-    {
-        byte = dots[i];
-        for (b = 7; b &gt;= 0; b--)
-        {
-            // 从最高位开始解析
-            if (byte &amp; (1 &lt;&lt; b))
-            {
-                /* show */
-                lcd_put_pixel(x + 7 - b, y + i, color); /* 白 */
-            }
-            else
-            {
-                /* hide */
-                lcd_put_pixel(x + 7 - b, y + i, BACKGROUND_COLOR); /* 黑 */
-            }
-        }
-    }
-}
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二、开发板的第一个APP
+  </span>
+  
 
-/**********************************************************************
- * 函数名称： lcd_put_string
- * 功能描述： 在LCD指定位置上显示一个8*16的字符串
- * 输入参数： x坐标，y坐标，字符串，字符串颜色
- * 输出参数： 无
- * 返 回 值： 无
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2020/05/12        V1.0     zh(angenao)         创建
- ***********************************************************************/
+      </a>
+    </li>
+  
 
-void lcd_put_string(int x, int y, char *str, int color)
-{
-    int len = strlen(str); // 获取字符串的长度
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    三、第一个驱动程序
+  </span>
+  
 
-    for (int i = 0; i &lt; len; i++)
-    {
-        char character = str[i]; // 通过下标索引取出字符
-        lcd_put_ascii(x + 8 * i, y, character, color);
-    }
-}
+      </a>
+    </li>
+  
 
-/**********************************************************************
- * 函数名称： lcd_clear
- * 功能描述： 清屏
- * 输入参数： 颜色
- * 输出参数： 无
- * 返 回 值： 无
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2020/05/12        V1.0     zh(angenao)         创建
- ***********************************************************************/
-void lcd_clear(int color)
-{
-    memset(fbmem, color, screen_size);
-}
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    四、构建bootloader、内核、文件系统
+  </span>
+  
 
-/**********************************************************************
- * 函数名称： lcd_put_chinese
- * 功能描述： 在LCD指定位置上显示一个16*16的汉字
- * 输入参数： x坐标，y坐标，ascii码,HZK16的文件描述符
- * 输出参数： 无
- * 返 回 值： 无
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2020/05/12        V1.0     zh(angenao)         创建
- ***********************************************************************/
-// TODO 由全局文件描述符来取汉字点阵数据
-void lcd_put_chinese(int x, int y, unsigned char *str, int HZK16_fd, int color)
-{
-    unsigned int area = str[0] - 0xA1;
-    unsigned int where = str[1] - 0xA1;
-    unsigned char buf[32];
-    unsigned char byte;
-    lseek(HZK16_fd, (area * 94 + where) * 32, SEEK_SET);
-    read(HZK16_fd, buf, 32);
+      </a>
+    </li>
+  
 
-    int i, j, b;
-    for (i = 0; i &lt; 16; i++)
-        for (j = 0; j &lt; 2; j++)
-        {
-            byte = buf[i * 2 + j];
-            for (b = 7; b &gt;= 0; b--)
-            {
-                if (byte &amp; (1 &lt;&lt; b))
-                {
-                    /* show */
-                    lcd_put_pixel(x + j * 8 + 7 - b, y + i, color); /* 字体颜色 */
-                }
-                else
-                {
-                    /* hide */
-                    lcd_put_pixel(x + j * 8 + 7 - b, y + i, BACKGROUND_COLOR); /* 背景色 */
-                }
-            }
-        }
-}
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
 
-/**********************************************************************
- * 函数名称： lcd_put_chinese_string
- * 功能描述： 在LCD指定位置上显示一个16*16的汉字字符串
- * 输入参数： x坐标，y坐标，ascii码,HZK16的文件描述符
- * 输出参数： 无
- * 返 回 值： 会
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2023/10/26        V1.0     Treeleaf        创建
- ***********************************************************************/
-void lcd_put_chinese_string(int x, int y, unsigned char *str, int HZK16_fd, int color)
-{
-    int len = strlen(str);
-    printf(&quot;%d\n&quot;, len);
-    int i;
-    for (i = 0; i &lt; len / 2; i++)
-    {
-        char buf[2] = {str[i * 2], str[i * 2 + 1]};
-        lcd_put_chinese(x, y, buf, HZK16_fd, color);
-        x += 16;
-    }
-}
-/**********************************************************************
- * 函数名称： lcd_put_mixed_string
- * 功能描述： 在LCD指定位置上显示一个中文英文混合字符串，支持换行显示'\n'
- * 输入参数： x坐标，y坐标，ascii码,HZK16的文件描述符,字符串颜色
- * 输出参数： 无
- * 返 回 值： 会
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2023/10/26        V1.0     Treeleaf        创建
- ***********************************************************************/
-void lcd_put_mixed_string(int x, int y, char *str, int HZK16_fd, int color)
-{
-    int len = strlen(str);
-    int i;
-    int x_tmp = x;
-    for (i = 0; i &lt; len; i++)
-    {
-        unsigned char character = str[i];
-        if (character &gt;= 0x80)
-        {
-            // 如果字符大于等于0x80，表示它是汉字（或其他非ASCII字符）
-            // 调用 lcd_put_chinese 函数来显示汉字
-            unsigned char chinese_char[2] = {character, str[i + 1]};
-            lcd_put_chinese(x, y, chinese_char, HZK16_fd, color);
-            i++;     // 跳过下一个字符，因为它已经被处理了
-            x += 16; // 假设汉字字符占用16个像素的宽度
-        }
-        else if (character == '\n')
-        {
-            // 如果字符是换行符，将 y 坐标增加16，并重置 x 坐标为初始坐标
-            y += 16;
-            x = x_tmp;
-        }
-        else
-        {
-            // 如果字符是ASCII字符，调用 lcd_put_ascii 函数来显示
-            lcd_put_ascii(x, y, character, color);
-            x += 8; // ASCII字符通常占用8个像素的宽度
-        }
-    }
-}
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    第3篇、应用开发基础
+  </span>
+  
 
-/**********************************************************************
- * 函数名称： lcd_init
- * 功能描述： LCD初始化函数
- * 输入参数： 无
- * 输出参数： 无
- * 返 回 值： 错误码
- * 修改日期        版本号     修改人        修改内容
- * -----------------------------------------------
- * 2023/10/26        V1.0     Treeleaf        创建
- ***********************************************************************/
-int lcd_init(void)
-{
-    fd_fb = open(&quot;/dev/fb0&quot;, O_RDWR);
-    if (fd_fb &lt; 0)
-    {
-        printf(&quot;can't open /dev/fb0\n&quot;);
-        return -1;
-    }
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            第3篇、应用开发基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一、第一个hello world程序
+  </span>
+  
 
-    if (ioctl(fd_fb, FBIOGET_VSCREENINFO, &amp;var))
-    {
-        printf(&quot;can't get var\n&quot;);
-        return -1;
-    }
+      </a>
+    </li>
+  
 
-    line_width = var.xres * var.bits_per_pixel / 8;
-    pixel_width = var.bits_per_pixel / 8;
-    screen_size = var.xres * var.yres * var.bits_per_pixel / 8;
-    fbmem = (unsigned char *)mmap(NULL, screen_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd_fb, 0);
-    if (fbmem == (unsigned char *)-1)
-    {
-        printf(&quot;can't mmap\n&quot;);
-        return -1;
-    }
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二、gcc编译器
+  </span>
+  
 
-    fd_hzk16 = open(&quot;HZK16&quot;, O_RDONLY);
-    if (fd_hzk16 &lt; 0)
-    {
-        printf(&quot;can't open HZK16\n&quot;);
-        return -1;
-    }
-    return 0;
-}
+      </a>
+    </li>
+  
 
-int main(int argc, char **argv)
-{
-    if (lcd_init() != 0)
-    {
-        return -1;
-    }
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B3%5DMakefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    三、Makefile
+  </span>
+  
 
-    /* 清屏: 全部设为黑色 */
-    lcd_clear(COLOR_BLACK);
+      </a>
+    </li>
+  
 
-    lcd_put_mixed_string(400, 400 + 48, &quot;来试试换行\n然后这是第二行\nThis is line3&quot;, fd_hzk16, COLOR_RED);
-    munmap(fbmem, screen_size);
-    close(fd_fb);
-    close(fd_hzk16);
-    return 0;
-}
-</code></pre>
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    五、Framebuffer应用编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_5" id="__nav_2_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [4]文件IO
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            [4]文件IO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 文件IO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 系统调用接口
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_6" id="__nav_2_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [6]文字及图像显示
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            [6]文字及图像显示
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.1、字符的编码方式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.2、点阵字符的显示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_7" id="__nav_2_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [7]交叉编译程序
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            [7]交叉编译程序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.1 交叉编译常见的错误
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.2 静态库的完整制作过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.3 如何安装一个库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_8" id="__nav_2_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [8]输入系统应用编程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            [8]输入系统应用编程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.1 Linux输入系统简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.2 用ioctl获取设备信息
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.3 读取输入设备的数据
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.4 使用tslib读取电容屏的输入事件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_9" id="__nav_2_4_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    [9]网络编程基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            [9]网络编程基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.1 网络编程简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.2 TCP编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QT学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            QT学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qt项目1--四则运算计算器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [10] 常见的数据处理类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [1] QT编译过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [2] 认识QTCreator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [3] 信号与槽
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [4] QT的定时器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [5] MainWindow和文件操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [6] Event 事件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [7] QT-TCP编程（一）基本了解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [8] Layout -- 布局管理器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    [9] QWidget类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RTOS学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            RTOS学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UCOSIII
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            UCOSIII
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UCOSIII下，STM32串口收发经验记录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UCOSIII中信号量、消息队列、互斥量相关API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基于STM32CubeIDE的UCOSIII移植
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="framebuffer">Framebuffer程序</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/mman.h&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/stat.h&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/fb.h&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/ioctl.h&gt;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;font_8x16.h&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="cp">#define COLOR_WHITE 0xFFFFFF</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="cp">#define COLOR_BLACK 0x000000</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="cp">#define COLOR_RED 0xFF0000</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="cp">#define COLOR_GREEN 0x00FF00</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="cp">#define COLOR_BLUE 0x0000FF</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1">// 定义默认背景色</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="cp">#define BACKGROUND_COLOR COLOR_BLACK</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="kt">int</span><span class="w"> </span><span class="n">fd_fb</span><span class="p">;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="k">struct</span><span class="w"> </span><span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="n">var</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Current var */</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="kt">int</span><span class="w"> </span><span class="n">screen_size</span><span class="p">;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">fbmem</span><span class="p">;</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">line_width</span><span class="p">;</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pixel_width</span><span class="p">;</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="kt">int</span><span class="w"> </span><span class="n">fd_hzk16</span><span class="p">;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="cm"> * 函数名称： lcd_put_pixel</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="cm"> * 功能描述： 在LCD指定位置上输出指定颜色（描点）</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="cm"> * 输入参数： x坐标，y坐标，颜色</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="cm"> * 返 回 值： 会</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="cm"> * 2020/05/12        V1.0     zh(angenao)         创建</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lcd_put_pixel</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="p">{</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pen_8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fbmem</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">line_width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pixel_width</span><span class="p">;</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">pen_16</span><span class="p">;</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pen_32</span><span class="p">;</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">green</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="p">;</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">    </span><span class="n">pen_16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">pen_8</span><span class="p">;</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">    </span><span class="n">pen_32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">pen_8</span><span class="p">;</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">    </span><span class="c1">// 根据不同设备处理对应的像素点的颜色值</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="p">)</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">8</span><span class="p">:</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">        </span><span class="o">*</span><span class="n">pen_8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">16</span><span class="p">:</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">        </span><span class="cm">/* 565 */</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">        </span><span class="n">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">;</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">        </span><span class="n">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">;</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">        </span><span class="n">blue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xff</span><span class="p">;</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">        </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">red</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">green</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">blue</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">        </span><span class="o">*</span><span class="n">pen_16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">32</span><span class="p">:</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">        </span><span class="o">*</span><span class="n">pen_32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">color</span><span class="p">;</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;can&#39;t surport %dbpp</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="p">);</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="p">}</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a>
+<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="cm"> * 函数名称： draw_solid_rectangle</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="cm"> * 功能描述： 在LCD指定位置上输出一个实心矩形</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="cm"> * 输入参数： x坐标，y坐标，矩形宽度、矩形高度、颜色</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="cm"> * 返 回 值： 会</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="cm"> * 2023/10/26        V1.0     Treeleaf        创建</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a><span class="kt">void</span><span class="w"> </span><span class="nf">draw_solid_rectangle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="p">{</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a>
+<a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a><span class="w">            </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a><span class="p">}</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104" href="#__codelineno-0-104"></a>
+<a id="__codelineno-0-105" name="__codelineno-0-105" href="#__codelineno-0-105"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106" href="#__codelineno-0-106"></a><span class="cm"> * 函数名称： draw_hollow_rectangle</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107" href="#__codelineno-0-107"></a><span class="cm"> * 功能描述： 在LCD指定位置上输出一个空心矩形</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108" href="#__codelineno-0-108"></a><span class="cm"> * 输入参数： x坐标，y坐标，矩形宽度、矩形高度、颜色、框架宽度</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109" href="#__codelineno-0-109"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110" href="#__codelineno-0-110"></a><span class="cm"> * 返 回 值： 会</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111" href="#__codelineno-0-111"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112" href="#__codelineno-0-112"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113" href="#__codelineno-0-113"></a><span class="cm"> * 2023/10/26        V1.0     Treeleaf        创建</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114" href="#__codelineno-0-114"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115" href="#__codelineno-0-115"></a><span class="kt">void</span><span class="w"> </span><span class="nf">draw_hollow_rectangle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">line_width</span><span class="p">)</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116" href="#__codelineno-0-116"></a><span class="p">{</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117" href="#__codelineno-0-117"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118" href="#__codelineno-0-118"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119" href="#__codelineno-0-119"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">line_width</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120" href="#__codelineno-0-120"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121" href="#__codelineno-0-121"></a><span class="w">            </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span><span class="w">          </span><span class="c1">// 顶边</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122" href="#__codelineno-0-122"></a><span class="w">            </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span><span class="w"> </span><span class="c1">// 底边</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123" href="#__codelineno-0-123"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124" href="#__codelineno-0-124"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125" href="#__codelineno-0-125"></a>
+<a id="__codelineno-0-126" name="__codelineno-0-126" href="#__codelineno-0-126"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127" href="#__codelineno-0-127"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128" href="#__codelineno-0-128"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">line_width</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129" href="#__codelineno-0-129"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130" href="#__codelineno-0-130"></a><span class="w">            </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span><span class="w">         </span><span class="c1">// 左边</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131" href="#__codelineno-0-131"></a><span class="w">            </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span><span class="w"> </span><span class="c1">// 右边</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132" href="#__codelineno-0-132"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133" href="#__codelineno-0-133"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134" href="#__codelineno-0-134"></a><span class="p">}</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135" href="#__codelineno-0-135"></a>
+<a id="__codelineno-0-136" name="__codelineno-0-136" href="#__codelineno-0-136"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-137" name="__codelineno-0-137" href="#__codelineno-0-137"></a><span class="cm"> * 函数名称： draw_filled_circle</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138" href="#__codelineno-0-138"></a><span class="cm"> * 功能描述： 在LCD指定位置上输出一个实心圆</span>
+<a id="__codelineno-0-139" name="__codelineno-0-139" href="#__codelineno-0-139"></a><span class="cm"> * 输入参数： 圆心x坐标，圆心y坐标、圆的半径，颜色</span>
+<a id="__codelineno-0-140" name="__codelineno-0-140" href="#__codelineno-0-140"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-141" name="__codelineno-0-141" href="#__codelineno-0-141"></a><span class="cm"> * 返 回 值： 会</span>
+<a id="__codelineno-0-142" name="__codelineno-0-142" href="#__codelineno-0-142"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-143" name="__codelineno-0-143" href="#__codelineno-0-143"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-144" name="__codelineno-0-144" href="#__codelineno-0-144"></a><span class="cm"> * 2023/10/26        V1.0     Treeleaf        创建</span>
+<a id="__codelineno-0-145" name="__codelineno-0-145" href="#__codelineno-0-145"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-146" name="__codelineno-0-146" href="#__codelineno-0-146"></a><span class="kt">void</span><span class="w"> </span><span class="nf">draw_filled_circle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y0</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-147" name="__codelineno-0-147" href="#__codelineno-0-147"></a><span class="p">{</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148" href="#__codelineno-0-148"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149" href="#__codelineno-0-149"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150" href="#__codelineno-0-150"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">radius_error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-0-151" name="__codelineno-0-151" href="#__codelineno-0-151"></a>
+<a id="__codelineno-0-152" name="__codelineno-0-152" href="#__codelineno-0-152"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-0-153" name="__codelineno-0-153" href="#__codelineno-0-153"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154" href="#__codelineno-0-154"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-155" name="__codelineno-0-155" href="#__codelineno-0-155"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-156" name="__codelineno-0-156" href="#__codelineno-0-156"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">y0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157" href="#__codelineno-0-157"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-158" name="__codelineno-0-158" href="#__codelineno-0-158"></a><span class="w">                </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-0-159" name="__codelineno-0-159" href="#__codelineno-0-159"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160" href="#__codelineno-0-160"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161" href="#__codelineno-0-161"></a>
+<a id="__codelineno-0-162" name="__codelineno-0-162" href="#__codelineno-0-162"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-163" name="__codelineno-0-163" href="#__codelineno-0-163"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-164" name="__codelineno-0-164" href="#__codelineno-0-164"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">y0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-165" name="__codelineno-0-165" href="#__codelineno-0-165"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-166" name="__codelineno-0-166" href="#__codelineno-0-166"></a><span class="w">                </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-0-167" name="__codelineno-0-167" href="#__codelineno-0-167"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-168" name="__codelineno-0-168" href="#__codelineno-0-168"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-169" name="__codelineno-0-169" href="#__codelineno-0-169"></a>
+<a id="__codelineno-0-170" name="__codelineno-0-170" href="#__codelineno-0-170"></a><span class="w">        </span><span class="n">y</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171" href="#__codelineno-0-171"></a>
+<a id="__codelineno-0-172" name="__codelineno-0-172" href="#__codelineno-0-172"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">radius_error</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-173" name="__codelineno-0-173" href="#__codelineno-0-173"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174" href="#__codelineno-0-174"></a><span class="w">            </span><span class="n">radius_error</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175" href="#__codelineno-0-175"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-176" name="__codelineno-0-176" href="#__codelineno-0-176"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177" href="#__codelineno-0-177"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178" href="#__codelineno-0-178"></a><span class="w">            </span><span class="n">x</span><span class="o">--</span><span class="p">;</span>
+<a id="__codelineno-0-179" name="__codelineno-0-179" href="#__codelineno-0-179"></a><span class="w">            </span><span class="n">radius_error</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-180" name="__codelineno-0-180" href="#__codelineno-0-180"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181" href="#__codelineno-0-181"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-182" name="__codelineno-0-182" href="#__codelineno-0-182"></a><span class="p">}</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183" href="#__codelineno-0-183"></a>
+<a id="__codelineno-0-184" name="__codelineno-0-184" href="#__codelineno-0-184"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185" href="#__codelineno-0-185"></a><span class="cm"> * 函数名称： lcd_put_ascii</span>
+<a id="__codelineno-0-186" name="__codelineno-0-186" href="#__codelineno-0-186"></a><span class="cm"> * 功能描述： 在LCD指定位置上显示一个8*16的字符</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187" href="#__codelineno-0-187"></a><span class="cm"> * 输入参数： x坐标，y坐标，ascii码，字符颜色</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188" href="#__codelineno-0-188"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189" href="#__codelineno-0-189"></a><span class="cm"> * 返 回 值： 无</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190" href="#__codelineno-0-190"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-191" name="__codelineno-0-191" href="#__codelineno-0-191"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-192" name="__codelineno-0-192" href="#__codelineno-0-192"></a><span class="cm"> * 2020/05/12        V1.0     zh(angenao)         创建</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193" href="#__codelineno-0-193"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-194" name="__codelineno-0-194" href="#__codelineno-0-194"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lcd_put_ascii</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195" href="#__codelineno-0-195"></a><span class="p">{</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196" href="#__codelineno-0-196"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dots</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">fontdata_8x16</span><span class="p">[</span><span class="n">c</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">16</span><span class="p">];</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197" href="#__codelineno-0-197"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-0-198" name="__codelineno-0-198" href="#__codelineno-0-198"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">byte</span><span class="p">;</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199" href="#__codelineno-0-199"></a>
+<a id="__codelineno-0-200" name="__codelineno-0-200" href="#__codelineno-0-200"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201" href="#__codelineno-0-201"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202" href="#__codelineno-0-202"></a><span class="w">        </span><span class="n">byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dots</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203" href="#__codelineno-0-203"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="o">--</span><span class="p">)</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204" href="#__codelineno-0-204"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205" href="#__codelineno-0-205"></a><span class="w">            </span><span class="c1">// 从最高位开始解析</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206" href="#__codelineno-0-206"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">byte</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">))</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207" href="#__codelineno-0-207"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208" href="#__codelineno-0-208"></a><span class="w">                </span><span class="cm">/* show */</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209" href="#__codelineno-0-209"></a><span class="w">                </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 白 */</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210" href="#__codelineno-0-210"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-211" name="__codelineno-0-211" href="#__codelineno-0-211"></a><span class="w">            </span><span class="k">else</span>
+<a id="__codelineno-0-212" name="__codelineno-0-212" href="#__codelineno-0-212"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-213" name="__codelineno-0-213" href="#__codelineno-0-213"></a><span class="w">                </span><span class="cm">/* hide */</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214" href="#__codelineno-0-214"></a><span class="w">                </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">BACKGROUND_COLOR</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 黑 */</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215" href="#__codelineno-0-215"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-216" name="__codelineno-0-216" href="#__codelineno-0-216"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-217" name="__codelineno-0-217" href="#__codelineno-0-217"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218" href="#__codelineno-0-218"></a><span class="p">}</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219" href="#__codelineno-0-219"></a>
+<a id="__codelineno-0-220" name="__codelineno-0-220" href="#__codelineno-0-220"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-221" name="__codelineno-0-221" href="#__codelineno-0-221"></a><span class="cm"> * 函数名称： lcd_put_string</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222" href="#__codelineno-0-222"></a><span class="cm"> * 功能描述： 在LCD指定位置上显示一个8*16的字符串</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223" href="#__codelineno-0-223"></a><span class="cm"> * 输入参数： x坐标，y坐标，字符串，字符串颜色</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224" href="#__codelineno-0-224"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225" href="#__codelineno-0-225"></a><span class="cm"> * 返 回 值： 无</span>
+<a id="__codelineno-0-226" name="__codelineno-0-226" href="#__codelineno-0-226"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227" href="#__codelineno-0-227"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228" href="#__codelineno-0-228"></a><span class="cm"> * 2020/05/12        V1.0     zh(angenao)         创建</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229" href="#__codelineno-0-229"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-230" name="__codelineno-0-230" href="#__codelineno-0-230"></a>
+<a id="__codelineno-0-231" name="__codelineno-0-231" href="#__codelineno-0-231"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lcd_put_string</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232" href="#__codelineno-0-232"></a><span class="p">{</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233" href="#__codelineno-0-233"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"> </span><span class="c1">// 获取字符串的长度</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234" href="#__codelineno-0-234"></a>
+<a id="__codelineno-0-235" name="__codelineno-0-235" href="#__codelineno-0-235"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236" href="#__codelineno-0-236"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237" href="#__codelineno-0-237"></a><span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="c1">// 通过下标索引取出字符</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238" href="#__codelineno-0-238"></a><span class="w">        </span><span class="n">lcd_put_ascii</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">character</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239" href="#__codelineno-0-239"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240" href="#__codelineno-0-240"></a><span class="p">}</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241" href="#__codelineno-0-241"></a>
+<a id="__codelineno-0-242" name="__codelineno-0-242" href="#__codelineno-0-242"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243" href="#__codelineno-0-243"></a><span class="cm"> * 函数名称： lcd_clear</span>
+<a id="__codelineno-0-244" name="__codelineno-0-244" href="#__codelineno-0-244"></a><span class="cm"> * 功能描述： 清屏</span>
+<a id="__codelineno-0-245" name="__codelineno-0-245" href="#__codelineno-0-245"></a><span class="cm"> * 输入参数： 颜色</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246" href="#__codelineno-0-246"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-247" name="__codelineno-0-247" href="#__codelineno-0-247"></a><span class="cm"> * 返 回 值： 无</span>
+<a id="__codelineno-0-248" name="__codelineno-0-248" href="#__codelineno-0-248"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-249" name="__codelineno-0-249" href="#__codelineno-0-249"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-250" name="__codelineno-0-250" href="#__codelineno-0-250"></a><span class="cm"> * 2020/05/12        V1.0     zh(angenao)         创建</span>
+<a id="__codelineno-0-251" name="__codelineno-0-251" href="#__codelineno-0-251"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-252" name="__codelineno-0-252" href="#__codelineno-0-252"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lcd_clear</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-253" name="__codelineno-0-253" href="#__codelineno-0-253"></a><span class="p">{</span>
+<a id="__codelineno-0-254" name="__codelineno-0-254" href="#__codelineno-0-254"></a><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">fbmem</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">screen_size</span><span class="p">);</span>
+<a id="__codelineno-0-255" name="__codelineno-0-255" href="#__codelineno-0-255"></a><span class="p">}</span>
+<a id="__codelineno-0-256" name="__codelineno-0-256" href="#__codelineno-0-256"></a>
+<a id="__codelineno-0-257" name="__codelineno-0-257" href="#__codelineno-0-257"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-258" name="__codelineno-0-258" href="#__codelineno-0-258"></a><span class="cm"> * 函数名称： lcd_put_chinese</span>
+<a id="__codelineno-0-259" name="__codelineno-0-259" href="#__codelineno-0-259"></a><span class="cm"> * 功能描述： 在LCD指定位置上显示一个16*16的汉字</span>
+<a id="__codelineno-0-260" name="__codelineno-0-260" href="#__codelineno-0-260"></a><span class="cm"> * 输入参数： x坐标，y坐标，ascii码,HZK16的文件描述符</span>
+<a id="__codelineno-0-261" name="__codelineno-0-261" href="#__codelineno-0-261"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-262" name="__codelineno-0-262" href="#__codelineno-0-262"></a><span class="cm"> * 返 回 值： 无</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263" href="#__codelineno-0-263"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264" href="#__codelineno-0-264"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-265" name="__codelineno-0-265" href="#__codelineno-0-265"></a><span class="cm"> * 2020/05/12        V1.0     zh(angenao)         创建</span>
+<a id="__codelineno-0-266" name="__codelineno-0-266" href="#__codelineno-0-266"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-267" name="__codelineno-0-267" href="#__codelineno-0-267"></a><span class="c1">// TODO 由全局文件描述符来取汉字点阵数据</span>
+<a id="__codelineno-0-268" name="__codelineno-0-268" href="#__codelineno-0-268"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lcd_put_chinese</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">HZK16_fd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-269" name="__codelineno-0-269" href="#__codelineno-0-269"></a><span class="p">{</span>
+<a id="__codelineno-0-270" name="__codelineno-0-270" href="#__codelineno-0-270"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mh">0xA1</span><span class="p">;</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271" href="#__codelineno-0-271"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mh">0xA1</span><span class="p">;</span>
+<a id="__codelineno-0-272" name="__codelineno-0-272" href="#__codelineno-0-272"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273" href="#__codelineno-0-273"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">byte</span><span class="p">;</span>
+<a id="__codelineno-0-274" name="__codelineno-0-274" href="#__codelineno-0-274"></a><span class="w">    </span><span class="n">lseek</span><span class="p">(</span><span class="n">HZK16_fd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">area</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">94</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">where</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_SET</span><span class="p">);</span>
+<a id="__codelineno-0-275" name="__codelineno-0-275" href="#__codelineno-0-275"></a><span class="w">    </span><span class="n">read</span><span class="p">(</span><span class="n">HZK16_fd</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276" href="#__codelineno-0-276"></a>
+<a id="__codelineno-0-277" name="__codelineno-0-277" href="#__codelineno-0-277"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-0-278" name="__codelineno-0-278" href="#__codelineno-0-278"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-279" name="__codelineno-0-279" href="#__codelineno-0-279"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-280" name="__codelineno-0-280" href="#__codelineno-0-280"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281" href="#__codelineno-0-281"></a><span class="w">            </span><span class="n">byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">];</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282" href="#__codelineno-0-282"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="o">--</span><span class="p">)</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283" href="#__codelineno-0-283"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284" href="#__codelineno-0-284"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">byte</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">))</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285" href="#__codelineno-0-285"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-0-286" name="__codelineno-0-286" href="#__codelineno-0-286"></a><span class="w">                    </span><span class="cm">/* show */</span>
+<a id="__codelineno-0-287" name="__codelineno-0-287" href="#__codelineno-0-287"></a><span class="w">                    </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 字体颜色 */</span>
+<a id="__codelineno-0-288" name="__codelineno-0-288" href="#__codelineno-0-288"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-0-289" name="__codelineno-0-289" href="#__codelineno-0-289"></a><span class="w">                </span><span class="k">else</span>
+<a id="__codelineno-0-290" name="__codelineno-0-290" href="#__codelineno-0-290"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-0-291" name="__codelineno-0-291" href="#__codelineno-0-291"></a><span class="w">                    </span><span class="cm">/* hide */</span>
+<a id="__codelineno-0-292" name="__codelineno-0-292" href="#__codelineno-0-292"></a><span class="w">                    </span><span class="n">lcd_put_pixel</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">BACKGROUND_COLOR</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 背景色 */</span>
+<a id="__codelineno-0-293" name="__codelineno-0-293" href="#__codelineno-0-293"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-0-294" name="__codelineno-0-294" href="#__codelineno-0-294"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-295" name="__codelineno-0-295" href="#__codelineno-0-295"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-296" name="__codelineno-0-296" href="#__codelineno-0-296"></a><span class="p">}</span>
+<a id="__codelineno-0-297" name="__codelineno-0-297" href="#__codelineno-0-297"></a>
+<a id="__codelineno-0-298" name="__codelineno-0-298" href="#__codelineno-0-298"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-299" name="__codelineno-0-299" href="#__codelineno-0-299"></a><span class="cm"> * 函数名称： lcd_put_chinese_string</span>
+<a id="__codelineno-0-300" name="__codelineno-0-300" href="#__codelineno-0-300"></a><span class="cm"> * 功能描述： 在LCD指定位置上显示一个16*16的汉字字符串</span>
+<a id="__codelineno-0-301" name="__codelineno-0-301" href="#__codelineno-0-301"></a><span class="cm"> * 输入参数： x坐标，y坐标，ascii码,HZK16的文件描述符</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302" href="#__codelineno-0-302"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303" href="#__codelineno-0-303"></a><span class="cm"> * 返 回 值： 会</span>
+<a id="__codelineno-0-304" name="__codelineno-0-304" href="#__codelineno-0-304"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-305" name="__codelineno-0-305" href="#__codelineno-0-305"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306" href="#__codelineno-0-306"></a><span class="cm"> * 2023/10/26        V1.0     Treeleaf        创建</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307" href="#__codelineno-0-307"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308" href="#__codelineno-0-308"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lcd_put_chinese_string</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">HZK16_fd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-309" name="__codelineno-0-309" href="#__codelineno-0-309"></a><span class="p">{</span>
+<a id="__codelineno-0-310" name="__codelineno-0-310" href="#__codelineno-0-310"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311" href="#__codelineno-0-311"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312" href="#__codelineno-0-312"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313" href="#__codelineno-0-313"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314" href="#__codelineno-0-314"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315" href="#__codelineno-0-315"></a><span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]};</span>
+<a id="__codelineno-0-316" name="__codelineno-0-316" href="#__codelineno-0-316"></a><span class="w">        </span><span class="n">lcd_put_chinese</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">HZK16_fd</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317" href="#__codelineno-0-317"></a><span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span>
+<a id="__codelineno-0-318" name="__codelineno-0-318" href="#__codelineno-0-318"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-319" name="__codelineno-0-319" href="#__codelineno-0-319"></a><span class="p">}</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320" href="#__codelineno-0-320"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321" href="#__codelineno-0-321"></a><span class="cm"> * 函数名称： lcd_put_mixed_string</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322" href="#__codelineno-0-322"></a><span class="cm"> * 功能描述： 在LCD指定位置上显示一个中文英文混合字符串，支持换行显示&#39;\n&#39;</span>
+<a id="__codelineno-0-323" name="__codelineno-0-323" href="#__codelineno-0-323"></a><span class="cm"> * 输入参数： x坐标，y坐标，ascii码,HZK16的文件描述符,字符串颜色</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324" href="#__codelineno-0-324"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-325" name="__codelineno-0-325" href="#__codelineno-0-325"></a><span class="cm"> * 返 回 值： 会</span>
+<a id="__codelineno-0-326" name="__codelineno-0-326" href="#__codelineno-0-326"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-327" name="__codelineno-0-327" href="#__codelineno-0-327"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328" href="#__codelineno-0-328"></a><span class="cm"> * 2023/10/26        V1.0     Treeleaf        创建</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329" href="#__codelineno-0-329"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330" href="#__codelineno-0-330"></a><span class="kt">void</span><span class="w"> </span><span class="nf">lcd_put_mixed_string</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">HZK16_fd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331" href="#__codelineno-0-331"></a><span class="p">{</span>
+<a id="__codelineno-0-332" name="__codelineno-0-332" href="#__codelineno-0-332"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<a id="__codelineno-0-333" name="__codelineno-0-333" href="#__codelineno-0-333"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-0-334" name="__codelineno-0-334" href="#__codelineno-0-334"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x_tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-0-335" name="__codelineno-0-335" href="#__codelineno-0-335"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-336" name="__codelineno-0-336" href="#__codelineno-0-336"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337" href="#__codelineno-0-337"></a><span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-0-338" name="__codelineno-0-338" href="#__codelineno-0-338"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">character</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mh">0x80</span><span class="p">)</span>
+<a id="__codelineno-0-339" name="__codelineno-0-339" href="#__codelineno-0-339"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340" href="#__codelineno-0-340"></a><span class="w">            </span><span class="c1">// 如果字符大于等于0x80，表示它是汉字（或其他非ASCII字符）</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341" href="#__codelineno-0-341"></a><span class="w">            </span><span class="c1">// 调用 lcd_put_chinese 函数来显示汉字</span>
+<a id="__codelineno-0-342" name="__codelineno-0-342" href="#__codelineno-0-342"></a><span class="w">            </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">chinese_char</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">character</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]};</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343" href="#__codelineno-0-343"></a><span class="w">            </span><span class="n">lcd_put_chinese</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">chinese_char</span><span class="p">,</span><span class="w"> </span><span class="n">HZK16_fd</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344" href="#__codelineno-0-344"></a><span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w">     </span><span class="c1">// 跳过下一个字符，因为它已经被处理了</span>
+<a id="__codelineno-0-345" name="__codelineno-0-345" href="#__codelineno-0-345"></a><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w"> </span><span class="c1">// 假设汉字字符占用16个像素的宽度</span>
+<a id="__codelineno-0-346" name="__codelineno-0-346" href="#__codelineno-0-346"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-347" name="__codelineno-0-347" href="#__codelineno-0-347"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">character</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348" href="#__codelineno-0-348"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-349" name="__codelineno-0-349" href="#__codelineno-0-349"></a><span class="w">            </span><span class="c1">// 如果字符是换行符，将 y 坐标增加16，并重置 x 坐标为初始坐标</span>
+<a id="__codelineno-0-350" name="__codelineno-0-350" href="#__codelineno-0-350"></a><span class="w">            </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span>
+<a id="__codelineno-0-351" name="__codelineno-0-351" href="#__codelineno-0-351"></a><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x_tmp</span><span class="p">;</span>
+<a id="__codelineno-0-352" name="__codelineno-0-352" href="#__codelineno-0-352"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-353" name="__codelineno-0-353" href="#__codelineno-0-353"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-0-354" name="__codelineno-0-354" href="#__codelineno-0-354"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-0-355" name="__codelineno-0-355" href="#__codelineno-0-355"></a><span class="w">            </span><span class="c1">// 如果字符是ASCII字符，调用 lcd_put_ascii 函数来显示</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356" href="#__codelineno-0-356"></a><span class="w">            </span><span class="n">lcd_put_ascii</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">character</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357" href="#__codelineno-0-357"></a><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// ASCII字符通常占用8个像素的宽度</span>
+<a id="__codelineno-0-358" name="__codelineno-0-358" href="#__codelineno-0-358"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359" href="#__codelineno-0-359"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360" href="#__codelineno-0-360"></a><span class="p">}</span>
+<a id="__codelineno-0-361" name="__codelineno-0-361" href="#__codelineno-0-361"></a>
+<a id="__codelineno-0-362" name="__codelineno-0-362" href="#__codelineno-0-362"></a><span class="cm">/**********************************************************************</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363" href="#__codelineno-0-363"></a><span class="cm"> * 函数名称： lcd_init</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364" href="#__codelineno-0-364"></a><span class="cm"> * 功能描述： LCD初始化函数</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365" href="#__codelineno-0-365"></a><span class="cm"> * 输入参数： 无</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366" href="#__codelineno-0-366"></a><span class="cm"> * 输出参数： 无</span>
+<a id="__codelineno-0-367" name="__codelineno-0-367" href="#__codelineno-0-367"></a><span class="cm"> * 返 回 值： 错误码</span>
+<a id="__codelineno-0-368" name="__codelineno-0-368" href="#__codelineno-0-368"></a><span class="cm"> * 修改日期        版本号     修改人        修改内容</span>
+<a id="__codelineno-0-369" name="__codelineno-0-369" href="#__codelineno-0-369"></a><span class="cm"> * -----------------------------------------------</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370" href="#__codelineno-0-370"></a><span class="cm"> * 2023/10/26        V1.0     Treeleaf        创建</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371" href="#__codelineno-0-371"></a><span class="cm"> ***********************************************************************/</span>
+<a id="__codelineno-0-372" name="__codelineno-0-372" href="#__codelineno-0-372"></a><span class="kt">int</span><span class="w"> </span><span class="nf">lcd_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<a id="__codelineno-0-373" name="__codelineno-0-373" href="#__codelineno-0-373"></a><span class="p">{</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374" href="#__codelineno-0-374"></a><span class="w">    </span><span class="n">fd_fb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/dev/fb0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">);</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375" href="#__codelineno-0-375"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd_fb</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376" href="#__codelineno-0-376"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-377" name="__codelineno-0-377" href="#__codelineno-0-377"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;can&#39;t open /dev/fb0</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378" href="#__codelineno-0-378"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379" href="#__codelineno-0-379"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380" href="#__codelineno-0-380"></a>
+<a id="__codelineno-0-381" name="__codelineno-0-381" href="#__codelineno-0-381"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd_fb</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">var</span><span class="p">))</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382" href="#__codelineno-0-382"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-383" name="__codelineno-0-383" href="#__codelineno-0-383"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;can&#39;t get var</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384" href="#__codelineno-0-384"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-0-385" name="__codelineno-0-385" href="#__codelineno-0-385"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-386" name="__codelineno-0-386" href="#__codelineno-0-386"></a>
+<a id="__codelineno-0-387" name="__codelineno-0-387" href="#__codelineno-0-387"></a><span class="w">    </span><span class="n">line_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">xres</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388" href="#__codelineno-0-388"></a><span class="w">    </span><span class="n">pixel_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389" href="#__codelineno-0-389"></a><span class="w">    </span><span class="n">screen_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">xres</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">yres</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">var</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390" href="#__codelineno-0-390"></a><span class="w">    </span><span class="n">fbmem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">mmap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">screen_size</span><span class="p">,</span><span class="w"> </span><span class="n">PROT_READ</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PROT_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">MAP_SHARED</span><span class="p">,</span><span class="w"> </span><span class="n">fd_fb</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-0-391" name="__codelineno-0-391" href="#__codelineno-0-391"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fbmem</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mi">-1</span><span class="p">)</span>
+<a id="__codelineno-0-392" name="__codelineno-0-392" href="#__codelineno-0-392"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393" href="#__codelineno-0-393"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;can&#39;t mmap</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394" href="#__codelineno-0-394"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395" href="#__codelineno-0-395"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396" href="#__codelineno-0-396"></a>
+<a id="__codelineno-0-397" name="__codelineno-0-397" href="#__codelineno-0-397"></a><span class="w">    </span><span class="n">fd_hzk16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;HZK16&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDONLY</span><span class="p">);</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398" href="#__codelineno-0-398"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd_hzk16</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399" href="#__codelineno-0-399"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-400" name="__codelineno-0-400" href="#__codelineno-0-400"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;can&#39;t open HZK16</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401" href="#__codelineno-0-401"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402" href="#__codelineno-0-402"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403" href="#__codelineno-0-403"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-404" name="__codelineno-0-404" href="#__codelineno-0-404"></a><span class="p">}</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405" href="#__codelineno-0-405"></a>
+<a id="__codelineno-0-406" name="__codelineno-0-406" href="#__codelineno-0-406"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407" href="#__codelineno-0-407"></a><span class="p">{</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408" href="#__codelineno-0-408"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lcd_init</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409" href="#__codelineno-0-409"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410" href="#__codelineno-0-410"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411" href="#__codelineno-0-411"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412" href="#__codelineno-0-412"></a>
+<a id="__codelineno-0-413" name="__codelineno-0-413" href="#__codelineno-0-413"></a><span class="w">    </span><span class="cm">/* 清屏: 全部设为黑色 */</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414" href="#__codelineno-0-414"></a><span class="w">    </span><span class="n">lcd_clear</span><span class="p">(</span><span class="n">COLOR_BLACK</span><span class="p">);</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415" href="#__codelineno-0-415"></a>
+<a id="__codelineno-0-416" name="__codelineno-0-416" href="#__codelineno-0-416"></a><span class="w">    </span><span class="n">lcd_put_mixed_string</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;来试试换行</span><span class="se">\n</span><span class="s">然后这是第二行</span><span class="se">\n</span><span class="s">This is line3&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fd_hzk16</span><span class="p">,</span><span class="w"> </span><span class="n">COLOR_RED</span><span class="p">);</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417" href="#__codelineno-0-417"></a><span class="w">    </span><span class="n">munmap</span><span class="p">(</span><span class="n">fbmem</span><span class="p">,</span><span class="w"> </span><span class="n">screen_size</span><span class="p">);</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418" href="#__codelineno-0-418"></a><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd_fb</span><span class="p">);</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419" href="#__codelineno-0-419"></a><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd_hzk16</span><span class="p">);</span>
+<a id="__codelineno-0-420" name="__codelineno-0-420" href="#__codelineno-0-420"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421" href="#__codelineno-0-421"></a><span class="p">}</span>
+</code></pre></div>
 <p>​<img alt="IMG_20231026_161043" src="../assets/IMG_20231026_161043-20231026161116-5orpuht.jpg" />​</p>
-<p>‍</p></p>
-    </article>
-</section>
-            <!-- endblock -->
+<p>‍</p>
 
-            <!-- block footer -->
-                <footer>
-    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
-        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
-            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
-            Made with Dracula Theme for MkDocs
-        </a>
-    </div>
-</footer>
-            <!-- endblock -->
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
-
-    </main>
-
-        <script>var base_url = '../../..';</script>
-        <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
-        <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
-        <script src="../../../assets/js/mkdocs.js""></script>
-			<script src="../../../search/main.js" defer></script>
-
-</body>
-
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+    
+  </body>
 </html>
