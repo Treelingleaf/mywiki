@@ -9,20 +9,22 @@
       
       
       
+        <link rel="prev" href="../%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/">
       
-        <link rel="next" href="Linux%E5%AD%A6%E4%B9%A0/%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/">
+      
+        <link rel="next" href="../%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
     
     
       
-        <title>My Docs</title>
+        <title>[5] MainWindow和文件操作 - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
       
       
 
@@ -41,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#5-mainwindow" class="md-skip">
           Skip to content
         </a>
       
@@ -79,7 +81,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -99,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome to MkDocs
+              [5] MainWindow和文件操作
             
           </span>
         </div>
@@ -171,7 +173,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -186,18 +188,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -206,7 +199,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -289,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/Framebuffer%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -353,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B2%5DUbuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC1%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%5B2%5DUbuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -437,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B1%5D%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -457,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B2%5D%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -477,7 +469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B3%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -497,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC2%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%5B4%5D%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B1%5D%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -581,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B3%5DMakefile/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B3%5DMakefile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -621,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -677,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -697,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B4%5D%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -761,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -781,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B6%5D%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.2%E3%80%81%E7%82%B9%E9%98%B5%E5%AD%97%E7%AC%A6%E7%9A%84%E6%98%BE%E7%A4%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -949,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -989,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1009,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B8%5D%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1093,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+      <a href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1134,18 +1126,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -1159,7 +1153,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             QT学习
@@ -1172,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/" class="md-nav__link">
+      <a href="../Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1192,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/" class="md-nav__link">
+      <a href="../%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1212,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+      <a href="../%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1232,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/" class="md-nav__link">
+      <a href="../%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1252,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" class="md-nav__link">
+      <a href="../%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/" class="md-nav__link">
+      <a href="../%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1290,9 +1284,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1301,6 +1304,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1312,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+      <a href="../%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1332,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+      <a href="../%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/" class="md-nav__link">
+      <a href="../%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1372,7 +1376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="QT%E5%AD%A6%E4%B9%A0/%5B9%5D%20QWidget%E7%B1%BB/" class="md-nav__link">
+      <a href="../%5B9%5D%20QWidget%E7%B1%BB/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1471,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1491,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/" class="md-nav__link">
+      <a href="../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1511,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
+      <a href="../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1573,8 +1577,257 @@
                   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>这是我的wiki</p>
+<h1 id="5-mainwindow">[5] MainWindow和文件操作</h1>
+<h1 id="1-mainwindow">1. MainWindow</h1>
+<p>​<code>MainWindow</code>​ 是一个 Qt 应用程序的主窗口类，通常是应用程序的入口点，它包含了应用程序的主要用户界面（UI）元素和逻辑。</p>
+<p>以下是 <code>MainWindow</code>​ 类的一些关键信息：</p>
+<ol>
+<li>
+<p><strong>构造函数和析构函数：</strong></p>
+<ul>
+<li>​<code>MainWindow</code>​ 类有一个构造函数 <code>MainWindow::MainWindow(QWidget *parent)</code>​ 和一个析构函数 <code>MainWindow::~MainWindow()</code>​。构造函数用于初始化主窗口的各个组件和连接信号与槽，而析构函数用于释放资源。</li>
+<li>
+<p><strong>用户界面初始化：</strong></p>
+</li>
+<li>
+<p>构造函数中通过 <code>ui(new Ui::MainWindow)</code>​ 创建了一个 <code>Ui::MainWindow</code>​ 对象，这个对象用于初始化用户界面的组件。</p>
+</li>
+<li>
+<p><strong>信号与槽连接：</strong></p>
+</li>
+<li>
+<p>在构造函数中，通过 <code>connect</code>​ 函数连接了主窗口的动作（Action）与槽函数。这些连接将在用户与应用程序的交互中触发。</p>
+</li>
+<li>
+<p><strong>槽函数：</strong></p>
+</li>
+<li>
+<p>​<code>newActounSlot</code>​、<code>openActounSlot</code>​ 和 <code>saveActounSlot</code>​ 是槽函数，它们会在用户触发相应的动作时执行。例如，<code>newActounSlot</code>​ 在用户点击 "新建" 菜单项时被调用，用于清空文本编辑器的内容。</p>
+</li>
+<li>
+<p><strong>用户界面管理：</strong></p>
+</li>
+<li>
+<p>主窗口类通过 <code>ui-&gt;</code>​ 前缀访问用户界面中的各个组件，例如 <code>ui-&gt;newAction</code>​、<code>ui-&gt;openAction</code>​ 和 <code>ui-&gt;saveAction</code>​。这些组件是在 Qt 的设计器中设计并生成的。</p>
+</li>
+<li>
+<p><strong>文件操作：</strong></p>
+</li>
+<li>
+<p>主窗口类包含了打开和保存文件的逻辑。当用户选择 "打开" 时，它会打开文件对话框，读取所选文件的内容并在文本编辑器中显示。当用户选择 "保存" 时，它会将文本编辑器的内容保存到所选文件中。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>​<code>MainWindow</code>​ 类是一个主要用于管理用户界面和处理用户交互的类。它充当了整个应用程序的主要窗口，包括菜单、文本编辑器和文件操作等功能。通过信号与槽机制，它可以响应用户的操作并执行相应的操作。这个类是构建 Qt 桌面应用程序的重要组成部分。</p>
+<p>‍</p>
+<h1 id="2">2. 文件操作</h1>
+<p>与文件操作相关，就不得不提QFile类了，其实和其他文件IO操作类似。</p>
+<h3 id="21-qfile">2.1 QFile类</h3>
+<p>​<code>QFile</code>​ 类是 Qt 中用于文件操作的核心类，提供了丰富的方法和功能。下面详细介绍 <code>QFile</code>​ 类的主要方法和用法：</p>
+<p><strong>1. 打开文件</strong></p>
+<ul>
+<li>
+<p>​<code>bool open(QIODevice::OpenMode mode)</code>​: 打开文件，使用指定的打开模式 <code>mode</code>​。常用的模式包括：</p>
+</li>
+<li>
+<p>​<code>QIODevice::ReadOnly</code>​: 只读模式，只能读取文件内容。</p>
+</li>
+<li>​<code>QIODevice::WriteOnly</code>​: 只写模式，只能写入文件内容，如果文件已存在会被清空。</li>
+<li>​<code>QIODevice::Append</code>​: 追加模式，只能在文件末尾追加内容。</li>
+<li>​<code>QIODevice::Text</code>​: 以文本模式打开文件，支持文本文件读写。</li>
+<li>​<code>QIODevice::Binary</code>​: 以二进制模式打开文件，支持二进制文件读写。</li>
+<li>​<code>void close()</code>​: 关闭文件。</li>
+</ul>
+<pre><code class="language-cpp">QFile file(&quot;example.txt&quot;);
+if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    // 文件已成功打开，可以进行读操作
+} else {
+    // 文件打开失败，处理错误
+}
+</code></pre>
+<p><strong>2. 读取文件内容</strong></p>
+<ul>
+<li>​<code>QByteArray read(qint64 maxSize)</code>​: 从文件中读取最多 <code>maxSize</code>​ 字节的数据，并返回读取的数据，存储在一个字节数组（<code>QByteArray</code>​）。如果 <code>maxSize</code>​ 为 -1，表示读取整个文件。</li>
+<li>​<code>QByteArray readAll()</code>​: 读取整个文件的内容并返回，存储在一个字节数组（<code>QByteArray</code>​）。</li>
+<li>​<code>qint64 readLine(char *data, qint64 maxSize)</code>​: 从文件中读取一行数据，存储到 <code>data</code>​ 中，最多读取 <code>maxSize</code>​ 字节，返回实际读取的字节数。</li>
+</ul>
+<pre><code class="language-cpp">QFile file(&quot;example.txt&quot;);
+if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    QByteArray data = file.readAll();
+    // 处理读取的数据
+    qDebug() &lt;&lt; data;
+    file.close();
+}
+</code></pre>
+<p><strong>3. 写入文件内容</strong></p>
+<ul>
+<li>​<code>qint64 write(const QByteArray &amp;data)</code>​: 将字节数组 <code>data</code>​ 写入文件，并返回写入的字节数。</li>
+<li>​<code>qint64 write(const char *data, qint64 maxSize)</code>​: 将最多 <code>maxSize</code>​ 字节的数据从字符数组 <code>data</code>​ 写入文件，并返回写入的字节数。</li>
+</ul>
+<pre><code class="language-cpp">QFile file(&quot;output.txt&quot;);
+if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+    QByteArray data = &quot;Hello, QFile!&quot;;
+    qint64 bytesWritten = file.write(data);
+    // 处理写入结果
+    qDebug() &lt;&lt; &quot;Bytes written:&quot; &lt;&lt; bytesWritten;
+    file.close();
+}
+</code></pre>
+<p><strong>4. 文件操作</strong></p>
+<ul>
+<li>​<code>bool remove()</code>​: 删除文件。</li>
+<li>​<code>bool rename(const QString &amp;newName)</code>​: 重命名文件。</li>
+<li>​<code>bool resize(qint64 newSize)</code>​: 调整文件的大小。</li>
+<li>​<code>bool copy(const QString &amp;newName)</code>​: 复制文件。</li>
+</ul>
+<pre><code class="language-cpp">QFile file(&quot;example.txt&quot;);
+if (file.remove()) {
+    // 文件删除成功
+} else {
+    // 删除失败，处理错误
+}
+</code></pre>
+<p><strong>5. 文件信息</strong></p>
+<ul>
+<li>​<code>bool exists()</code>​: 检查文件是否存在。</li>
+<li>​<code>qint64 size()</code>​: 返回文件的大小（字节数）。</li>
+<li>​<code>QString fileName()</code>​: 返回文件的路径和名称。</li>
+<li>​<code>QString filePath()</code>​: 返回文件的路径。</li>
+</ul>
+<pre><code class="language-cpp">QFile file(&quot;example.txt&quot;);
+if (file.exists()) {
+    qDebug() &lt;&lt; &quot;File size:&quot; &lt;&lt; file.size() &lt;&lt; &quot;bytes&quot;;
+    qDebug() &lt;&lt; &quot;File path:&quot; &lt;&lt; file.filePath();
+}
+</code></pre>
+<p><strong>6. 错误处理</strong></p>
+<ul>
+<li>​<code>QFileDevice::FileError error()</code>​: 返回文件的错误状态。</li>
+<li>​<code>QString errorString()</code>​: 返回包含错误信息的字符串。</li>
+</ul>
+<pre><code class="language-cpp">QFile file(&quot;example.txt&quot;);
+if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    qDebug() &lt;&lt; &quot;Error:&quot; &lt;&lt; file.errorString();
+}
+</code></pre>
+<p>以上是 <code>QFile</code>​ 类的一些常用方法和用法，你可以根据需要选择合适的方法来进行文件操作。在使用 <code>QFile</code>​ 时，务必检查每个操作的返回值，以便进行错误处理。</p>
+<h3 id="_1"></h3>
+<h3 id="22-qfiledialog">2.2 通过QFileDialog类的方法操作任意文件</h3>
+<p><strong>1.关于QFileDialog类</strong></p>
+<p>​<code>QFileDialog</code>​ 类是Qt库中用于创建文件对话框的类。它允许你的应用程序与用户交互以获取文件路径或文件名，并用于打开、保存和选择文件的操作。<code>QFileDialog</code>​ 类提供了一个用户友好的界面，使用户可以浏览文件系统以选择文件或指定文件保存的位置。</p>
+<p>以下是一些常见的 <code>QFileDialog</code>​ 的静态函数，它们用于打开不同类型的文件对话框：</p>
+<ul>
+<li>​<code>getOpenFileName</code>​：用于打开文件对话框以获取一个文件的路径。</li>
+<li>​<code>getOpenFileNames</code>​：用于打开文件对话框以获取多个文件的路径。</li>
+<li>​<code>getSaveFileName</code>​：用于打开保存文件对话框以获取保存文件的路径和文件名。</li>
+<li>​<code>getExistingDirectory</code>​：用于打开选择文件夹对话框以获取文件夹的路径。</li>
+<li>​<code>getExistingDirectoryUrl</code>​：类似于上一个函数，但返回 <code>QUrl</code>​ 对象。</li>
+</ul>
+<p><strong>2.举个例子</strong></p>
+<p>这两段代码是使用Qt中的QFileDialog类来创建文件对话框，以便用户可以选择文件或保存文件。这些代码用于打开文件对话框以获取文件名或保存文件对话框以获取保存文件的路径。</p>
+<ol>
+<li><strong>打开文件对话框</strong>:</li>
+</ol>
+<pre><code class="language-cpp">QString filename = QFileDialog::getOpenFileName(this, &quot;选择文件&quot;,
+                                 QCoreApplication::applicationFilePath(), &quot;*.cpp&quot;);
+</code></pre>
+<p>这段代码用于打开一个文件对话框，用户可以在其中选择一个文件。它的参数解释如下：</p>
+<ul>
+<li>​<code>this</code>​：通常表示当前窗口或对话框的父对象，这将使文件对话框与父窗口相关联。</li>
+<li>​<code>"选择文件"</code>​：对话框的标题，显示在对话框的标题栏上。</li>
+<li>​<code>QCoreApplication::applicationFilePath()</code>​：这个函数返回当前应用程序的可执行文件的路径，通常用于设置文件对话框的默认目录。</li>
+<li>
+<p>​<code>"*.cpp"</code>​：这是文件过滤器，用于指定用户可以选择的文件类型。在这种情况下，它限制了用户只能选择扩展名为<code>.cpp</code>​的文件。你可以根据需要更改文件过滤器。</p>
+</li>
+<li>
+<p><strong>保存文件对话框</strong>:</p>
+</li>
+</ul>
+<pre><code class="language-cpp">QString filename = QFileDialog::getSaveFileName(this, &quot;请选择路径&quot;,
+                                                QCoreApplication::applicationFilePath());
+</code></pre>
+<p>这段代码用于打开一个保存文件对话框，用户可以在其中选择保存文件的路径和文件名。它的参数解释如下：</p>
+<ul>
+<li>​<code>this</code>​：同样表示当前窗口或对话框的父对象，以关联对话框。</li>
+<li>​<code>"请选择路径"</code>​：保存文件对话框的标题，显示在对话框的标题栏上。</li>
+<li>​<code>QCoreApplication::applicationFilePath()</code>​：同样用于设置保存文件对话框的默认目录，通常将其设置为应用程序的可执行文件路径。</li>
+</ul>
+<p>在使用这两个对话框后，<code>filename</code>​ 变量将包含用户选择的文件名（对于打开文件对话框）或用户指定的保存路径和文件名（对于保存文件对话框）。你可以进一步使用这些文件名来进行文件操作或其他处理。</p>
+<p>请注意，上述示例中的代码假设你正在使用一个 Qt 应用程序，并且已经包含了必要的头文件和使用了 Qt 的功能。</p>
+<p>‍</p>
+<h1 id="3">3. 综合例子</h1>
+<p>一个记事本</p>
+<p>​<img alt="image" src="../assets/image-20231003002423-lzowb8c.png" />​</p>
+<pre><code class="language-cpp">#include &quot;mainwindow.h&quot;
+#include &quot;ui_mainwindow.h&quot;
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui-&gt;setupUi(this);
+    this-&gt;setWindowTitle(&quot;notepad&quot;);
+    connect(ui-&gt;newActoin,&amp;QAction::triggered,this,&amp;MainWindow::newActounSlot);
+    connect(ui-&gt;openAction,&amp;QAction::triggered,this,&amp;MainWindow::openActounSlot);
+    connect(ui-&gt;saveAction,&amp;QAction::triggered,this,&amp;MainWindow::saveActounSlot);
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::newActounSlot()
+{
+    ui-&gt;textEdit-&gt;clear();
+    this-&gt;setWindowTitle(&quot;新建文本文档.txt&quot;);
+}
+
+void MainWindow::openActounSlot()
+{
+    //打开文件管理器 -&gt;参数：当前窗口，打开窗口标题，打开的路径，显示的文件类型
+    QString filename = QFileDialog::getOpenFileName(this, &quot;选择文件&quot;,
+                                 QCoreApplication::applicationFilePath(),//获取当前路径
+                                 &quot;*.cpp&quot;);
+    //如果为空代表没选择文件，警告
+    if(filename.isEmpty())
+    {
+        QMessageBox::warning(this,&quot;警告&quot;,&quot;请选择一个文件&quot;);
+    }
+    else
+    {
+        //qDebug() &lt;&lt; filename;
+        QFile file(filename);               //创建文件对象时，传文件路径参数构造文件
+        file.open(QIODevice::ReadOnly);     //打开并设置打开方式
+        QByteArray ba = file.readAll();     //读取文件内容到一个QByteArray对象，文件内容少的时候可用file.readAll()
+        ui-&gt;textEdit-&gt;setText(QString(ba)); //显示文件内容到textEdit
+        file.close();                       //关闭文件
+    }
+
+}
+
+void MainWindow::saveActounSlot()
+{
+    QString filename = QFileDialog::getSaveFileName(this,&quot;请选择路径&quot;,
+                                                    QCoreApplication::applicationFilePath());
+    //如果为空代表没选择文件，警告
+    if(filename.isEmpty())
+    {
+        QMessageBox::warning(this,&quot;警告&quot;,&quot;请选择一个文件&quot;);
+    }
+    else
+    {
+        QFile file(filename);
+        file.open(QIODevice::WriteOnly);
+        QString Str = ui-&gt;textEdit-&gt;toPlainText();
+        QByteArray ba = Str.toUtf8();
+        file.write(ba);
+        file.close();
+    }
+}
+
+</code></pre>
 
 
 
@@ -1613,10 +1866,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.6c14ae12.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>
