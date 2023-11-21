@@ -1,45 +1,239 @@
-site_name: Study Notes
-site_author: leaf
-
-
-#主题
-theme:
- name: 'material'
- palette:
-   primary: cyan #顶部颜色
-   palette:
-     #primary: blue grey
-
-     - scheme: default # 日间模式
-       primary: grey # 上方的
-       accent: cyan # 链接等可交互元件的高亮色
-       toggle:
-         icon: material/weather-night # 图标
-         name: 切换至夜间模式 # 鼠标悬浮提示
-     - scheme: slate # 夜间模式
-       primary: black
-       accent: cyan
-       toggle:
-         icon: material/weather-sunny
-         name: 切换至日间模式
-features:
-    - navigation.instant   #- header.autohide  #自动隐藏
-    #- announce.dismiss   #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
-    - navigation.tracking   #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
-    - navigation.tabs   #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
-    #- navigation.tabs.sticky    #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
-    #- navigation.sections   #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
-    - navigation.top   # 返回顶部的按钮 在上滑时出现
-    - search.suggest   # 搜索输入一些字母时推荐补全整个单词
-    - search.highlight   # 搜索出的文章关键词加入高亮
-    - navigation.expand   # 打开Tab时左侧目录全部展开
-    #- navigation.indexes   #启用节索引页后，可以将文档直接附加到节
-    - search.share   #搜索分享按钮
-language: zh # 一些提示性的文字会变成中文
+#site_name: Study Notes
+#site_author: leaf
+#
+#
+##主题
 #theme:
-#    name: dracula
+# name: 'material'
+# palette:
+#   primary: cyan #顶部颜色
+#   palette:
+#     #primary: blue grey
+#
+#     - scheme: default # 日间模式
+#       primary: grey # 上方的
+#       accent: cyan # 链接等可交互元件的高亮色
+#       toggle:
+#         icon: material/weather-night # 图标
+#         name: 切换至夜间模式 # 鼠标悬浮提示
+#     - scheme: slate # 夜间模式
+#       primary: black
+#       accent: cyan
+#       toggle:
+#         icon: material/weather-sunny
+#         name: 切换至日间模式
+#features:
+#    - navigation.instant   #- header.autohide  #自动隐藏
+#    #- announce.dismiss   #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
+#    - navigation.tracking   #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
+#    - navigation.tabs   #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
+#    #- navigation.tabs.sticky    #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
+#    #- navigation.sections   #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
+#    - navigation.top   # 返回顶部的按钮 在上滑时出现
+#    - search.suggest   # 搜索输入一些字母时推荐补全整个单词
+#    - search.highlight   # 搜索出的文章关键词加入高亮
+#    - navigation.expand   # 打开Tab时左侧目录全部展开
+#    #- navigation.indexes   #启用节索引页后，可以将文档直接附加到节
+#    - search.share   #搜索分享按钮
+#language: zh # 一些提示性的文字会变成中文
+##theme:
+##    name: dracula
+#
+##代码高亮
+#markdown_extensions:
+#  - abbr
+#  - pymdownx.caret
+#  - pymdownx.mark
+#  - pymdownx.tilde
+#  - md_in_html
+#  - pymdownx.arithmatex:  # latex支持
+#      generic: true
+#  - toc:
+#      permalink: true # 固定标题位置为当前位置
+#  - pymdownx.highlight: # 代码块高亮
+#      anchor_linenums: true
+#      # linenums: true # 显示行号
+#      # auto_title: true # 显示编程语言名称
+#  - pymdownx.inlinehilite
+#  - pymdownx.snippets
+#  - pymdownx.superfences
+#  - attr_list
+#  - pymdownx.emoji:
+#      emoji_index: !!python/name:materialx.emoji.twemoji
+#      emoji_generator: !!python/name:materialx.emoji.to_svg
+#  - pymdownx.superfences # 代码块高亮插件
+#  - meta # 支持Markdown文件上方自定义标题标签等
+#
+#plugins:
+#  - search
+#  - tags  #标签
+#
+#nav:
+#  - 主页:
+#    - 好用/好玩网站分享: index.md  #.md文件的相对路径
+#  - Linux学习:
+#    -  学习简介: Linux学习/第1篇、学习简介及基础/[1]学习简介.md
+#    -  环境搭建: Linux学习/第2篇、环境搭建与开发板操作
+#    -  应用开发基础:
+#         -  1.第一个hello程序: Linux学习/第3篇、应用开发基础/[1]第一个hello world程序.md
+#         -  2.gcc编译器: Linux学习/第3篇、应用开发基础/[2]gcc编译器.md
+#         -  3.Makefile: Linux学习/第3篇、应用开发基础/[3]Makefile.md
+#         -  4.文件IO:
+#              -  4.1 文件IO简介: Linux学习/第3篇、应用开发基础/[4]文件IO/4.1 文件IO.md
+#              -  4.2 系统调用接口: Linux学习/第3篇、应用开发基础/[4]文件IO/4.2 系统调用接口.md
 
-#代码高亮
+
+
+#[Info]
+site_name: 网站名字
+site_author: 作者名
+#[UI]
+theme:
+  name: material
+  palette:
+    #primary: blue grey
+
+    - scheme: default # 日间模式
+      primary: grey # 上方的
+      accent: cyan # 链接等可交互元件的高亮色
+      toggle:
+        icon: material/weather-night # 图标
+        name: 切换至夜间模式 # 鼠标悬浮提示
+    - scheme: slate # 夜间模式
+      primary: black
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至日间模式
+  features:
+    - navigation.instant #- header.autohide  #自动隐藏
+    #- announce.dismiss #呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
+    - navigation.tracking #地址栏中的 URL 将自动更新为在目录中突出显示的活动锚点
+    - navigation.tabs #顶级部分将呈现在上面视口标题下方的菜单层中，但在移动设备上保持原样
+    #- navigation.tabs.sticky  #启用粘性选项卡后，导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
+    #- navigation.sections #启用部分后，顶级部分在边栏中呈现为1220px以上视口的组，但在移动设备上保持原样
+    - navigation.top # 返回顶部的按钮 在上滑时出现
+    - search.suggest # 搜索输入一些字母时推荐补全整个单词
+    - search.highlight # 搜索出的文章关键词加入高亮
+    - navigation.expand # 打开Tab时左侧目录全部展开
+    #- navigation.indexes #启用节索引页后，可以将文档直接附加到节
+    - search.share #搜索分享按钮
+  language: zh # 一些提示性的文字会变成中文
+
+
+  icon:
+    repo: fontawesome/brands/github #右上角图标
+edit_uri: edit/main/docs # 编辑按钮跳转的链接
+repo_url: https://github.com/Wcowin/mymkdocs # 右上角点击跳转的链接
+repo_name: Wcowin.github.io # 右上角的名字
+
+# [Navigtion]
+nav:
+  - 主页:
+    - 个人履历: index.md
+    - 网站制作: index.md
+  - Linux学习:
+    -  学习简介:
+         - 1.学习简介: Linux学习/第一篇、学习简介及基础/学习简介.md
+         - 2.ubuntu简介: Linux学习/第一篇、学习简介及基础/Ubuntu简单介绍.md
+    -  环境搭建与基础引入:
+         - 1.学习环境搭建: Linux学习/第二篇、环境搭建与开发板操作/一、环境搭建.md
+         - 2.第一个驱动程序: Linux学习/第二篇、环境搭建与开发板操作/三、第一个驱动程序.md
+         - 3.开发板的第一个APP: Linux学习/第二篇、环境搭建与开发板操作/二、开发板的第一个APP.md
+         - 4.构建bootlodar、内核和文件系统: Linux学习/第二篇、环境搭建与开发板操作/四、构建bootloader、内核、文件系统.md
+    -  应用开发基础:
+         - 1.第一个hello程序: Linux学习/第三篇、应用开发基础/一、第一个hello world程序.md
+         - 2.gcc编译器: Linux学习/第三篇、应用开发基础/二、gcc编译器.md
+         - 3.Makefile: Linux学习/第三篇、应用开发基础/三、Makefile.md
+         - 4.文件IO:
+              - 4.1 文件IO简介: Linux学习/第三篇、应用开发基础/四、文件IO/4.1 文件IO.md
+              - 4.2 系统调用接口: Linux学习/第三篇、应用开发基础/四、文件IO/4.2 系统调用接口.md
+         - 5.Framebuffer应用编程: Linux学习/第三篇、应用开发基础/五、Framebuffer应用编程.md
+         - 6.文字及图像显示:
+             - 6.1 字符的编码方式介绍: Linux学习/第三篇、应用开发基础/六、文字及图像显示/6.1、字符的编码方式.md
+             - 6.2 点阵字符的显示: docs/Linux学习/第三篇、应用开发基础/六、文字及图像显示/6.2、点阵字符的显示.md
+         - 7.交叉编译程序:
+             - 7.1 交叉编译常见的错误: Linux学习/第三篇、应用开发基础/七、交叉编译程序/7.1 交叉编译常见的错误.md
+             - 7.2 静态库的完整制作过程: Linux学习/第三篇、应用开发基础/七、交叉编译程序/7.2 静态库的完整制作过程.md
+             - 7.3 如何安装一个库: Linux学习/第三篇、应用开发基础/七、交叉编译程序/7.3 如何安装一个库.md
+         - 8.输入系统应用编程:
+             - 8.1 Linux输入系统简介: Linux学习/第三篇、应用开发基础/八、输入系统应用编程/8.1 Linux输入系统简介.md
+             - 8.2 用ioctl获取设备信息: Linux学习/第三篇、应用开发基础/八、输入系统应用编程/8.2 用ioctl获取设备信息.md
+             - 8.3 读取输入设备的数据: Linux学习/第三篇、应用开发基础/八、输入系统应用编程/8.3 读取输入设备的数据.md
+             - 8.4 使用tslib读取电容屏的输入事件: Linux学习/第三篇、应用开发基础/八、输入系统应用编程/8.4 使用tslib读取电容屏的输入事件.md
+         - 9.网络编程基础:
+             - 9.1 网络编程简介: Linux学习/第三篇、应用开发基础/九、网络编程基础/9.1 网络编程简介.md
+             - 9.2 TCP编程: Linux学习/第三篇、应用开发基础/九、网络编程基础/9.2 TCP编程.md
+  - QT学习:
+      - 1.QT编译过程: QT学习/一、基础篇/[1] QT编译过程.md
+      - 2.认识QTCreator: QT学习/一、基础篇/[2] 认识QTCreator.md
+      - 3.信号与槽: QT学习/一、基础篇/[3] 信号与槽.md
+      - 4.QT的定时器: QT学习/一、基础篇/[4] QT的定时器.md
+      - 5.MainWindow和文件操作: QT学习/一、基础篇/[5] MainWindow和文件操作.md
+      - 6.Event事件: QT学习/一、基础篇/[6] Event 事件.md
+      - 7.TCP编程:
+          - 7.1 了解QT的TCP编程: QT学习/一、基础篇/[7] QT-TCP编程（一）基本了解/QT-TCP编程（一）基本了解.md
+          - 7.2 通过TCP服务器发送文件: QT学习/一、基础篇/[7] QT-TCP编程（一）基本了解/QT-TCP编程（三）通过TCP服务器发送文件.md
+          - 7.3 多线程实现并发服务器: QT学习/一、基础篇/[7] QT-TCP编程（一）基本了解/QT-TCP编程（二）多线程实现并发服务器.md
+      - 8.布局管理器: QT学习/一、基础篇/[8] Layout -- 布局管理器.md
+      - 9.Qwidget类: QT学习/一、基础篇/[9] QWidget类.md
+      - 10.常用的数据处理类: QT学习/一、基础篇/[10] 常见的数据处理类.md
+      - 项目实战:
+          - 四则运算计算器: QT学习/一、基础篇/Qt项目1--四则运算计算器.md
+  - RTOS学习:
+      -uC/OS:
+        - 基于STM32CubeIDE的UCOSIII移植: RTOS学习/UCOSIII/基于STM32CubeIDE的UCOSIII移植.md
+        - UCOSIII中信号量、消息队列、互斥量相关API: RTOS学习/UCOSIII/UCOSIII中信号量、消息队列、互斥量相关API.md
+        - STM32串口收发经验记录: RTOS学习/UCOSIII/UCOSIII下，STM32串口收发经验记录.md
+
+
+
+copyright: Copyright &copy; 2023@leaf # 左下角的版权声明
+
+
+extra:
+  generator: false  #删除页脚显示“使用 MkDocs 材料制造”
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/wcowin_
+    - icon: fontawesome/brands/github
+      link: https://github.com/Wcowin
+    - icon: fontawesome/brands/bilibili
+      link: https://space.bilibili.com/1407028951?spm_id_from=333.1007.0.0
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<1135801806@qq.com> #联系方式
+
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX # Google Analytics ID
+    feedback:
+      title: 此页面有帮助吗？
+      ratings:
+        - icon: material/thumb-up-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            谢谢你的反馈！
+        - icon: material/thumb-down-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
+
+  consent:
+    title: Cookie consent
+    description: >- 
+      我们也使用cookies来识别您的重复访问和偏好来衡量我们文档的有效性以及用户是否找到他们要找的东西。
+      如果你同意,你可以帮助我们让我们的网站更好
+ 
+
+plugins:
+  - search
+  - tags:
+      tags_file: index.md #标签
+
+
 markdown_extensions:
   - abbr
   - pymdownx.caret
@@ -64,20 +258,10 @@ markdown_extensions:
   - pymdownx.superfences # 代码块高亮插件
   - meta # 支持Markdown文件上方自定义标题标签等
 
-plugins:
-  - search
-  - tags  #标签
-
-nav:
-  - 主页:
-    - 好用/好玩网站分享: docs/index.md  #.md文件的相对路径
-  - Linux学习:
-    -  学习简介: docs/Linux学习/第1篇、学习简介及基础/[1]学习简介.md
-    -  环境搭建: docs/Linux学习/第2篇、环境搭建与开发板操作
-    -  应用开发基础:
-         -  1.第一个hello程序: docs/Linux学习/第3篇、应用开发基础/[1]第一个hello world程序.md
-         -  2.gcc编译器: docs/Linux学习/第3篇、应用开发基础/[2]gcc编译器.md
-         -  3.Makefile: docs/Linux学习/第3篇、应用开发基础/[3]Makefile.md
-         -  4.文件IO:
-              -  4.1 文件IO简介: docs/Linux学习/第3篇、应用开发基础/[4]文件IO/4.1 文件IO.md
-              -  4.2 系统调用接口: docs/Linux学习/第3篇、应用开发基础/[4]文件IO/4.2 系统调用接口.md
+extra_javascript:
+  - javascripts/extra.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+  - stylesheets/extra.css
