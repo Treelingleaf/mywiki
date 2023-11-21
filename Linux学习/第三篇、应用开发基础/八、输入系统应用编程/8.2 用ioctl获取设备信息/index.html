@@ -11,21 +11,25 @@
       
       
       
+        <link rel="prev" href="../8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="next" href="../8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
     
     
       
-        <title>网站名字</title>
+        <title>8.2 用ioctl获取设备信息 - 网站名字</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -44,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -84,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#82-ioctl" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -94,7 +103,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/." title="网站名字" class="md-header__button md-logo" aria-label="网站名字" data-md-component="logo">
+    <a href="../../../.." title="网站名字" class="md-header__button md-logo" aria-label="网站名字" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -114,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              8.2 用ioctl获取设备信息
             
           </span>
         </div>
@@ -227,7 +236,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
   主页
@@ -241,17 +250,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../%E7%AC%AC%E4%B8%80%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-tabs__link">
           
   
   Linux学习
@@ -272,7 +285,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-tabs__link">
+        <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-tabs__link">
           
   
   QT学习
@@ -296,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-tabs__link">
+        <a href="../../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-tabs__link">
           
   
   RTOS学习
@@ -332,7 +345,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="网站名字" class="md-nav__button md-logo" aria-label="网站名字" data-md-component="logo">
+    <a href="../../../.." title="网站名字" class="md-nav__button md-logo" aria-label="网站名字" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -402,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -422,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -447,6 +460,8 @@
       
   
   
+    
+  
   
     
     
@@ -456,14 +471,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -477,7 +490,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Linux学习
@@ -528,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../../../%E7%AC%AC%E4%B8%80%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -548,7 +561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%80%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/Ubuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+      <a href="../../../%E7%AC%AC%E4%B8%80%E7%AF%87%E3%80%81%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%9F%BA%E7%A1%80/Ubuntu%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -614,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+      <a href="../../../%E7%AC%AC%E4%BA%8C%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -634,7 +647,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%E4%B8%89%E3%80%81%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+      <a href="../../../%E7%AC%AC%E4%BA%8C%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%E4%B8%89%E3%80%81%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -654,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%E4%BA%8C%E3%80%81%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/" class="md-nav__link">
+      <a href="../../../%E7%AC%AC%E4%BA%8C%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%E4%BA%8C%E3%80%81%E5%BC%80%E5%8F%91%E6%9D%BF%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAPP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -674,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%E5%9B%9B%E3%80%81%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+      <a href="../../../%E7%AC%AC%E4%BA%8C%E7%AF%87%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BC%80%E5%8F%91%E6%9D%BF%E6%93%8D%E4%BD%9C/%E5%9B%9B%E3%80%81%E6%9E%84%E5%BB%BAbootloader%E3%80%81%E5%86%85%E6%A0%B8%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -700,20 +713,20 @@
                 
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -727,7 +740,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             应用开发基础
@@ -740,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%B8%80%E3%80%81%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+      <a href="../../%E4%B8%80%E3%80%81%E7%AC%AC%E4%B8%80%E4%B8%AAhello%20world%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%BA%8C%E3%80%81gcc%E7%BC%96%E8%AF%91%E5%99%A8/" class="md-nav__link">
+      <a href="../../%E4%BA%8C%E3%80%81gcc%E7%BC%96%E8%AF%91%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%B8%89%E3%80%81Makefile/" class="md-nav__link">
+      <a href="../../%E4%B8%89%E3%80%81Makefile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -838,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E5%9B%9B%E3%80%81%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/" class="md-nav__link">
+      <a href="../../%E5%9B%9B%E3%80%81%E6%96%87%E4%BB%B6IO/4.1%20%E6%96%87%E4%BB%B6IO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -858,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E5%9B%9B%E3%80%81%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
+      <a href="../../%E5%9B%9B%E3%80%81%E6%96%87%E4%BB%B6IO/4.2%20%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%BA%94%E3%80%81Framebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+      <a href="../../%E4%BA%94%E3%80%81Framebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -944,7 +957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E5%85%AD%E3%80%81%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+      <a href="../../%E5%85%AD%E3%80%81%E6%96%87%E5%AD%97%E5%8F%8A%E5%9B%BE%E5%83%8F%E6%98%BE%E7%A4%BA/6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/docs/Linux学习/第三篇、应用开发基础/六、文字及图像显示/6.2、点阵字符的显示.md" class="md-nav__link">
+      <a href="../../../../docs/Linux学习/第三篇、应用开发基础/六、文字及图像显示/6.2、点阵字符的显示.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1030,7 +1043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%B8%83%E3%80%81%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/" class="md-nav__link">
+      <a href="../../%E4%B8%83%E3%80%81%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.1%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%99%E8%AF%AF/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1050,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%B8%83%E3%80%81%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+      <a href="../../%E4%B8%83%E3%80%81%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.2%20%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%AE%8C%E6%95%B4%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1070,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%B8%83%E3%80%81%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/" class="md-nav__link">
+      <a href="../../%E4%B8%83%E3%80%81%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1096,20 +1109,20 @@
                 
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_8" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3_8" id="__nav_2_3_8_label" tabindex="0">
@@ -1123,7 +1136,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3_8">
             <span class="md-nav__icon md-icon"></span>
             8.输入系统应用编程
@@ -1136,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E5%85%AB%E3%80%81%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../8.1%20Linux%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1154,9 +1167,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E5%85%AB%E3%80%81%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.2%20%E7%94%A8ioctl%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1165,6 +1187,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1176,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E5%85%AB%E3%80%81%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/" class="md-nav__link">
+      <a href="../8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1196,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E5%85%AB%E3%80%81%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+      <a href="../8.4%20%E4%BD%BF%E7%94%A8tslib%E8%AF%BB%E5%8F%96%E7%94%B5%E5%AE%B9%E5%B1%8F%E7%9A%84%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1262,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%B9%9D%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../../%E4%B9%9D%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.1%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1282,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%E4%B9%9D%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+      <a href="../../%E4%B9%9D%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1366,7 +1389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B1%5D%20QT%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1386,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B2%5D%20%E8%AE%A4%E8%AF%86QTCreator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1406,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B3%5D%20%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1426,7 +1449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B4%5D%20QT%E7%9A%84%E5%AE%9A%E6%97%B6%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1446,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1466,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B6%5D%20Event%20%E4%BA%8B%E4%BB%B6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1524,7 +1547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3/QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3/QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1544,7 +1567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3/QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%E9%80%9A%E8%BF%87TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%96%87%E4%BB%B6/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3/QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%E9%80%9A%E8%BF%87TCP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%96%87%E4%BB%B6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1564,7 +1587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3/QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E5%B9%B6%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3/QT-TCP%E7%BC%96%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0%E5%B9%B6%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1592,7 +1615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B8%5D%20Layout%20--%20%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1612,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B9%5D%20QWidget%E7%B1%BB/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B9%5D%20QWidget%E7%B1%BB/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1632,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1690,7 +1713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/" class="md-nav__link">
+      <a href="../../../../QT%E5%AD%A6%E4%B9%A0/%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E7%AF%87/Qt%E9%A1%B9%E7%9B%AE1--%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E8%AE%A1%E7%AE%97%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1804,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
+      <a href="../../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/%E5%9F%BA%E4%BA%8ESTM32CubeIDE%E7%9A%84UCOSIII%E7%A7%BB%E6%A4%8D/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1824,7 +1847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/" class="md-nav__link">
+      <a href="../../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1844,7 +1867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+      <a href="../../../../RTOS%E5%AD%A6%E4%B9%A0/UCOSIII/UCOSIII%E4%B8%8B%EF%BC%8CSTM32%E4%B8%B2%E5%8F%A3%E6%94%B6%E5%8F%91%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1890,6 +1913,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1901,8 +1926,161 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="82-ioctl">8.2 用ioctl获取设备信息<a class="headerlink" href="#82-ioctl" title="Permanent link">&para;</a></h1>
+<p>‍</p>
+<h1 id="1-ioctl">1. 通过ioctl获取设备信息<a class="headerlink" href="#1-ioctl" title="Permanent link">&para;</a></h1>
+<h4 id="11-ioctl">1.1 什么是ioctl<a class="headerlink" href="#11-ioctl" title="Permanent link">&para;</a></h4>
+<p>​<code>ioctl</code>​ 是 Linux 中的系统调用，用于控制设备、文件和套接字等内核支持的对象。它的名称代表 "input/output control"，它允许用户空间程序与内核进行通信以执行各种控制操作。</p>
+<p>​<code>ioctl</code>​ 的一般形式如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+</code></pre></div>
+<ul>
+<li>​<code>fd</code>​：要执行 <code>ioctl</code>​ 操作的文件描述符。</li>
+<li>​<code>request</code>​：表示要执行的具体操作的命令或请求，通常是一个无符号长整数。这个参数确定了要执行的操作。</li>
+<li>可选参数：具体操作可能需要传递其他参数，这些参数的类型和数量取决于特定的 <code>ioctl</code>​ 命令。</li>
+</ul>
+<p>​<code>ioctl</code>​ 的应用范围非常广泛，主要用于以下方面：</p>
+<ol>
+<li><strong>设备控制</strong>：<code>ioctl</code>​ 可以用于控制硬件设备，如输入设备、串口、网卡、显示器等。用户程序可以使用 <code>ioctl</code>​ 命令来获取设备信息、配置设备参数、发送命令以及执行其他与设备有关的操作。</li>
+<li><strong>文件控制</strong>：<code>ioctl</code>​ 也可用于对文件进行控制，例如设置文件属性、改变文件大小等。</li>
+<li><strong>套接字控制</strong>：套接字也是可以进行 <code>ioctl</code>​ 操作的对象，用于配置套接字的参数、获取套接字信息以及执行套接字相关的操作。</li>
+<li><strong>网络控制</strong>：<code>ioctl</code>​ 可以用于与网络相关的控制，如配置网络接口、获取网络统计信息等。</li>
+<li><strong>字符设备控制</strong>：<code>ioctl</code>​ 用于字符设备的控制，可以执行各种字符设备特定的操作。</li>
+<li><strong>其他控制操作</strong>：<code>ioctl</code>​ 还用于其他各种内核控制操作，如进程控制、文件系统控制等。</li>
+</ol>
+<p>要正确使用 <code>ioctl</code>​，必须知道所要执行的具体操作的请求代码（<code>request</code>​），并根据请求代码提供适当的参数。请求代码通常是一个以 <code>IOCTL_</code>​ 开头的宏或是一个预定义的常数，表示特定的操作。内核会根据请求代码来执行相应的操作。</p>
+<h4 id="12-ioctl">1.2 如何实现ioctl<a class="headerlink" href="#12-ioctl" title="Permanent link">&para;</a></h4>
+<p>​<code>ioctl</code>​ 的实现涉及内核和用户空间之间的通信和控制。以下是 <code>ioctl</code>​ 的一般实现流程：</p>
+<ol>
+<li>用户程序调用 <code>ioctl</code>​：用户程序通过系统调用 <code>ioctl</code>​ 来发出请求，通常在打开的设备文件描述符上执行该操作。</li>
+<li>内核接收请求：内核接收到 <code>ioctl</code>​ 请求，包括请求的文件描述符、命令码 <code>cmd</code>​ 和与 <code>cmd</code>​ 相关的参数（如果有的话）。</li>
+<li>内核查找文件操作对象：内核根据文件描述符找到与请求相关的文件操作对象（通常是字符设备或块设备驱动程序）。</li>
+<li>调用 <code>unlocked_ioctl</code>​ 方法：内核通过文件操作对象中的 <code>unlocked_ioctl</code>​ 函数指针来执行 <code>ioctl</code>​ 操作。这是驱动程序中的处理函数，它接受请求并执行相应的操作。</li>
+<li>执行 <code>ioctl</code>​ 操作：<code>unlocked_ioctl</code>​ 函数根据 <code>cmd</code>​ 值执行请求的操作。它可能会访问设备寄存器、修改设备状态、传输数据等，具体操作取决于请求和设备类型。</li>
+<li>返回结果：<code>unlocked_ioctl</code>​ 函数执行完 <code>ioctl</code>​ 操作后，它可能返回结果或状态信息。内核将此信息传递回用户程序。</li>
+<li>用户程序收到结果：用户程序接收到 <code>ioctl</code>​ 操作的结果，并根据需要采取后续操作。这可能包括错误处理、继续执行其他操作或展示信息。</li>
+</ol>
+<p>总的来说，<code>ioctl</code>​ 的实现涉及用户程序和内核之间的交互。内核中的设备驱动程序提供了实际的处理逻辑，它根据请求执行不同的操作。<code>ioctl</code>​ 是一种用于控制设备和执行与设备相关的操作的通用机制，允许用户程序与设备进行通信和控制。它提供了一种灵活的方式来配置和操作设备，以满足各种应用程序的需求。</p>
+<p>​<img alt="image" src="../assets/image-20231028182741-0ctt8e9.png" />​</p>
+<h1 id="2-evdevioctl">2. 拿输入子系统驱动程序evdev来介绍用户程序怎么调用ioctl这个函数的<a class="headerlink" href="#2-evdevioctl" title="Permanent link">&para;</a></h1>
+<p>对于输入系统，常用的就是evdev输入子系统驱动程序，这个驱动程序的ioctl的实现：</p>
+<p>​<img alt="image" src="../assets/image-20231028214946-996im9g.png" />​</p>
+<p>evdev驱动程序的ioctl这个调用过程还是挺蜿蜒曲折的，简单说一下：</p>
+<p>首先用户程序发起ioctl调用请求，然后又用户态进入内核态，内核通过设备文件描述符fd的参数，一个结构体：evdev_fops，这个结构体包含指针：<code>unlocked_ioctl</code>​函数指针，找到它指向的这个驱动程序的ioctl函数，也就是<code>evdev_ioctl</code>​</p>
+<ol>
+<li>​<code>evdev_ioctl</code>​ 函数接收到这个调用，将 <code>cmd</code>​ 和 <code>arg</code>​ 传递给 <code>evdev_ioctl_handler</code>​ 函数。</li>
+<li>​<code>evdev_ioctl_handler</code>​ 函数负责处理 <code>ioctl</code>​ 命令，它根据命令调用适当的处理函数。</li>
+<li>在特定情况下，<code>evdev_ioctl_handler</code>​ 函数会调用 <code>evdev_do_ioctl</code>​ 函数来执行实际的 <code>ioctl</code>​ 命令。</li>
+<li>​<code>evdev_do_ioctl</code>​ 函数根据命令执行相应的操作，可能会配置设备、读取事件数据、查询设备信息等，然后返回结果。</li>
+<li>结果从 <code>evdev_do_ioctl</code>​ 返回给 <code>evdev_ioctl_handler</code>​，然后再由 <code>evdev_ioctl</code>​ 返回给用户程序。</li>
+</ol>
+<blockquote>
+<p>虽然不懂为什么这样设计，但是具体就是这么个调用方法。</p>
+</blockquote>
+<p>​<img alt="image" src="../assets/image-20231028221937-vc8qfj0.png" />​<img alt="image" src="../assets/image-20231028222025-l1yienr.png" />​​</p>
+<p>​<img alt="image" src="../assets/image-20231028222038-745laga.png" />​</p>
+<blockquote>
+<p><strong>但是对于应用编程，我们并不需要关心底层调用</strong></p>
+</blockquote>
+<p>‍</p>
+<h1 id="3">3. 编程获取输入设备信息<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<p>由于是输入设备，肯定是由输入子系统的驱动程序来驱动的，需要调用ioctl来从设备中获取设备信息，获取什么信息由ioctl的第二个参数决定，一般都是已经定义好了的宏，我们需要用到的宏都包括在头文件<code>input.h</code>​里面，所以需要包含这个头文件，需要在编译器的系统目录下查找这个头文件的详细位置：</p>
+<p>​<img alt="image" src="../assets/image-20231028222632-j0a5m7q.png" />​</p>
+<p>所以包含头文件<code>#include &lt;linux/input.h&gt;</code>​</p>
+<hr />
+<p>假如我们要获取设备的标识信息：​<img alt="image" src="../assets/image-20231028222846-xfcogpd.png" />​</p>
+<p>具体内容：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_id</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">__u16</span><span class="w"> </span><span class="n">bustype</span><span class="p">;</span><span class="w">   </span><span class="cm">/*总线类型*/</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">__u16</span><span class="w"> </span><span class="n">vendor</span><span class="p">;</span><span class="w">   </span><span class="cm">/*设备制造商的标识*/</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">__u16</span><span class="w"> </span><span class="n">product</span><span class="p">;</span><span class="w">  </span><span class="cm">/*设备产品的标识*/</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">__u16</span><span class="w"> </span><span class="n">version</span><span class="p">;</span><span class="w">  </span><span class="cm">/*设备的版本信息*/</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">};</span>
+</code></pre></div>
+<blockquote>
+<p>我们使用这个命令宏：​<code>**EVIOCGID**</code>​</p>
+</blockquote>
+<p>查看这个宏的定义：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#define EVIOCGID        _IOR(&#39;E&#39;, 0x02, struct input_id)    </span><span class="cm">/* get device ID */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">//具体这个宏怎么定义在驱动学习的时候了解</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">//具体使用</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_id</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">EVIOCGID</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;bustype: 0x%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">.</span><span class="n">bustype</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;vendor: 0x%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">.</span><span class="n">vendor</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;product: 0x%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">.</span><span class="n">product</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;version: 0x%x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">.</span><span class="n">version</span><span class="p">);</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>输出结果：​<img alt="image" src="../assets/image-20231028223229-yelkih8.png" />​</p>
+<hr />
+<blockquote>
+<p>假如要查看输入设备支持哪些事件，使用宏：<strong>EVIOCGBIT</strong></p>
+</blockquote>
+<p>​<img alt="image" src="../assets/image-20231028224227-ydpx1ef.png" />​</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">evbit</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">EVIOCGBIT</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">evbit</span><span class="p">)),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">evbit</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">evbit</span><span class="p">))</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="c1">// 将 ev_names 传递给 print_supported_events 函数</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">print_supported_events</span><span class="p">(</span><span class="n">evbit</span><span class="p">,</span><span class="w"> </span><span class="n">ev_names</span><span class="p">);</span>
+</code></pre></div>
+<p>结果：​<img alt="image" src="../assets/image-20231028224321-htioovx.png" />​</p>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        此页面有帮助吗？
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              谢谢你的反馈！
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
               </article>
             </div>
           
@@ -2059,14 +2237,14 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "/assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.6c14ae12.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
-        <script src="/javascripts/extra.js"></script>
+        <script src="../../../../javascripts/extra.js"></script>
       
-        <script src="/javascripts/mathjax.js"></script>
+        <script src="../../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
