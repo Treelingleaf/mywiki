@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../../%5B5%5DFramebuffer%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>4.1 文件IO - My Docs</title>
+        <title>4.1 文件IO - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1581,8 +1591,8 @@
                   
 
 
-<h1 id="41-io">4.1 文件IO</h1>
-<h1 id="io">什么是文件IO</h1>
+<h1 id="41-io">4.1 文件IO<a class="headerlink" href="#41-io" title="Permanent link">&para;</a></h1>
+<h1 id="io">什么是文件IO<a class="headerlink" href="#io" title="Permanent link">&para;</a></h1>
 <p>文件 I/O（Input/Output）指的是计算机程序与外部文件系统（通常是磁盘存储）之间的数据传输和交互过程。文件 I/O 允许程序读取和写入文件，以便永久性地保存和检索数据。这在许多应用程序中都是必不可少的，例如文本编辑器、数据库管理系统、图像处理软件等。</p>
 <p>文件 I/O 可以分为两种主要类型：</p>
 <ol>
@@ -1593,7 +1603,7 @@
 <p>文件 I/O 对于数据的永久性存储和检索非常重要，因为它允许程序在多次执行之间保留数据，或者允许程序与其他应用程序之间交换数据。</p>
 <p>‍</p>
 <p>‍</p>
-<h1 id="_1">分类</h1>
+<h1 id="_1">分类<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>在Linux中，文件IO分为<code>系统调用IO</code>​和<code>标准IO</code></p>
 <p>首先介绍<code>系统调用IO</code>​，先说明一下POSIX标准，POSIX（Portable Operating System Interface for Unix，可移植操作系统接口）是一组操作系统标准，主要用于类Unix操作系统，如Linux。POSIX定义了一组API（Application Programming Interface），用于处理文件 I/O 和其他系统级操作。POSIX I/O 系统调用是与文件 I/O 相关的一部分，提供了一种标准的方式来进行文件读取和写入操作。</p>
 <p>然后是<code>标准IO</code>​，其实标准IO就是在<code>系统调用IO</code>​上进行封装的。</p>

@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../6.1%E3%80%81%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>6.2、点阵字符的显示 - My Docs</title>
+        <title>6.2、点阵字符的显示 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1581,8 +1591,8 @@
                   
 
 
-<h1 id="62">6.2、点阵字符的显示</h1>
-<h1 id="1-ascii">1. ASCII点阵字符</h1>
+<h1 id="62">6.2、点阵字符的显示<a class="headerlink" href="#62" title="Permanent link">&para;</a></h1>
+<h1 id="1-ascii">1. ASCII点阵字符<a class="headerlink" href="#1-ascii" title="Permanent link">&para;</a></h1>
 <p>Linux里内置了ASCII编码的点阵显示，有多种规格的，比如常用的8x16:</p>
 <p>​<img alt="image" src="../assets/image-20231026171031-8wwylkb.png" />​<img alt="image" src="../assets/image-20231026174720-zls93wu.png" />​​</p>
 <p>‍</p>
@@ -1700,7 +1710,7 @@
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">}</span>
 </code></pre></div>
 <p>‍</p>
-<h1 id="2">2. 中文点阵字符</h1>
+<h1 id="2">2. 中文点阵字符<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>提到非ASCII字符，就得谈起编码了，不同的编码的源文件所编译的可执行程序的结果也不一样，有没有办法指定编码呢？</p>
 </blockquote>

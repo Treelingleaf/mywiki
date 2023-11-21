@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../../Linux%E5%AD%A6%E4%B9%A0/%E7%AC%AC3%E7%AF%87%E3%80%81%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/%5B9%5D%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/9.2%20TCP%E7%BC%96%E7%A8%8B/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>Qt项目1--四则运算计算器 - My Docs</title>
+        <title>Qt项目1--四则运算计算器 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1577,8 +1587,8 @@
                   
 
 
-<h1 id="qt1-">Qt项目1--四则运算计算器</h1>
-<h1 id="1-qt">1. QT交互窗口</h1>
+<h1 id="qt1-">Qt项目1--四则运算计算器<a class="headerlink" href="#qt1-" title="Permanent link">&para;</a></h1>
+<h1 id="1-qt">1. QT交互窗口<a class="headerlink" href="#1-qt" title="Permanent link">&para;</a></h1>
 <p>利用多个PushButton实现，建立了一个网格布局，每个Button都需要一个槽函数用于用户输入并显示：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Widget::on_oneButton_clicked</span><span class="p">()</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
@@ -1634,7 +1644,7 @@
 </ol>
 <p>这些方法和类使得你能够轻松地自定义 Qt 应用程序的外观和样式，以满足你的需求和设计要求。</p>
 <p>‍</p>
-<h1 id="2">2. 算法</h1>
+<h1 id="2">2. 算法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
 <p>界面构造容易，主要是算法实现计算器的效果，利用<strong>堆栈</strong>和<strong>字符数组</strong>来实现中缀表达式的计算：</p>
 <ol>
 <li><strong>堆栈（Stack）</strong> ：这个算法使用两个堆栈，一个用于存储操作数（s_num），另一个用于存储操作符（s_opt）。堆栈是一种后进先出（LIFO）的数据结构，适用于处理表达式中的操作数和操作符。通过堆栈，可以方便地对操作数和操作符进行推入和弹出操作，以实现中缀表达式的计算。</li>
@@ -1768,7 +1778,7 @@
 <li>​<code>Priority</code>​ 函数用于返回运算符的优先级，数字越大表示优先级越高。</li>
 </ol>
 <p>‍</p>
-<h1 id="3-qstack">3. QStack类</h1>
+<h1 id="3-qstack">3. QStack类<a class="headerlink" href="#3-qstack" title="Permanent link">&para;</a></h1>
 <p>​<code>QStack</code>​ 是 Qt 框架中的一个类，它是一个栈（Stack）数据结构的实现，用于存储一组元素，并且遵循后进先出（LIFO）的原则，即最后压入栈的元素最先弹出。以下是关于 <code>QStack</code>​ 类的一些重要信息和用法：</p>
 <ol>
 <li><strong>包含头文件：</strong>  要使用 <code>QStack</code>​，需要包含头文件 <code>&lt;QStack&gt;</code>​。</li>

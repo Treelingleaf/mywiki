@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../UCOSIII%E4%B8%AD%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E3%80%81%E4%BA%92%E6%96%A5%E9%87%8F%E7%9B%B8%E5%85%B3API/">
@@ -18,11 +20,14 @@
     
     
       
-        <title>基于STM32CubeIDE的UCOSIII移植 - My Docs</title>
+        <title>基于STM32CubeIDE的UCOSIII移植 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -51,11 +56,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -79,7 +87,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -93,7 +101,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -105,6 +113,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -171,13 +181,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1577,9 +1587,9 @@
                   
 
 
-<h1 id="stm32cubeideucosiii">基于STM32CubeIDE的UCOSIII移植</h1>
+<h1 id="stm32cubeideucosiii">基于STM32CubeIDE的UCOSIII移植<a class="headerlink" href="#stm32cubeideucosiii" title="Permanent link">&para;</a></h1>
 <p>参考：<a href="https://shequ.stmicroelectronics.cn/thread-634895-1-1.html">【经验分享】STM32CubeIDE使用说明—— 运行µC/OS-III</a></p>
-<h1 id="1-ucosiii">1. <strong>下载UCOSIII源码并解压</strong>​</h1>
+<h1 id="1-ucosiii">1. <strong>下载UCOSIII源码并解压</strong>​<a class="headerlink" href="#1-ucosiii" title="Permanent link">&para;</a></h1>
 <p>​可以选择去官网下载，但是相对麻烦，因为需要注册，已知国内的.com邮箱不能注册，所以还是推荐从别人分享的连接下载，这里给出连接：</p>
 <blockquote>
 <p>连接：<a href="https://pan.baidu.com/s/1L3eoviykjQmNmDQqmPSmiA?pwd=d70z">百度网盘 请输入提取码</a>  提取码：d70z</p>
@@ -1587,7 +1597,7 @@
 <p>这里还是以<code>STM32F103C8T6</code>​处理器来作为说明，官网提供的例程里面只包含的部分芯片，但是不重要，只要找到内核相同的都可以使用。例如STM32F103C8T6 属于Arm <code>Cortex-M3</code>​，那我们只需要下载例程里面相同内核的芯片STM32F107的例程就可以使用，将其解压后即可得到源文件。</p>
 <p>​<img alt="image" src="assets/image-20231010224634-afn8ubr.png" /></p>
 <hr />
-<h1 id="2-stm32cubeideucos">2. <strong>用STM32CubeIDE新建一个工程并添加UCOS源码</strong></h1>
+<h1 id="2-stm32cubeideucos">2. <strong>用STM32CubeIDE新建一个工程并添加UCOS源码</strong><a class="headerlink" href="#2-stm32cubeideucos" title="Permanent link">&para;</a></h1>
 <p>如何新建工程这里就不赘述了，网上教程多得是。</p>
 <p>新建的默认工程目录：</p>
 <p>​<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/35901054/1694875533406-98adc3c1-0e49-4740-9146-c5138e2e49da.png" />​</p>
@@ -1601,7 +1611,7 @@
 <p>​<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/35901054/1694876056516-910117ab-8848-47fa-9070-5c13a40d183a.png" />​</p>
 <p>拷贝工作到此结束，UCOSIII相关的文件已经全部拷到工程文件夹里了，接下来就是具体配置了。</p>
 <hr />
-<h1 id="3">3. <strong>工程具体配置</strong></h1>
+<h1 id="3">3. <strong>工程具体配置</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
 <p>进入STM32CubeIDE，刷新工程，就能看见刚才配置的文件了：</p>
 <p>​<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/35901054/1694876341458-9d298274-8b48-4557-8ab3-a8d595884319.png" />​</p>
 <p><strong>首先需要配置环境变量也就是头文件目录：</strong></p>
@@ -1629,7 +1639,7 @@
 <p>​<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/35901054/1694877552320-f30ce77f-519c-4a40-b7e3-2bc4dfd5cbf0.png" />​</p>
 <p>至此，第三步完成了。</p>
 <hr />
-<h1 id="4">4. <strong>修改源码</strong></h1>
+<h1 id="4">4. <strong>修改源码</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
 <p>如果尝试编译，会报大量错误，因为<code>bsp.c</code>​和<code>bsp.h</code>​文件中有太多不相关的代码。首先，将bsp.h文件修改成下面内容：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#ifndef  BSP_PRESENT</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define  BSP_PRESENT</span>
@@ -1679,7 +1689,7 @@
 <p>​<img alt="" src="https://cdn.nlark.com/yuque/0/2023/png/35901054/1694879709352-ed1adf06-8ad8-4d3a-a4e0-a7b9a269302c.png" />​</p>
 <p>至此UCOSIII的移植就完成了。</p>
 <hr />
-<h1 id="5">5. <strong>测试</strong></h1>
+<h1 id="5">5. <strong>测试</strong><a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
 <p>创建两个任务进行测试：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* USER CODE BEGIN PD */</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cm">/*任务优先级*/</span>

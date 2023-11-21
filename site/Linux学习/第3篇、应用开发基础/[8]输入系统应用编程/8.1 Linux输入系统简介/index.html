@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../../%5B7%5D%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F/7.3%20%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%AA%E5%BA%93/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>8.1 Linux输入系统简介 - My Docs</title>
+        <title>8.1 Linux输入系统简介 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1581,8 +1591,8 @@
                   
 
 
-<h1 id="81-linux">8.1 Linux输入系统简介</h1>
-<h1 id="1">1. 什么是输入系统？</h1>
+<h1 id="81-linux">8.1 Linux输入系统简介<a class="headerlink" href="#81-linux" title="Permanent link">&para;</a></h1>
+<h1 id="1">1. 什么是输入系统？<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
 <p>Linux输入系统（Linux Input System）是用于处理和管理各种输入设备的软件框架。它允许Linux操作系统与多种输入设备（如键盘、鼠标、触摸屏等）进行通信和交互。Linux输入系统的主要任务包括以下几个方面：</p>
 <ol>
 <li>设备驱动程序：Linux输入系统通过设备驱动程序与硬件设备通信。每种输入设备都需要一个对应的设备驱动程序，以便将设备的输入事件传递给操作系统。</li>
@@ -1598,7 +1608,7 @@
 </blockquote>
 <p><strong>输入系统框架：</strong></p>
 <p>​<img alt="image" src="../assets/image-20231028151859-8fphqry.png" />​</p>
-<h1 id="2">2. 应用程序如何访问设备节点？</h1>
+<h1 id="2">2. 应用程序如何访问设备节点？<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
 <ol>
 <li><strong>用户程序访问输入设备</strong>：用户程序可以直接访问输入设备节点（例如 <code>/dev/input/event0</code>​）来发起读操作。用户程序可以使用系统调用（如 <code>read</code>​）来<strong>等待</strong>输入事件的到来。</li>
 <li><strong>硬件中断</strong>：当用户操作输入设备时，硬件会产生中断信号，通知操作系统有输入事件发生。</li>
@@ -1638,8 +1648,8 @@
 </ol>
 <p>通过结构体 <code>struct input_event</code>​，Linux 输入系统能够以一种标准化的方式描述和传递各种输入事件。用户程序可以根据这些属性来理解和处理输入事件，以实现与输入设备的交互。这种标准的输入事件表示有助于编写通用的输入处理代码，无论是处理键盘、鼠标、触摸屏还是其他输入设备。</p>
 <p>‍</p>
-<h1 id="3">3. 输入系统应用编程需要掌握的知识</h1>
-<h4 id="31">3.1 内核中如何表示一个输入驱动程序？</h4>
+<h1 id="3">3. 输入系统应用编程需要掌握的知识<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<h4 id="31">3.1 内核中如何表示一个输入驱动程序？<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
 <p>通常使用<strong>input_dev结构体</strong>来表示一个输入设备，也就驱动程序才会用到这个，先了解</p>
 <p>下面不是全部代码：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_dev</span><span class="w"> </span><span class="p">{</span>
@@ -1674,7 +1684,7 @@
 <a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">user</span><span class="p">;</span><span class="w">                         </span><span class="cm">/* 输入设备的用户引用计数 */</span>
 <a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="p">};</span>
 </code></pre></div>
-<h4 id="32">3.2 应用程序可以得到什么数据？</h4>
+<h4 id="32">3.2 应用程序可以得到什么数据？<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
 <p>就是上面提到的<code>input_event</code>​<strong>标准输入事件结构体:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_event</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">timeval</span><span class="w"> </span><span class="n">time</span><span class="p">;</span><span class="w">    </span><span class="cm">/*事件发生的时间戳*/</span>
@@ -1706,8 +1716,8 @@
 <li>​<code>2</code>​:   表示按键长按事件。</li>
 </ul>
 <p>‍</p>
-<h1 id="4">4. 输入系统编程如何调试？</h1>
-<h4 id="41">4.1 确定设备信息</h4>
+<h1 id="4">4. 输入系统编程如何调试？<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<h4 id="41">4.1 确定设备信息<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
 <p>输入设备的设备节点名为<code>/dev/input/eventX</code>​</p>
 <p>查看全部设备节点：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">ls</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">input</span><span class="cm">/* -l</span>
@@ -1732,7 +1742,7 @@
 </ul>
 <p>然后KEY、ABS也是对应的表示方法。</p>
 <p>‍</p>
-<h4 id="42">4.2 使用命令读取输入设备的数据</h4>
+<h4 id="42">4.2 使用命令读取输入设备的数据<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">hexdump</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">input</span><span class="o">/</span><span class="n">event1</span>
 </code></pre></div>
 <p>​<img alt="image" src="../assets/image-20231028163732-lcmmqgr.png" />​</p>

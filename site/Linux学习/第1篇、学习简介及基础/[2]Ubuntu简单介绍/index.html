@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../%5B1%5D%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>Ubuntu简单介绍 - My Docs</title>
+        <title>Ubuntu简单介绍 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1579,9 +1589,9 @@
                   
 
 
-<h1 id="ubuntu">Ubuntu简单介绍</h1>
+<h1 id="ubuntu">Ubuntu简单介绍<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h1>
 <p>配套资料的虚拟机的密码：123456</p>
-<h1 id="windowslinux">windows和Linux的区别</h1>
+<h1 id="windowslinux">windows和Linux的区别<a class="headerlink" href="#windowslinux" title="Permanent link">&para;</a></h1>
 <p>命令不一样</p>
 <blockquote>
 <p>Ctrl＋Alt＋T 打开终端</p>
@@ -1595,7 +1605,7 @@
 <p>如果没有挂载sda4去访问<code>/home</code>​，实际访问的是sda1分区的内容，理解为在sda1分区里创建里一个<code>/home</code>​目录，在此之后，如果挂载里sda4，再访问<code>/home</code>​，访问的就是sda4分区的内容，之前访问的sda4的<code>/home</code>​就不可见了</p>
 </blockquote>
 <p>‍</p>
-<h1 id="linux">Linux的目录结构</h1>
+<h1 id="linux">Linux的目录结构<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
 <p>‍</p>
 <p>FHS（Filesystem Hierarchy Standard）是Linux系统中用于组织文件和目录结构的标准。它定义了在Linux系统中各个目录应该存放哪些类型的文件和数据，以及它们的作用和用途。FHS的目的是提供一个统一的文件系统布局，使得不同的Linux发行版能够遵循相同的规范，方便软件开发者和系统管理员进行交互和管理。</p>
 <p>以下是FHS标准中一些重要的目录和它们的作用：</p>
@@ -1652,7 +1662,7 @@
 </code></pre></div>
 <p>这些目录的定义和用途在不同的Linux发行版中可能会有一些细微的差异，但FHS标准提供了一个通用的基准，使得开发者和管理员可以更好地理解和组织文件系统。通过遵循FHS标准，可以提高系统的可移植性和互操作性，使得不同的Linux系统能够更好地兼容和交互。</p>
 <p>‍</p>
-<h1 id="_1">命令解析</h1>
+<h1 id="_1">命令解析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>格式：</p>
 <blockquote>
 <p>命令 [－参数] [选项]</p>
@@ -1696,7 +1706,7 @@
 <p>​<code>$</code>​代表之前的，修改完重启一下</p>
 </blockquote>
 <p>‍</p>
-<h1 id="_2">文件权限</h1>
+<h1 id="_2">文件权限<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">drwxrwxr</span><span class="o">-</span><span class="n">x</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">-</span><span class="n">rwxr</span><span class="c1">--r--</span>
 </code></pre></div>
@@ -1712,7 +1722,7 @@
 <p>a、u、g、o可以指定要修改的用户，分别代表所有人、用户、组、其他用户</p>
 </blockquote>
 <p>‍</p>
-<h1 id="_3">查找/搜索</h1>
+<h1 id="_3">查找/搜索<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
 <p><strong>1. 查找－－find</strong></p>
 <p>​<code>find</code>​命令在Linux系统中是一个功能强大的文件搜索工具，它能够在指定目录下递归地查找文件和目录。<code>find</code>​命令提供了多种选项和表达式，可以根据文件名、文件类型、大小、权限等条件进行高级搜索。以下是<code>find</code>​命令的一些常用选项和使用示例：</p>
 <p>基本语法：</p>
@@ -1795,7 +1805,7 @@
 </ol>
 <p>​<code>grep</code>​命令非常灵活，可以根据具体需求组合不同的选项和模式，以满足各种文本搜索要求。您可以通过 <code>man grep</code>​ 命令查看完整的<code>grep</code>​命令手册页，了解更多选项和用法。</p>
 <p>‍</p>
-<h1 id="_4">压缩/解压缩</h1>
+<h1 id="_4">压缩/解压缩<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <p>​<code>tar</code>​命令是在Linux系统中用于创建和提取归档文件的命令。它可以将多个文件或目录打包成一个单独的归档文件，常用的归档文件格式是tarball（tar压缩文件），通常以 <code>.tar</code>​ 扩展名结尾。<code>tar</code>​命令还可以与其他压缩工具（如gzip和bzip2）结合使用，创建压缩的归档文件，这些文件通常以 <code>.tar.gz</code>​ 或 <code>.tar.bz2</code>​ 扩展名结尾。以下是<code>tar</code>​命令的一些常用选项和使用示例：</p>
 <p>基本语法：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tar &lt;options&gt; &lt;archive-file&gt; &lt;file1&gt; &lt;file2&gt; ...

@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../%5B7%5D%20QT-TCP%E7%BC%96%E7%A8%8B/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>[8] Layout -- 布局管理器 - My Docs</title>
+        <title>[8] Layout -- 布局管理器 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1577,8 +1587,8 @@
                   
 
 
-<h1 id="8-layout-">[8] Layout -- 布局管理器</h1>
-<h1 id="1">1. 概述</h1>
+<h1 id="8-layout-">[8] Layout -- 布局管理器<a class="headerlink" href="#8-layout-" title="Permanent link">&para;</a></h1>
+<h1 id="1">1. 概述<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
 <p>Qt 提供了多种布局管理器，用于帮助你在窗口中排列和组织 QWidget 对象。以下是一些常用的布局管理器：</p>
 <ol>
 <li>
@@ -1625,7 +1635,7 @@
 </li>
 </ol>
 <hr />
-<h1 id="2-qhboxlayout">2. 水平布局 -- ​<code>QHBoxLayout</code>​</h1>
+<h1 id="2-qhboxlayout">2. 水平布局 -- ​<code>QHBoxLayout</code>​<a class="headerlink" href="#2-qhboxlayout" title="Permanent link">&para;</a></h1>
 <p>控件处于一条水平线上，就是水平布局，比如：</p>
 <p><img alt="image" src="../assets/image-20231007164615-gohy6d4.png" />​</p>
 <hr />
@@ -1686,7 +1696,7 @@
 <p>​<code>addStretch</code>​：向布局中添加一个可伸展的空白区域，它通常用于控制布局中子部件的位置和对齐，一个参数：拉伸因子​<code>stretch</code>​</p>
 <hr />
 <p>‍</p>
-<h1 id="3">3.水平布局和垂直布局嵌套</h1>
+<h1 id="3">3.水平布局和垂直布局嵌套<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
 <p>垂直布局和水平布局一样，只是在垂直方向上进行布局，方法也是水平布局的方法。这里记录一下水平布局和垂直布局嵌套使用实现复杂布局：</p>
 <p>​<img alt="image" src="../assets/image-20231007173220-edptbdz.png" />​</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// 创建一个垂直布局</span>
@@ -1715,7 +1725,7 @@
 <p>嵌套的思路就是把一个布局当做一个控件添加到另一个布局。</p>
 </blockquote>
 <hr />
-<h1 id="4-">4. 一个例子--从视频播放器那看到的</h1>
+<h1 id="4-">4. 一个例子--从视频播放器那看到的<a class="headerlink" href="#4-" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">//实例化另一个子窗口</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">chiledwidget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChildWidget</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">//创建布局</span>
@@ -1739,8 +1749,8 @@
 <p>​<img alt="image" src="../assets/image-20231007175103-gqt5ax1.png" /></p>
 <hr />
 <p>‍</p>
-<h1 id="5">5. 其他布局</h1>
-<h4 id="_1">网格布局：</h4>
+<h1 id="5">5. 其他布局<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
+<h4 id="_1">网格布局：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="n">QGridLayout</span><span class="w"> </span><span class="o">*</span><span class="n">gridLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QGridLayout</span><span class="p">;</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">QPushButton</span><span class="w"> </span><span class="o">*</span><span class="n">button1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QPushButton</span><span class="p">(</span><span class="s">&quot;Button 1&quot;</span><span class="p">);</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">QPushButton</span><span class="w"> </span><span class="o">*</span><span class="n">button2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QPushButton</span><span class="p">(</span><span class="s">&quot;Button 2&quot;</span><span class="p">);</span>

@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../%5B5%5D%20MainWindow%E5%92%8C%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>[6] Event 事件 - My Docs</title>
+        <title>[6] Event 事件 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1577,14 +1587,14 @@
                   
 
 
-<h1 id="6-event">[6] Event 事件</h1>
-<h1 id="1">1. 事件基础</h1>
-<h3 id="11">1.1 什么是事件</h3>
+<h1 id="6-event">[6] Event 事件<a class="headerlink" href="#6-event" title="Permanent link">&para;</a></h1>
+<h1 id="1">1. 事件基础<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<h3 id="11">1.1 什么是事件<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <p>事件是一种用于处理用户交互和系统状态变化的机制。Qt的事件系统基于事件驱动编程模型，它允许应用程序捕获和响应各种事件，例如鼠标点击、键盘按键、窗口尺寸调整、定时器事件等等。</p>
 <p>事件在Qt中以<code>QEvent</code>​类的实例表示，每种类型的事件都对应一个特定的<code>QEvent</code>​子类。例如，<code>QMouseEvent</code>​表示鼠标事件，<code>QKeyEvent</code>​表示键盘事件，<code>QResizeEvent</code>​表示窗口尺寸调整事件，等等。</p>
 <p>Qt中的事件处理是通过重写特定的事件处理函数来完成的，这些函数通常位于Qt对象的子类中。例如，如果你想处理鼠标事件，可以重写<code>QWidget</code>​类的<code>mousePressEvent</code>​、<code>mouseReleaseEvent</code>​等函数。当发生相应的事件时，Qt会调用这些函数，从而触发事件处理代码的执行。</p>
 <p>‍</p>
-<h3 id="12">1.2 谁发出事件</h3>
+<h3 id="12">1.2 谁发出事件<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <p>在Qt中，事件通常由操作系统、用户输入设备（如鼠标、键盘）或其他Qt对象发出。以下是一些常见的事件源：</p>
 <ol>
 <li><strong>操作系统事件：</strong>  操作系统会生成一些事件，例如窗口尺寸调整、窗口关闭等。这些事件通常由Qt的窗口系统集成进行处理。</li>
@@ -1595,7 +1605,7 @@
 </ol>
 <p>事件源生成事件后，这些事件被传递给Qt的事件处理系统，然后分发给适当的Qt对象进行处理。</p>
 <p>‍</p>
-<h3 id="13">1.3 谁接受事件</h3>
+<h3 id="13">1.3 谁接受事件<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
 <p>事件由继承自QObject的对象接受和处理。这些接收事件的对象通常是Qt的各种组件、窗口、部件以及自定义的Qt对象。事件被分发给这些对象的事件处理函数，这些函数是被重写以处理特定类型的事件。以下是一些常见的事件处理函数：</p>
 <ol>
 <li><strong>QWidget的事件处理函数：</strong>  QWidget及其子类（如QMainWindow、QDialog等）可以重写各种事件处理函数，包括鼠标事件、键盘事件、绘图事件等。例如，<code>mousePressEvent</code>​、<code>keyPressEvent</code>​、<code>paintEvent</code>​等。</li>
@@ -1605,7 +1615,7 @@
 </ol>
 <p>当事件发生时，Qt会查找目标对象并将事件传递给适当的事件处理函数。事件处理函数根据事件类型和属性来执行相应的操作。如果没有适合的事件处理函数，事件会被忽略或传递给父对象，直到找到能够处理该事件的对象为止。</p>
 <p>‍</p>
-<h3 id="14">1.4 事件类型</h3>
+<h3 id="14">1.4 事件类型<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
 <p>事件类型由<code>QEvent::Type</code>​枚举表示，它定义了各种不同类型的事件。以下是一些常见的事件类型：</p>
 <ol>
 <li>​<strong><code>QEvent::MouseButtonPress</code></strong>​ <strong>：</strong>  鼠标按钮按下事件，表示用户点击鼠标按钮。</li>
@@ -1628,7 +1638,7 @@
 <li>............</li>
 </ol>
 <p>‍</p>
-<h3 id="15">1.5 怎么处理事件</h3>
+<h3 id="15">1.5 怎么处理事件<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
 <p>处理事件的主要方法是通过重写相应的事件处理函数。每个Qt对象都可以有不同类型的事件处理函数，你可以根据需要重写这些函数以处理特定类型的事件。以下是处理事件的基本步骤：</p>
 <ol>
 <li><strong>选择要处理的事件类型：</strong>  首先，确定你希望处理哪种类型的事件。例如，如果你想处理鼠标点击事件，你需要重写<code>mousePressEvent</code>​函数；如果你想处理键盘按键事件，你需要重写<code>keyPressEvent</code>​函数。</li>

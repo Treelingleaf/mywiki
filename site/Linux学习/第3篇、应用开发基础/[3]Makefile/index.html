@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../%5B2%5Dgcc%E7%BC%96%E8%AF%91%E5%99%A8/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>三、Makefile - My Docs</title>
+        <title>三、Makefile - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1579,8 +1589,8 @@
                   
 
 
-<h1 id="makefile">三、Makefile</h1>
-<h1 id="1-makefile">1. Makefile的引入和规则</h1>
+<h1 id="makefile">三、Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h1>
+<h1 id="1-makefile">1. Makefile的引入和规则<a class="headerlink" href="#1-makefile" title="Permanent link">&para;</a></h1>
 <p>给定一个目录：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">c</span>
@@ -1604,7 +1614,7 @@
 <p>Makefile就是通过上面的机制进行项目编译的。</p>
 <hr />
 <p>‍</p>
-<h4 id="11-makefile">1.1 Makefile规则</h4>
+<h4 id="11-makefile">1.1 Makefile规则<a class="headerlink" href="#11-makefile" title="Permanent link">&para;</a></h4>
 <p>最最基本的规则：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nl">目标文件</span><span class="p">:</span><span class="n">依赖文件</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">命令</span>
@@ -1625,15 +1635,15 @@
 <p>当我修改了a.c后，我执行make，由a.o依赖a.c，并且a.c更新了，就会重新生成a.o，然后b.o依赖的b.c没有更新，不动，然后链接新的a.o和旧的b.o，生成新的test</p>
 </blockquote>
 <p>‍</p>
-<h4 id="12-makefile">1.2 Makefile的使用</h4>
+<h4 id="12-makefile">1.2 Makefile的使用<a class="headerlink" href="#12-makefile" title="Permanent link">&para;</a></h4>
 <p>使用很简单，直接适用命令：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">make</span><span class="w"> </span><span class="err">[目标]</span>
 </code></pre></div>
 <blockquote>
 <p>如果没指定目标，则默认第一个目标</p>
 </blockquote>
-<h1 id="2-makefile">2. Makefile的语法</h1>
-<h4 id="21">2.1 通配符</h4>
+<h1 id="2-makefile">2. Makefile的语法<a class="headerlink" href="#2-makefile" title="Permanent link">&para;</a></h1>
+<h4 id="21">2.1 通配符<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nf">%.o </span><span class="o">:</span><span class="w"> </span>%.<span class="n">c</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span>gcc<span class="w"> </span>-c<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span><span class="w"> </span>$&lt;
 </code></pre></div>
@@ -1644,7 +1654,7 @@
 <p><strong>&quot;$^&quot;代表所有依赖</strong></p>
 </blockquote>
 <p>‍</p>
-<h4 id="22-phony">2.2 假想目标 -- .PHONY</h4>
+<h4 id="22-phony">2.2 假想目标 -- .PHONY<a class="headerlink" href="#22-phony" title="Permanent link">&para;</a></h4>
 <p>有这样一个情景，我想实现适用命令make clean 来清除编译产生的文件，实现如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nf">clean </span><span class="o">:</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span>rm<span class="w"> </span>*.o<span class="w"> </span><span class="nb">test</span>
@@ -1659,7 +1669,7 @@
 <p><strong>实现方法就是，不让系统再检查clean的文件是否存在或者依赖是否更新，而直接执行clean的指令。</strong></p>
 </blockquote>
 <p>‍</p>
-<h4 id="23-export">2.3 即时变量、延时变量、export</h4>
+<h4 id="23-export">2.3 即时变量、延时变量、export<a class="headerlink" href="#23-export" title="Permanent link">&para;</a></h4>
 <p>即时变量（又称简单变量），如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">A</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>xxx
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c"># A的值即刻确定</span>
@@ -1692,8 +1702,8 @@
 <li>​<code>+=</code>​ 追加赋值：他是即时变量还是延时变量，取决前面的定义</li>
 </ol>
 <p>‍</p>
-<h1 id="3-makefile">3. Makefile函数</h1>
-<h4 id="31-foreach">3.1 foreach函数</h4>
+<h1 id="3-makefile">3. Makefile函数<a class="headerlink" href="#3-makefile" title="Permanent link">&para;</a></h1>
+<h4 id="31-foreach">3.1 foreach函数<a class="headerlink" href="#31-foreach" title="Permanent link">&para;</a></h4>
 <p>​<code>foreach</code>​ 函数是GNU Make中的一个强大函数，用于在Makefile中执行循环迭代操作，通常用于处理列表中的元素。它的语法如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">$(</span><span class="nv">foreach</span> <span class="nv">var</span>, <span class="nv">list</span>, <span class="nv">text</span><span class="k">)</span>
 </code></pre></div>
@@ -1725,7 +1735,7 @@
 <p>还能这样追加$(src).o</p>
 </blockquote>
 <p>‍</p>
-<h4 id="32-filterfilter-out">3.2 filter函数和filter-out函数</h4>
+<h4 id="32-filterfilter-out">3.2 filter函数和filter-out函数<a class="headerlink" href="#32-filterfilter-out" title="Permanent link">&para;</a></h4>
 <p>​<code>filter</code>​ 是 GNU Make 中的一个函数，它用于从一个列表中筛选出满足条件的元素。<code>filter</code>​ 函数的基本语法如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">$(</span><span class="nv">filter</span> <span class="nv">pattern</span>, <span class="nv">text</span><span class="k">)</span>
 </code></pre></div>
@@ -1750,7 +1760,7 @@
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span>@echo<span class="w"> </span><span class="k">$(</span>NO_C_SOURCE<span class="k">)</span>
 </code></pre></div>
 <p>‍</p>
-<h4 id="33-wilecard">3.3 wilecard函数</h4>
+<h4 id="33-wilecard">3.3 wilecard函数<a class="headerlink" href="#33-wilecard" title="Permanent link">&para;</a></h4>
 <p>​<code>wildcard</code>​ 是 GNU Make 中的一个函数，它用于查找文件系统中符合通配符模式的文件，并返回匹配的文件列表。<code>wildcard</code>​ 函数的基本语法如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">$(</span><span class="nv">wildcard</span> <span class="nv">pattern</span><span class="k">)</span>
 </code></pre></div>
@@ -1764,7 +1774,7 @@
 <p>在这个示例中，<code>$(wildcard *.c)</code>​ 将查找当前目录中所有以 <code>.c</code>​ 结尾的文件，并将它们的文件名列表赋给 <code>C_SOURCE_FILES</code>​ 变量。这通常用于自动发现源文件或其他文件，以便将它们包含在Makefile规则中。</p>
 <p>​<code>wildcard</code>​ 函数非常有用，可以在Makefile中动态获取文件列表，从而使Makefile更具通用性和自动化性。</p>
 <p>‍</p>
-<h4 id="34-patsubst">3.4 patsubst函数</h4>
+<h4 id="34-patsubst">3.4 patsubst函数<a class="headerlink" href="#34-patsubst" title="Permanent link">&para;</a></h4>
 <p>​<code>patsubst</code>​ 是 GNU Make 中的一个函数，用于进行字符串替换操作，通常用于替换字符串中的一部分，使其符合特定的模式。<code>patsubst</code>​ 函数的基本语法如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">$(</span><span class="nv">patsubst</span> <span class="nv">pattern</span>,<span class="nv">replacement</span>,<span class="nv">text</span><span class="k">)</span>
 </code></pre></div>
@@ -1781,7 +1791,7 @@
 <p>在这个示例中，<code>$(patsubst %.txt,%.csv,$(FILES))</code>​ 将匹配 <code>FILES</code>​ 中以 <code>.txt</code>​ 结尾的文件名，然后将它们的扩展名替换为 <code>.csv</code>​。结果是 <code>CSV_FILES</code>​ 包含了 <code>file1.csv file2.csv file3.csv</code>​。</p>
 <p>​<code>patsubst</code>​ 函数通常用于重命名文件、更改文件扩展名或进行类似的字符串替换操作，以根据需要修改文本。这在Makefile中非常有用，可以用于动态生成目标文件名或其他文本操作。</p>
 <p>‍</p>
-<h1 id="4">4. 依赖文件</h1>
+<h1 id="4">4. 依赖文件<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
 <p>使用如下命令会生成对应的依赖文件：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="w">  </span>gcc<span class="w"> </span>-M<span class="w"> </span>-MF<span class="w"> </span>b.d<span class="w"> </span>b.c
 </code></pre></div>
@@ -1867,7 +1877,7 @@
 <p>​<code>include</code>​ 语句允许你将其他Makefile文件的内容合并到当前Makefile中，以便重用、组织和管理构建规则。这在大型项目中特别有用，因为它允许你将构建系统拆分为多个模块，并通过 <code>include</code>​ 来组合它们。</p>
 <p>通常，<code>include</code>​ 语句用于包含包含变量、规则、配置选项等内容的外部文件，以便使Makefile更加模块化和易于维护。这有助于减少重复工作，提高Makefile的可读性和可维护性。</p>
 <p>‍</p>
-<h1 id="5-makefile">5. 通用Makefile</h1>
+<h1 id="5-makefile">5. 通用Makefile<a class="headerlink" href="#5-makefile" title="Permanent link">&para;</a></h1>
 <p>文件结构：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="err">.</span>
 <a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="err">├──</span><span class="w"> </span><span class="err">a</span>

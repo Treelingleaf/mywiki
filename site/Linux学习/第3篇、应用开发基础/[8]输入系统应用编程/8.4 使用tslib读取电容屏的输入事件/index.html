@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../8.3%20%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87%E7%9A%84%E6%95%B0%E6%8D%AE/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>8.4 使用tslib读取电容屏的输入事件 - My Docs</title>
+        <title>8.4 使用tslib读取电容屏的输入事件 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../../../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1581,8 +1591,8 @@
                   
 
 
-<h1 id="84-tslib">8.4 使用tslib读取电容屏的输入事件</h1>
-<h1 id="1">1. 电容屏的输入数据解析</h1>
+<h1 id="84-tslib">8.4 使用tslib读取电容屏的输入事件<a class="headerlink" href="#84-tslib" title="Permanent link">&para;</a></h1>
+<h1 id="1">1. 电容屏的输入数据解析<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">|</span><span class="w"> </span><span class="n">序号</span><span class="w">  </span><span class="o">|</span><span class="w">    </span><span class="n">秒</span><span class="w">   </span><span class="o">|</span><span class="w">   </span><span class="n">微秒</span><span class="w">  </span><span class="o">|</span><span class="n">type</span><span class="o">|</span><span class="n">code</span><span class="o">|</span><span class="w">  </span><span class="n">value</span><span class="w"> </span><span class="o">|</span><span class="w"> </span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">//第一个触点按下</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="mo">0000000</span><span class="w"> </span><span class="mo">01</span><span class="n">c9</span><span class="w"> </span><span class="mo">0000</span><span class="w"> </span><span class="mf">68e7</span><span class="w"> </span><span class="mo">0007</span><span class="w"> </span><span class="mo">0003</span><span class="w"> </span><span class="mo">003</span><span class="mi">9</span><span class="w"> </span><span class="mo">0005</span><span class="w"> </span><span class="mo">0000</span><span class="w"> </span><span class="c1">//ABS_MT_TRACKING_ID 5</span>
@@ -1615,7 +1625,7 @@
 <p>关闭开发板默认的QT程序：</p>
 <p>​<img alt="image" src="../assets/image-20231031151518-vfwk892.png" />​</p>
 <p>‍</p>
-<h1 id="2-tslib">2. 编译安tslib库</h1>
+<h1 id="2-tslib">2. 编译安tslib库<a class="headerlink" href="#2-tslib" title="Permanent link">&para;</a></h1>
 <p>‍</p>
 
 

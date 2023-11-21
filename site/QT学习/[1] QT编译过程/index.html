@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="leaf">
+      
       
       
         <link rel="prev" href="../%5B10%5D%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B1%BB/">
@@ -20,11 +22,14 @@
     
     
       
-        <title>[1] QT编译过程 - My Docs</title>
+        <title>[1] QT编译过程 - Study Notes</title>
       
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,11 +58,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -81,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="Study Notes" class="md-header__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -95,7 +103,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Docs
+            Study Notes
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -107,6 +115,8 @@
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -173,13 +183,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href="../.." title="Study Notes" class="md-nav__button md-logo" aria-label="Study Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    My Docs
+    Study Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1577,8 +1587,8 @@
                   
 
 
-<h1 id="1-qt">[1] QT编译过程</h1>
-<h1 id="1-main">1. main函数框架</h1>
+<h1 id="1-qt">[1] QT编译过程<a class="headerlink" href="#1-qt" title="Permanent link">&para;</a></h1>
+<h1 id="1-main">1. main函数框架<a class="headerlink" href="#1-main" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QApplication&gt;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
@@ -1599,7 +1609,7 @@
 </ol>
 <p>通过使用这个框架，你可以方便地编写具有图形用户界面的应用程序，而不必自己处理复杂的事件处理和窗口管理逻辑。Qt提供了丰富的库和工具，使开发GUI应用程序变得更加容易和高效。如果你不使用这个框架，你将不得不自己编写大量的底层代码来处理事件、窗口管理等，这会显著增加应用程序的复杂性和开发工作量。</p>
 <p>‍</p>
-<h1 id="2-qt-">2. 第一个QT程序 -- 运行</h1>
+<h1 id="2-qt-">2. 第一个QT程序 -- 运行<a class="headerlink" href="#2-qt-" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QApplication&gt;</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">//控件类</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QLabel&gt;</span>
@@ -1659,16 +1669,16 @@
 <p>效果：</p>
 <p>​<img alt="image" src="../assets/image-20231001224519-g9mqhp1.png" />​</p>
 <p>‍</p>
-<h1 id="3-windows">3. 编译过程（Windows命令行）</h1>
-<h4 id="31-qmake-project">3.1 qmake -project</h4>
+<h1 id="3-windows">3. 编译过程（Windows命令行）<a class="headerlink" href="#3-windows" title="Permanent link">&para;</a></h1>
+<h4 id="31-qmake-project">3.1 qmake -project<a class="headerlink" href="#31-qmake-project" title="Permanent link">&para;</a></h4>
 <p>用qmake -project生成工程配置文件，一个<code>.pro</code>​后缀的文件，在该文件加入一行：<code>QT += widgets gui</code>​</p>
 <p>这个配置文件是Qt工程的描述文件，其中包含有关项目的信息，包括使用的Qt模块。添加了一行 <code>QT += widgets gui</code>​，这告诉Qt工程使用了Qt Widgets和Qt GUI模块。</p>
-<h4 id="32-qmake">3.2 qmake</h4>
+<h4 id="32-qmake">3.2 qmake<a class="headerlink" href="#32-qmake" title="Permanent link">&para;</a></h4>
 <p>生成与你的操作系统和编译器兼容的Makefile文件。这个Makefile文件将根据你的项目配置生成编译指令。</p>
-<h4 id="33-mingw32-make">3.3 mingw32-make</h4>
+<h4 id="33-mingw32-make">3.3 mingw32-make<a class="headerlink" href="#33-mingw32-make" title="Permanent link">&para;</a></h4>
 <p>这一步执行Makefile文件，通过编译和链接源代码文件来构建你的Qt应用程序。mingw32-make 是用于Windows平台上的GNU Make的命令。在执行此命令后，它将根据Makefile中的规则来编译项目，并生成可执行文件（.exe文件）。</p>
 <p>‍</p>
-<h1 id="4">4. 总结</h1>
+<h1 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
 <p>以上仅作为一个了解，因为具体工程开发，肯定会使用专门的IDE进行开发，所以只是了解一下大概得一个编译过程就可以了。</p>
 <p>‍</p>
 
