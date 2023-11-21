@@ -197,11 +197,11 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/wcowin_
     - icon: fontawesome/brands/github
-      link: https://github.com/Wcowin
+      link: https://github.com/Treelingleaf
     - icon: fontawesome/brands/bilibili
-      link: https://space.bilibili.com/1407028951?spm_id_from=333.1007.0.0
+      link: https://space.bilibili.com/88284469?spm_id_from=333.1007.0.0
     - icon: fontawesome/solid/paper-plane
-      link: mailto:<1135801806@qq.com> #联系方式
+      link: mailto:<2219737416@qq.com> #联系方式
 
   analytics:
     provider: google
