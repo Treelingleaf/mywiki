@@ -92,6 +92,7 @@ theme:
   name: material
   palette:
     #primary: blue grey
+    - primary: "#00bcd4" #顶部颜色
 
     - scheme: default # 日间模式
       primary: grey # 上方的
@@ -130,8 +131,9 @@ repo_name: Treeleaf.github.io # 右上角的名字
 # [Navigtion]
 nav:
   - 主页:
-    - 个人履历: index.md
-    - 网站制作: index.md
+    - 欢迎欢迎: index.md
+    - 个人履历: aboutme.md
+
   - Linux学习:
     -  学习简介:
          - 1.学习简介: Linux学习/第一篇、学习简介及基础/学习简介.md
@@ -151,7 +153,7 @@ nav:
          - 5.Framebuffer应用编程: Linux学习/第三篇、应用开发基础/五、Framebuffer应用编程.md
          - 6.文字及图像显示:
              - 6.1 字符的编码方式介绍: Linux学习/第三篇、应用开发基础/六、文字及图像显示/6.1、字符的编码方式.md
-             - 6.2 点阵字符的显示: docs/Linux学习/第三篇、应用开发基础/六、文字及图像显示/6.2、点阵字符的显示.md
+             - 6.2 点阵字符的显示: Linux学习/第三篇、应用开发基础/六、文字及图像显示/6.2、点阵字符的显示.md
          - 7.交叉编译程序:
              - 7.1 交叉编译常见的错误: Linux学习/第三篇、应用开发基础/七、交叉编译程序/7.1 交叉编译常见的错误.md
              - 7.2 静态库的完整制作过程: Linux学习/第三篇、应用开发基础/七、交叉编译程序/7.2 静态库的完整制作过程.md

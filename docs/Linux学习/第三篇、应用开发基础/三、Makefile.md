@@ -1,6 +1,6 @@
 # 三、Makefile
 
-# 1. Makefile的引入和规则
+## 1. Makefile的引入和规则
 
 给定一个目录：
 
@@ -76,7 +76,7 @@ make [目标]
 
 > 如果没指定目标，则默认第一个目标
 
-# 2. Makefile的语法
+## 2. Makefile的语法
 
 #### 2.1 通配符
 
@@ -160,7 +160,7 @@ all :
 
 ‍
 
-# 3. Makefile函数
+## 3. Makefile函数
 
 #### 3.1 foreach函数
 
@@ -288,7 +288,7 @@ CSV_FILES := $(patsubst %.txt,%.csv,$(FILES))
 
 ‍
 
-# 4. 依赖文件
+## 4. 依赖文件
 
 使用如下命令会生成对应的依赖文件：
 
@@ -392,7 +392,7 @@ include filename
 
 ‍
 
-# 5. 通用Makefile
+## 5. 通用Makefile
 
 文件结构：
 

@@ -1,6 +1,6 @@
 # 一、第一个hello world程序
 
-# 1. hello world!
+## 1. hello world!
 
 不管什么语言，什么平台，你的第一个程序都可以是hello world，来分析一下Linux环境下的hello world：
 
@@ -67,7 +67,7 @@ hello-mygcc: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically
 
 ‍
 
-# 2. 一个hello.c的申引
+## 2. 一个hello.c的申引
 
 > **想必没有具体了解过**​ `**.h**`​**文件的作用和意义吧。**
 
@@ -96,7 +96,7 @@ hello-mygcc: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically
 
 ‍
 
-# 3. 系统调用
+## 3. 系统调用
 
 > **就是说有一些函数调用用户库就可以完成功能，但是有一些函数需要和内核打交道，就成用户态进入了内核态（kernel）**
 

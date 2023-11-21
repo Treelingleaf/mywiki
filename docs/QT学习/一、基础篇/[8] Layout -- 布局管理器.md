@@ -1,6 +1,6 @@
 # [8] Layout -- 布局管理器
 
-# 1. 概述
+## 1. 概述
 
 Qt 提供了多种布局管理器，用于帮助你在窗口中排列和组织 QWidget 对象。以下是一些常用的布局管理器：
 
@@ -33,7 +33,7 @@ Qt 提供了多种布局管理器，用于帮助你在窗口中排列和组织 Q
 
  
 
-# 2. 水平布局 -- ​`QHBoxLayout `​
+## 2. 水平布局 -- ​`QHBoxLayout `​
 
 控件处于一条水平线上，就是水平布局，比如：
 
@@ -112,7 +112,7 @@ void QLayout::addWidget(QWidget *widget, int stretch = 0, Qt::Alignment alignmen
 
  
 
-# 3.水平布局和垂直布局嵌套
+## 3.水平布局和垂直布局嵌套
 
 垂直布局和水平布局一样，只是在垂直方向上进行布局，方法也是水平布局的方法。这里记录一下水平布局和垂直布局嵌套使用实现复杂布局：
 
@@ -148,7 +148,7 @@ void QLayout::addWidget(QWidget *widget, int stretch = 0, Qt::Alignment alignmen
 
  
 
-# 4. 一个例子--从视频播放器那看到的
+## 4. 一个例子--从视频播放器那看到的
 
 ```cpp
 //实例化另一个子窗口
@@ -180,7 +180,7 @@ this->setLayout(display);
 
  
 
-# 5. 其他布局
+## 5. 其他布局
 
 #### 网格布局：
 

@@ -1,6 +1,6 @@
 # [1] QT编译过程
 
-# 1. main函数框架
+## 1. main函数框架
 
 ```cpp
 #include <QApplication>
@@ -27,7 +27,7 @@ Qt应用程序需要这样的主要框架，因为它提供了一种组织和管
 
 ‍
 
-# 2. 第一个QT程序 -- 运行
+## 2. 第一个QT程序 -- 运行
 
 ```cpp
 #include <QApplication>
@@ -93,7 +93,7 @@ int main(int argc,char *argv[])
 
 ‍
 
-# 3. 编译过程（Windows命令行）
+## 3. 编译过程（Windows命令行）
 
 #### 3.1 qmake -project
 
@@ -111,7 +111,7 @@ int main(int argc,char *argv[])
 
 ‍
 
-# 4. 总结
+## 4. 总结
 
 以上仅作为一个了解，因为具体工程开发，肯定会使用专门的IDE进行开发，所以只是了解一下大概得一个编译过程就可以了。
 
