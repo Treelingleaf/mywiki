@@ -72,5 +72,5 @@ nav:
   - 主页:
     - 好用/好玩网站分享: my-wiki/docs/index.md  #.md文件的相对路径
   - Linux学习:
-    - : 学习简介: my-wiki/docs/Linux学习/第1篇、学习简介及基础/[1]学习简介.md
-    - : 环境搭建: my-wiki/docs/Linux学习/第2篇、环境搭建与开发板操作
+    -  学习简介: my-wiki/docs/Linux学习/第1篇、学习简介及基础/[1]学习简介.md
+    -  环境搭建: my-wiki/docs/Linux学习/第2篇、环境搭建与开发板操作
