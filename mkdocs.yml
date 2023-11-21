@@ -85,8 +85,8 @@
 
 
 #[Info]
-site_name: 网站名字
-site_author: 作者名
+site_name: Notes
+site_author: leaf
 #[UI]
 theme:
   name: material
@@ -124,8 +124,8 @@ theme:
   icon:
     repo: fontawesome/brands/github #右上角图标
 edit_uri: edit/main/docs # 编辑按钮跳转的链接
-repo_url: https://github.com/Wcowin/mymkdocs # 右上角点击跳转的链接
-repo_name: Wcowin.github.io # 右上角的名字
+repo_url: https://github.com/Treelingleaf/mywiki # 右上角点击跳转的链接
+repo_name: Treeleaf.github.io # 右上角的名字
 
 # [Navigtion]
 nav:
