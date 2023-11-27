@@ -187,7 +187,13 @@ nav:
         - 基于STM32CubeIDE的UCOSIII移植: RTOS学习/UCOSIII/基于STM32CubeIDE的UCOSIII移植.md
         - UCOSIII中信号量、消息队列、互斥量相关API: RTOS学习/UCOSIII/UCOSIII中信号量、消息队列、互斥量相关API.md
         - STM32串口收发经验记录: RTOS学习/UCOSIII/UCOSIII下，STM32串口收发经验记录.md
-
+  - OpenCV:
+      - 环境搭建: opencv(python)的学习/环境搭建.md
+      - 1.图片处理: opencv(python)的学习/一、图片处理.md
+      - 2.直接处理像素: opencv(python)的学习/二、直接处理像素.md
+      - 3.使用numpy进行像素处理: opencv(python)的学习/三、使用numpy进行像素处理.md
+      - 4.获取图像的属性: opencv(python)的学习/四、获取图像的属性.md
+      - 5.图像ROI: opencv(python)的学习/五、图像ROI.md
 
 
 copyright: Copyright &copy; 2023@leaf # 左下角的版权声明
